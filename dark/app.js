@@ -122,7 +122,7 @@ const menuEl = mainEl.querySelector(".mdc-menu");
 const menu = new MDCMenu(menuEl);
 menu.open = true;
 // Override MDCMenuSurfaceFoundation so the menu never closes
-menu.menuSurface_.foundation_.close = () => {};
+menu.menuSurface_.foundation.close = () => {};
 // Focus first component when menu is done opening if not in an iframe
 if (window.top === window) {
   menuEl.addEventListener("MDCMenuSurface:opened", () =>
