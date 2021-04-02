@@ -1,4 +1,6 @@
 const autoprefixer = require("autoprefixer");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = [
   {
@@ -6,8 +8,15 @@ module.exports = [
     output: {
       // This is necessary for webpack to compile
       // But we never use style-bundle.js
+      path: path.resolve(__dirname, "dist"),
       filename: "bundle.js",
     },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: "./index.html",
+        inject: false,
+      }),
+    ],
     module: {
       rules: [
         {
@@ -34,9 +43,6 @@ module.exports = [
               options: {
                 // Prefer Dart Sass
                 implementation: require("sass"),
-
-                // See https://github.com/webpack-contrib/sass-loader/issues/804
-                webpackImporter: false,
                 sassOptions: {
                   includePaths: ["./node_modules"],
                 },
