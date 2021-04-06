@@ -39,7 +39,6 @@
               Build a Material Theme
             </h1>
             <h2 class="theme-name mdc-typography--headline5" placeholder="Theme name..."></h2>
-            <a class="glitch-url mdc-typography--overline" href="https://glitch.com/~<%= htmlWebpackPlugin.options.domain %>">glitch.com/~<%= htmlWebpackPlugin.options.domain %></a>
           </div>
           <hr class="mdc-list-divider theme-builder-drawer-divider">
     
@@ -49,7 +48,7 @@
                 <div class="mdc-tab-scroller__scroll-content">
                   <button class="mdc-tab mdc-tab--active drawer-tab--instructions" role="tab" aria-selected="true" tabindex="0">
                     <span class="mdc-tab__content">
-                      <span class="mdc-tab__text-label">Instructions</span>
+                      <span class="mdc-tab__text-label">Description</span>
                     </span>
                     <span class="mdc-tab-indicator mdc-tab-indicator--active">
                       <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
@@ -72,14 +71,14 @@
           <hr class="mdc-list-divider theme-builder-drawer-divider">
     
           <div class="mdc-drawer__content drawer-content--instructions">
-            <h6 class="mdc-typography--overline">How to build a theme</h6>
+            <!-- <h6 class="mdc-typography--overline">How to build a theme</h6>
             <p class="mdc-typography--body2">
               Build your own custom Material theme by <a href="https://glitch.com/edit/#!/remix/material-theme-builder" target="_blank">remixing</a> and styling these themeable components.
             </p>
             <p class="mdc-typography--body2">
               Modify the variables in your project's <code>my-theme.scss</code>, <code>my-components.scss</code>, and <code>my-theme.js</code> files to see your custom styles applied across
               <a href="https://github.com/material-components/material-components-web">Material Components for the web</a>.
-            </p>
+            </p> -->
     
             <div class="drawer-content--options">
               <h6 class="mdc-typography--overline">Options</h6>
@@ -282,10 +281,10 @@
               Build your own custom Material theme by <a href="https://glitch.com/edit/#!/remix/material-theme-builder">remixing</a> and styling these themeable components.
             </div>
     
-            <button onclick=" window.open('https://glitch.com/edit/#!/remix/material-theme-builder','_blank')" class="mdc-fab mdc-fab--extended remix-fab" >
+            <!-- <button onclick=" window.open('https://glitch.com/edit/#!/remix/material-theme-builder','_blank')" class="mdc-fab mdc-fab--extended remix-fab" >
                     <span class="material-icons mdc-fab__icon">photo_filter</span>
                     <span class="mdc-fab__label">Create a new Theme</span>
-            </button>
+            </button> -->
             <div class="column">
               <!-- Button -->
               <section class="component-section">
@@ -297,13 +296,16 @@
                 </div>
                 <div class="component-wrapper button-component-wrapper">
                   <button class="mdc-button mdc-button--raised">
-                    Button
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">Button</span>
                   </button>
                   <button class="mdc-button">
-                    Button
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">Button</span>
                   </button>
                   <button class="mdc-button mdc-button--outlined">
-                    Button
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">Button</span>
                   </button>
                 </div>
               </section>
@@ -887,13 +889,16 @@
                 </div>
                 <div class="component-wrapper fab-component-wrapper">
                   <button class="mdc-fab mdc-fab--extended">
+                    <div class="mdc-fab__ripple"></div>
                     <span class="material-icons mdc-fab__icon">edit</span>
                     <span class="mdc-fab__label">Button</span>
                   </button>
                   <button class="mdc-fab" aria-label="Favorite">
+                    <div class="mdc-fab__ripple"></div>
                     <span class="mdc-fab__icon material-icons">favorite</span>
                   </button>
                   <button class="mdc-fab mdc-fab--mini" aria-label="Add">
+                    <div class="mdc-fab__ripple"></div>
                     <span class="mdc-fab__icon material-icons">add</span>
                   </button>
                 </div>
@@ -937,7 +942,6 @@
                 </div>
                 <div class="component-wrapper text-field-component-wrapper text-field-component-wrapper-1">
                   <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
-                    <i class="material-icons mdc-text-field__icon">visibility</i>
                     <input class="mdc-text-field__input">
                     <div class="mdc-notched-outline">
                       <div class="mdc-notched-outline__leading"></div>
@@ -952,11 +956,15 @@
                   </div>
                 </div>
                 <div class="component-wrapper text-field-component-wrapper text-field-component-wrapper-2">
-                  <div class="mdc-text-field text-field-with-input">
-                    <input class="mdc-text-field__input">
-                    <div class="mdc-line-ripple"></div>
-                    <label class="mdc-floating-label mdc-floating-label--float-above">Label</label>
-                  </div>
+                    <label class="mdc-text-field mdc-text-field--filled">
+                        <span class="mdc-text-field__ripple"></span>
+                        <span class="mdc-floating-label" id="my-label-id">Label</span>
+                        <input class="mdc-text-field__input" type="text"
+                               aria-labelledby="my-label-id"
+                               aria-controls="my-helper-id"
+                               aria-describedby="my-helper-id">
+                        <span class="mdc-line-ripple"></span>
+                      </label>
                   <div class="mdc-text-field-helper-line">
                     <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent">Assistive text</div>
                   </div>
