@@ -1,3 +1,7 @@
+// Import Astro Styles and Variables
+// NOTE: Will change once static assets have been published to NPM
+@use "static/css/astro.min";
+
 // Import global Material Theming variables
 @import "my-theme";
 
@@ -31,8 +35,7 @@
 @import "@material/tab-indicator/mdc-tab-indicator";
 @import "@material/tab/mdc-tab";
 @import "@material/textfield/mdc-text-field";
-@import "@material/textfield/helper-text/_index";
-// @use "@material/textfield/helper-text";
+@import "@material/textfield/helper-text/index";
 @import "@material/theme/color-palette";
 @import "@material/theme/functions";
 @import "@material/theme/mixins";
