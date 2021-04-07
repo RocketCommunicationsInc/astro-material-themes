@@ -318,7 +318,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  background: mdc-theme-prop-value(background);
+  background: $mdc-theme-background;
 
   &:not(.mdc-top-app-bar--fixed-adjust) {
     padding: 2vh 0;
