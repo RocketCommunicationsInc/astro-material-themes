@@ -1,13 +1,11 @@
-// Import Astro Styles and Variables
-// NOTE: Will change once static assets have been published to NPM
-@use "static/css/astro.min";
-
-// Import global Material Theming variables
-@import "my-theme";
+// Import global Material Theming colors
+@import "my-colors";
 
 // Import styles for each MDC Web component
 @import "@material/button/styles";
-@import "@material/card/mdc-card";
+// @use "@material/button";
+
+@import "@material/card/index";
 @import "@material/checkbox/mdc-checkbox";
 @import "@material/chips/mdc-chips";
 @import "@material/dialog/mdc-dialog";
@@ -22,7 +20,6 @@
 @import "@material/menu/mdc-menu";
 @import "@material/menu-surface/mdc-menu-surface";
 @import "@material/radio/mdc-radio";
-@import "@material/ripple/mixins";
 @import "@material/rtl/mixins";
 @import "@material/select/mdc-select";
 @import "@material/shape/mixins";
@@ -38,11 +35,17 @@
 @import "@material/textfield/helper-text/index";
 @import "@material/theme/color-palette";
 @import "@material/theme/functions";
+@import "@material/ripple/mixins";
 @import "@material/theme/mixins";
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/typography/mdc-typography";
 @import "@material/data-table/mdc-data-table";
 
-// Import site-specific CSS files
+// Import global Material Theming typography and fonts
+@import "my-theme";
+
+// Import site-specific SCSS file
 @import "my-layout";
+
+// Import theme-specific component SCSS files
 @import "my-components";
