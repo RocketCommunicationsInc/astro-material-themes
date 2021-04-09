@@ -472,12 +472,29 @@
                         </div>
                       </div>
                     </div>
+                    <label for="basic-switch">off/on</label>
                     <div class="mdc-switch">
                       <div class="mdc-switch__track"></div>
                       <div class="mdc-switch__thumb-underlay">
                         <div class="mdc-switch__thumb">
                             <input type="checkbox" id="basic-switch-2" class="mdc-switch__native-control" role="switch" checked>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="component-wrapper switch-component-wrapper">
+                    <div class="mdc-switch mdc-switch--disabled">
+                      <div class="mdc-switch__track"></div>
+                      <div class="mdc-switch__thumb-underlay">
+                        <div class="mdc-switch__thumb"></div>
+                        <input type="checkbox" class="mdc-switch__native-control" role="switch" aria-checked="false" disabled>
+                      </div>
+                    </div>
+                    <div class="mdc-switch mdc-switch--checked mdc-switch--disabled">
+                      <div class="mdc-switch__track"></div>
+                      <div class="mdc-switch__thumb-underlay">
+                        <div class="mdc-switch__thumb"></div>
+                        <input type="checkbox" class="mdc-switch__native-control" role="switch" aria-checked="false" checked disabled>
                       </div>
                     </div>
                   </div>
@@ -494,7 +511,7 @@
                   <div class="component-wrapper checkbox-component-wrapper">
                     <div class="mdc-checkbox">
                       <input type="checkbox"
-                            class="mdc-checkbox__native-control" />
+                            class="mdc-checkbox__native-control" disabled/>
                       <div class="mdc-checkbox__background">
                         <svg class="mdc-checkbox__checkmark"
                             viewbox="0 0 24 24">

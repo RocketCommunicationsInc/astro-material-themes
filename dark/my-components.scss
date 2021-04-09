@@ -1,13 +1,24 @@
 // Material Theming
 // After importing all MDC Web components, apply mixins to theme individual components
 
-// .mdc-button {
-//   @include mdc-button-shape-radius(50%);
-// }
+.mdc-button {
+  // @include mdc-button-shape-radius(50%);
+  @include mdc-button-outline-color($mdc-theme-primary);
+}
 
 // Checkbox and radio
 
-.mdc-checkbox, .mdc-radio {
+.mdc-checkbox {
+  // Enabled container colors
+  @include mdc-checkbox-container-colors(
+    $unmarked-stroke-color: $mdc-theme-primary,
+    $marked-fill-color: $mdc-theme-background,
+    $marked-stroke-color: $mdc-theme-primary
+  );
+  @include mdc-checkbox-ink-color($mdc-theme-primary);
+}
+
+.mdc-radio {
   margin-right: 4px;
 }
 
@@ -15,6 +26,9 @@
 
 .mdc-switch {
   @include mdc-rtl-reflexive-box(margin, right, 20px);
+  @include mdc-switch-toggled-on-thumb-color($mdc-theme-surface);
+  @include mdc-switch-toggled-on-track-color($mdc-theme-primary);
+  @include mdc-switch-toggled-off-track-color($mdc-theme-surface);
 }
 
 // Top app bar
@@ -91,18 +105,25 @@
 
 // Tabs
 .component-wrapper .mdc-tab-bar {
-  background: $mdc-theme-primary;
+  background: $mdc-theme-background;
 
   .mdc-tab {
-    @include mdc-tab-text-label-color($mdc-theme-on-primary);
+    font-family: Roboto;
+    @include mdc-tab-active-text-label-color($mdc-theme-on-secondary);
+    @include mdc-tab-states-color($mdc-theme-background);
+    @include mdc-tab-text-label-color($mdc-theme-primary);
 
-    .mdc-tab__ripple {
-      @include mdc-states($mdc-theme-on-primary);
+    .mdc-tab-indicator--active {
+      @include mdc-tab-ink-color($mdc-theme-primary);
+    }
+
+    .mdc-tab-indicator {
+      @include mdc-tab-indicator-underline-color($mdc-theme-primary);
     }
   }
 
   .mdc-tab-indicator {
-    @include mdc-tab-indicator-underline-color($mdc-theme-on-primary);
+    @include mdc-tab-indicator-underline-color($mdc-theme-primary);
   }
 }
 
@@ -130,16 +151,20 @@
 // List
 
 .component-wrapper > .mdc-list {
-  border: 1px solid rgba(0,0,0,.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background: $mdc-theme-background;
 
   .mdc-list-item__graphic {
-    background-color: if(mdc-theme-contrast-tone($mdc-theme-background) == "dark",
+    background-color: if(
+      mdc-theme-contrast-tone($mdc-theme-background) == "dark",
       rgba(0, 0, 0, 0.12),
-      rgba(255, 255, 255, 0.12));
-    color: if(mdc-theme-contrast-tone($mdc-theme-background) == "dark",
+      rgba(255, 255, 255, 0.12)
+    );
+    color: if(
+      mdc-theme-contrast-tone($mdc-theme-background) == "dark",
       rgba(0, 0, 0, 0.68),
-      rgba(255, 255, 255, 0.68));
+      rgba(255, 255, 255, 0.68)
+    );
   }
 }
 
@@ -154,7 +179,8 @@
 }
 
 .component-wrapper {
-  &.button-component-wrapper, &.fab-component-wrapper {
+  &.button-component-wrapper,
+  &.fab-component-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -166,7 +192,8 @@
     @include mdc-rtl-reflexive-box(margin, left, -8px);
   }
 
-  &.checkbox-component-wrapper, &.radio-component-wrapper {
+  &.checkbox-component-wrapper,
+  &.radio-component-wrapper {
     @include mdc-rtl-reflexive-box(margin, left, -10px);
   }
 
