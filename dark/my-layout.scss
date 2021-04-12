@@ -349,6 +349,24 @@ body {
   &.dialog-component-section {
     margin-bottom: 60px; // To avoid overshadowing Image List
   }
+
+  .switch-component-wrapper {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    // justify-content: space-evenly;
+
+    .switch-wrapper {
+      margin: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      // label {
+      //   margin-top: 0.5rem;
+      // }
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {
