@@ -159,6 +159,29 @@
   width: 100%;
 }
 
+// Data Table
+
+.mdc-data-table {
+  @include mdc-data-table-sort-icon-color($mdc-theme-surface);
+  @include mdc-data-table-sort-icon-active-color($mdc-theme-surface);
+  //  Table Rows fill color
+  @include mdc-data-table-fill-color($mdc-theme-background);
+  @include mdc-data-table-header-row-fill-color(
+    var(--tableHeaderBackgroundColor)
+  );
+  @include mdc-data-table-row-fill-color(var(--tableRowBackgroundColor));
+  @include mdc-data-table-selected-row-fill-color(
+    var(--tableRowSelectedBackgroundColor)
+  );
+  @include mdc-data-table-divider-color(var(--tableRowBorderColor));
+  @include mdc-data-table-divider-size(2px);
+  @include mdc-data-table-row-hover-fill-color(
+    var(--tableRowHoverBackgroundColor)
+  );
+  @include mdc-data-table-header-row-text-color(var(--tableHeaderTextColor));
+  @include mdc-data-table-row-text-color(var(--tableRowTextColor));
+}
+
 // Tabs
 .component-wrapper .mdc-tab-bar {
   background: $mdc-theme-background;
