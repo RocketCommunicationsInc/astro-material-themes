@@ -15,11 +15,34 @@
     $marked-fill-color: $mdc-theme-background,
     $marked-stroke-color: $mdc-theme-primary
   );
+
+  // Disabled container colors
+  @include mdc-checkbox-disabled-container-colors(
+    $unmarked-stroke-color: rgba($mdc-theme-primary, 0.4),
+    $marked-fill-color: rgba($mdc-theme-background, 0.4),
+    $marked-stroke-color: rgba($mdc-theme-primary, 0.4)
+  );
+
   @include mdc-checkbox-ink-color($mdc-theme-primary);
+  @include mdc-checkbox-disabled-ink-color(rgba($mdc-theme-primary, 0.4));
 }
 
 .mdc-radio {
   margin-right: 4px;
+
+  // Enabled Colors
+  @include mdc-radio-unchecked-stroke-color($mdc-theme-primary);
+  @include mdc-radio-checked-stroke-color($mdc-theme-primary);
+  @include mdc-radio-ink-color($mdc-theme-primary);
+
+  // Disabled Colors
+  @include mdc-radio-disabled-unchecked-stroke-color(
+    rgba($mdc-theme-primary, 0.4)
+  );
+  @include mdc-radio-disabled-checked-stroke-color(
+    rgba($mdc-theme-primary, 0.4)
+  );
+  @include mdc-radio-disabled-ink-color(rgba($mdc-theme-primary, 0.4));
 }
 
 // Switch
@@ -79,8 +102,41 @@
 
 // Select
 
-.mdc-select {
+.mdc-select--filled {
   width: 160px;
+
+  $select-filled-text-colors: (
+    default: #000,
+    disabled: rgba(0, 0, 0, 0.4),
+    hover: #000,
+    focus: #000,
+  );
+
+  @include mdc-select-label-color($select-filled-text-colors);
+  @include mdc-select-label-floating-color($select-filled-text-colors);
+  @include mdc-select-ink-color($select-filled-text-colors);
+  @include mdc-select-dropdown-icon-color($select-filled-text-colors);
+  @include mdc-select-container-fill-color(
+    (
+      default: $mdc-theme-primary,
+      disabled: rgba($mdc-theme-primary, 0.4),
+    )
+  );
+}
+
+.mdc-select--outlined {
+  width: 160px;
+
+  $select-outline-text-colors: (
+    default: $mdc-theme-primary,
+    disabled: rgba($mdc-theme-primary, 0.4),
+  );
+
+  @include mdc-select-ink-color($select-outline-text-colors);
+  @include mdc-select-label-color($select-outline-text-colors);
+  @include mdc-select-label-floating-color($select-outline-text-colors);
+  @include mdc-select-dropdown-icon-color($select-outline-text-colors);
+  @include mdc-select-outline-color($select-outline-text-colors);
 }
 
 // Drawer
