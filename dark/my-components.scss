@@ -4,6 +4,7 @@
 .mdc-button {
   // @include mdc-button-shape-radius(50%);
   @include mdc-button-outline-color($mdc-theme-primary);
+  @include mdc-button-horizontal-padding(1rem);
 }
 
 // Checkbox and radio
@@ -157,6 +158,37 @@
 
 .mdc-text-field {
   width: 100%;
+}
+
+.mdc-text-field--filled {
+  // @include mdc-text-field-ink-color($mdc-theme-primary);
+  // @include mdc-text-field-placeholder-color($mdc-theme-primary);
+  // @include mdc-text-field-label-color($mdc-theme-primary);
+}
+
+.mdc-text-field--outlined {
+  @include mdc-text-field-ink-color($mdc-theme-primary);
+  @include mdc-text-field-placeholder-color(rgba($mdc-theme-primary, 0.4));
+  @include mdc-text-field-label-color($mdc-theme-primary);
+  @include mdc-text-field-outline-color($mdc-theme-primary);
+
+  // Disabled colors
+  @include mdc-text-field-disabled-outline-color(rgba($mdc-theme-primary, 0.4));
+  @include mdc-text-field-disabled-ink-color(rgba($mdc-theme-primary, 0.4));
+  @include mdc-text-field-disabled-label-color(rgba($mdc-theme-primary, 0.4));
+}
+
+// Helper Text
+.mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line {
+  .mdc-text-field-helper-text {
+    color: var(--defaultText);
+  }
+}
+
+.mdc-text-field--disabled + .mdc-text-field-helper-line {
+  .mdc-text-field-helper-text {
+    color: var(--secondaryText);
+  }
 }
 
 // Data Table
