@@ -1,11 +1,10 @@
 /* Build a Material theme */
 // To begin customizing your theme, modify these variables. By default each theme starts off with our baseline values, so you can easily swap them out.
 @use "sass:map";
-@use "static/css/astro.min";
 
 @use "@material/theme" with (
   $primary: #4dacff,
-  $secondary: #3a87cf,
+  $secondary: #4dacff,
   $on-primary: #000000,
   $on-secondary: #ffffff,
   $background: #101923,
@@ -34,8 +33,8 @@ $headline-typography: (
   ),
 );
 
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+// @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+// @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 /* Color */
 // To change your theme's color scheme, replace the existing HEX color values with custom HEX color values. Use our color palette generator to help come up with pairings and check your color contrast. https://material.io/design/color/the-color-system.html#tools-for-picking-colors
