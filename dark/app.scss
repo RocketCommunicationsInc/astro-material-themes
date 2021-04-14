@@ -1,10 +1,11 @@
+// Import ASTRO
+@use "static/css/astro.min";
+
 // Import global Material Theming colors
-@import "my-colors";
+@use "my-colors";
 
 // Import styles for each MDC Web component
 @import "@material/button/styles";
-// @use "@material/button";
-
 @import "@material/card/index";
 @import "@material/checkbox/mdc-checkbox";
 @import "@material/chips/mdc-chips";
