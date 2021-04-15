@@ -5,6 +5,9 @@
 @use "my-colors";
 
 // Import styles for each MDC Web component
+@use "@material/slider/styles";
+@use "@material/slider";
+
 @import "@material/button/styles";
 @import "@material/card/index";
 @import "@material/checkbox/mdc-checkbox";
@@ -25,7 +28,6 @@
 @import "@material/select/mdc-select";
 @import "@material/shape/mixins";
 @import "@material/shape/functions";
-@import "@material/slider/styles";
 @import "@material/snackbar/mdc-snackbar";
 @import "@material/switch/mdc-switch";
 @import "@material/tab-bar/mdc-tab-bar";
@@ -41,6 +43,8 @@
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/typography/mdc-typography";
 @import "@material/data-table/mdc-data-table";
+
+// Import component namespace for customization
 
 // Import global Material Theming typography and fonts
 @import "my-theme";

@@ -140,6 +140,23 @@
   @include mdc-select-outline-color($select-outline-text-colors);
 }
 
+// Chips
+
+.mdc-chip {
+  @include mdc-chip-fill-color($mdc-theme-background);
+  @include mdc-chip-outline(2px, solid, $mdc-theme-primary);
+  @include mdc-chip-ink-color($mdc-theme-primary);
+  @include mdc-chip-leading-icon-color($mdc-theme-primary, 1);
+  @include mdc-chip-trailing-icon-color($mdc-theme-primary, 1);
+  // @include mdc-chip-selected-ink-color(#92cbff);
+}
+
+.mdc-chip-set--choice {
+  .mdc-chip.mdc-chip--selected {
+    background-color: var(--cardBackgroundColor);
+  }
+}
+
 // Drawer
 
 .drawer-component-wrapper {
@@ -263,60 +280,80 @@
 
 // Enabled
 .mdc-slider:not(.mdc-slider--disabled) {
-  .mdc-slider__track {
-    .mdc-slider__track--inactive {
-      background-color: var(--secondaryText);
-      opacity: 1;
-    }
-    .mdc-slider__tick-marks {
-      .mdc-slider__tick-mark--active {
-        background-color: white;
-      }
-      .mdc-slider__tick-mark--inactive {
-        background-color: var(--surfaceElements);
-      }
-    }
-  }
-  .mdc-slider__thumb {
-    .mdc-slider__thumb-knob {
-      border: 1px solid var(--defaultText);
-    }
-    .mdc-slider__value-indicator-container {
-      .mdc-slider__value-indicator {
-        background-color: $mdc-theme-primary;
-      }
-    }
-  }
+  @include slider.track-active-color($mdc-theme-primary);
+  @include slider.track-inactive-color(var(--sliderTrackBackgroundColor), 1);
+  @include slider.thumb-color(var(--sliderThumbBackgroundColor));
+  @include slider.tick-mark-active-color(var(--sliderThumbBorderColor));
+  @include slider.tick-mark-inactive-color(#000);
+  @include slider.value-indicator-color($mdc-theme-primary, 0.7);
+  @include slider.value-indicator-text-color(#000);
 }
 
-// Disabled
 .mdc-slider.mdc-slider--disabled {
-  .mdc-slider__track {
-    .mdc-slider__track--active {
-      .mdc-slider__track--active_fill {
-        background-color: $mdc-theme-primary;
-        border-color: $mdc-theme-primary;
-      }
-    }
-    .mdc-slider__track--inactive {
-      background-color: var(--defaultText);
-    }
-    .mdc-slider__tick-marks {
-      .mdc-slider__tick-mark--active {
-        background-color: white;
-      }
-      .mdc-slider__tick-mark--inactive {
-        background-color: var(--surfaceElements);
-      }
-    }
-  }
-  .mdc-slider__thumb {
-    .mdc-slider__thumb-knob {
-      border: 1px solid var(--defaultText);
-      background-color: $mdc-theme-primary;
-    }
-  }
+  @include slider.track-active-color($mdc-theme-primary);
+  @include slider.track-inactive-color(var(--sliderTrackBackgroundColor), 1);
+  @include slider.thumb-color(var(--sliderThumbBackgroundColor));
+  @include slider.tick-mark-active-color(var(--sliderThumbBorderColor));
+  @include slider.tick-mark-inactive-color(#000);
+  @include slider.value-indicator-color($mdc-theme-primary, 0.7);
+  @include slider.value-indicator-text-color(#000);
 }
+
+// .mdc-slider:not(.mdc-slider--disabled) {
+//   .mdc-slider__track {
+//     .mdc-slider__track--inactive {
+//       background-color: var(--secondaryText);
+//       opacity: 1;
+//     }
+//     .mdc-slider__tick-marks {
+//       .mdc-slider__tick-mark--active {
+//         background-color: white;
+//       }
+//       .mdc-slider__tick-mark--inactive {
+//         background-color: var(--surfaceElements);
+//       }
+//     }
+//   }
+//   .mdc-slider__thumb {
+//     .mdc-slider__thumb-knob {
+//       border: 1px solid var(--defaultText);
+//     }
+//     .mdc-slider__value-indicator-container {
+//       .mdc-slider__value-indicator {
+//         background-color: $mdc-theme-primary;
+//       }
+//     }
+//   }
+// }
+
+// // Disabled
+// .mdc-slider.mdc-slider--disabled {
+//   .mdc-slider__track {
+//     .mdc-slider__track--active {
+//       .mdc-slider__track--active_fill {
+//         background-color: $mdc-theme-primary;
+//         border-color: $mdc-theme-primary;
+//       }
+//     }
+//     .mdc-slider__track--inactive {
+//       background-color: var(--defaultText);
+//     }
+//     .mdc-slider__tick-marks {
+//       .mdc-slider__tick-mark--active {
+//         background-color: white;
+//       }
+//       .mdc-slider__tick-mark--inactive {
+//         background-color: var(--surfaceElements);
+//       }
+//     }
+//   }
+//   .mdc-slider__thumb {
+//     .mdc-slider__thumb-knob {
+//       border: 1px solid var(--defaultText);
+//       background-color: $mdc-theme-primary;
+//     }
+//   }
+// }
 
 // List
 
