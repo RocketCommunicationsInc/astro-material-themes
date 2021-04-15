@@ -67,6 +67,13 @@
   }
 }
 
+// FAB Buttons
+
+.mdc-fab {
+  @include fab.container-color($mdc-theme-primary);
+  @include fab.ink-color($mdc-theme-on-primary);
+}
+
 // Card
 
 .mdc-card {
@@ -260,6 +267,9 @@
   margin: 0;
   justify-content: start;
   z-index: 1;
+
+  @include snackbar.fill-color(var(--globalAppHeader));
+  @include snackbar.label-ink-color($mdc-theme-on-secondary);
 }
 
 // Dialog
@@ -272,6 +282,10 @@
   .mdc-dialog__surface {
     max-width: 100%;
   }
+
+  @include dialog.container-fill-color(var(--globalAppHeader));
+  @include dialog.title-ink-color($mdc-theme-on-secondary);
+  @include dialog.content-ink-color($mdc-theme-on-secondary, 0.8);
 }
 
 // ------------------ Slider ---------------------------------
