@@ -123,6 +123,16 @@
 
 // Select
 
+.mdc-select__menu {
+  .mdc-list {
+    .mdc-list-item--disabled {
+      .mdc-list-item__text {
+        color: rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+}
+
 .mdc-select--filled {
   width: 160px;
 
