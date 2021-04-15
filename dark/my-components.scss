@@ -109,11 +109,11 @@
     focus: #000,
   );
 
-  @include mdc-select-label-color($select-filled-text-colors);
-  @include mdc-select-label-floating-color($select-filled-text-colors);
-  @include mdc-select-ink-color($select-filled-text-colors);
-  @include mdc-select-dropdown-icon-color($select-filled-text-colors);
-  @include mdc-select-container-fill-color(
+  @include select.label-color($select-filled-text-colors);
+  @include select.label-floating-color($select-filled-text-colors);
+  @include select.ink-color($select-filled-text-colors);
+  @include select.dropdown-icon-color($select-filled-text-colors);
+  @include select.container-fill-color(
     (
       default: $mdc-theme-primary,
       disabled: rgba($mdc-theme-primary, 0.4),
@@ -129,22 +129,22 @@
     disabled: rgba($mdc-theme-primary, 0.4),
   );
 
-  @include mdc-select-ink-color($select-outline-text-colors);
-  @include mdc-select-label-color($select-outline-text-colors);
-  @include mdc-select-label-floating-color($select-outline-text-colors);
-  @include mdc-select-dropdown-icon-color($select-outline-text-colors);
-  @include mdc-select-outline-color($select-outline-text-colors);
+  @include select.ink-color($select-outline-text-colors);
+  @include select.label-color($select-outline-text-colors);
+  @include select.label-floating-color($select-outline-text-colors);
+  @include select.dropdown-icon-color($select-outline-text-colors);
+  @include select.outline-color($select-outline-text-colors);
 }
 
 // Chips
 
 .mdc-chip {
-  @include mdc-chip-fill-color($mdc-theme-background);
-  @include mdc-chip-outline(2px, solid, $mdc-theme-primary);
-  @include mdc-chip-ink-color($mdc-theme-primary);
-  @include mdc-chip-leading-icon-color($mdc-theme-primary, 1);
-  @include mdc-chip-trailing-icon-color($mdc-theme-primary, 1);
-  // @include mdc-chip-selected-ink-color(#92cbff);
+  @include chips.fill-color($mdc-theme-background);
+  @include chips.outline(2px, solid, $mdc-theme-primary);
+  @include chips.ink-color($mdc-theme-primary);
+  @include chips.leading-icon-color($mdc-theme-primary, 1);
+  @include chips.trailing-icon-color($mdc-theme-primary, 1);
+  // @include chips.selected-ink-color(#92cbff);
 }
 
 .mdc-chip-set--choice {
@@ -173,22 +173,22 @@
   width: 100%;
 }
 
-.mdc-text-field--filled {
-  // @include mdc-text-field-ink-color($mdc-theme-primary);
-  // @include mdc-text-field-placeholder-color($mdc-theme-primary);
-  // @include mdc-text-field-label-color($mdc-theme-primary);
-}
+// .mdc-text-field--filled {
+//   @include mdc-text-field-ink-color($mdc-theme-primary);
+//   @include mdc-text-field-placeholder-color($mdc-theme-primary);
+//   @include mdc-text-field-label-color($mdc-theme-primary);
+// }
 
 .mdc-text-field--outlined {
-  @include mdc-text-field-ink-color($mdc-theme-primary);
-  @include mdc-text-field-placeholder-color(rgba($mdc-theme-primary, 0.4));
-  @include mdc-text-field-label-color($mdc-theme-primary);
-  @include mdc-text-field-outline-color($mdc-theme-primary);
+  @include textfield.ink-color($mdc-theme-primary);
+  @include textfield.placeholder-color(rgba($mdc-theme-primary, 0.4));
+  @include textfield.label-color($mdc-theme-primary);
+  @include textfield.outline-color($mdc-theme-primary);
 
   // Disabled colors
-  @include mdc-text-field-disabled-outline-color(rgba($mdc-theme-primary, 0.4));
-  @include mdc-text-field-disabled-ink-color(rgba($mdc-theme-primary, 0.4));
-  @include mdc-text-field-disabled-label-color(rgba($mdc-theme-primary, 0.4));
+  @include textfield.disabled-outline-color(rgba($mdc-theme-primary, 0.4));
+  @include textfield.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
+  @include textfield.disabled-label-color(rgba($mdc-theme-primary, 0.4));
 }
 
 // Helper Text
@@ -207,24 +207,20 @@
 // Data Table
 
 .mdc-data-table {
-  @include mdc-data-table-sort-icon-color($mdc-theme-surface);
-  @include mdc-data-table-sort-icon-active-color($mdc-theme-surface);
+  @include data-table.sort-icon-color($mdc-theme-surface);
+  @include data-table.sort-icon-active-color($mdc-theme-surface);
   //  Table Rows fill color
-  @include mdc-data-table-fill-color($mdc-theme-background);
-  @include mdc-data-table-header-row-fill-color(
-    var(--tableHeaderBackgroundColor)
+  @include data-table.fill-color($mdc-theme-background);
+  @include data-table.header-row-fill-color(var(--tableHeaderBackgroundColor));
+  @include data-table.row-fill-color(var(--tableRowBackgroundColor));
+  @include data-table.selected-row-fill-color(
+    lighten($mdc-theme-background, 15%)
   );
-  @include mdc-data-table-row-fill-color(var(--tableRowBackgroundColor));
-  @include mdc-data-table-selected-row-fill-color(
-    var(--tableRowSelectedBackgroundColor)
-  );
-  @include mdc-data-table-divider-color(var(--tableRowBorderColor));
-  @include mdc-data-table-divider-size(2px);
-  @include mdc-data-table-row-hover-fill-color(
-    var(--tableRowHoverBackgroundColor)
-  );
-  @include mdc-data-table-header-row-text-color(var(--tableHeaderTextColor));
-  @include mdc-data-table-row-text-color(var(--tableRowTextColor));
+  @include data-table.divider-color(var(--tableRowBorderColor));
+  @include data-table.divider-size(2px);
+  @include data-table.row-hover-fill-color(var(--tableRowHoverBackgroundColor));
+  @include data-table.header-row-text-color(var(--tableHeaderTextColor));
+  @include data-table.row-text-color(var(--tableRowTextColor));
 }
 
 // Tabs

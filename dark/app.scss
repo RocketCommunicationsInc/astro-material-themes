@@ -5,6 +5,7 @@
 @use "my-colors";
 
 // Import component namespace for customization
+// NOTE: This allows mixins and properties to be called directly. Ex. `@include button.outline-color()`
 @use "@material/slider";
 @use "@material/button";
 @use "@material/card";
