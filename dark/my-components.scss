@@ -46,9 +46,10 @@
 
 .mdc-switch {
   @include rtl.reflexive-box(margin, right, 20px);
-  @include switch.toggled-on-thumb-color($mdc-theme-surface);
+  @include switch.toggled-on-thumb-color($mdc-theme-on-surface);
+  @include switch.toggled-off-thumb-color($mdc-theme-on-surface);
   @include switch.toggled-on-track-color($mdc-theme-primary);
-  @include switch.toggled-off-track-color($mdc-theme-surface);
+  @include switch.toggled-off-track-color($mdc-theme-on-surface);
 }
 
 // Top app bar
@@ -108,6 +109,16 @@
 .mdc-menu-surface--anchor > .mdc-menu {
   position: relative;
   z-index: 1;
+}
+
+.mdc-menu.mdc-menu-surface {
+  background-color: var(--inputBackground);
+  // color: $mdc-theme-on-primary;
+  .mdc-list {
+    @include list.item-primary-text-ink-color($mdc-theme-on-primary);
+    @include list.item-graphic-ink-color($mdc-theme-on-primary);
+    // .mdc-list-item
+  }
 }
 
 // Select
@@ -173,6 +184,12 @@
 
   .mdc-drawer {
     @include mdc-elevation(16);
+    @include drawer.surface-fill-color(var(--globalAppHeader));
+    @include drawer.title-ink-color($mdc-theme-on-surface);
+    @include drawer.subtitle-ink-color(rgba($mdc-theme-on-secondary, 0.8));
+    // @include drawer.item-icon-ink-color($mdc-theme-on-secondary);
+    // @include drawer.item-text-ink-color($mdc-theme-on-secondary);
+    @include drawer.activated-overlay-color(lighten($mdc-theme-surface, 10%));
 
     .mdc-drawer__content {
       padding: 0;
@@ -186,11 +203,14 @@
   width: 100%;
 }
 
-// .mdc-text-field--filled {
-//   @include mdc-text-field-ink-color($mdc-theme-primary);
-//   @include mdc-text-field-placeholder-color($mdc-theme-primary);
-//   @include mdc-text-field-label-color($mdc-theme-primary);
-// }
+.mdc-text-field--filled {
+  @include textfield.fill-color(var(--inputBackground));
+  @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
+  @include textfield.ink-color(var(--primaryElementText));
+  @include textfield.placeholder-color(darken($mdc-theme-on-surface, 60%));
+  @include textfield.label-color(var(--primaryElementText));
+  @include textfield.disabled-label-color(var(--primaryElementText));
+}
 
 .mdc-text-field--outlined {
   @include textfield.ink-color($mdc-theme-primary);
@@ -220,8 +240,8 @@
 // Data Table
 
 .mdc-data-table {
-  @include data-table.sort-icon-color($mdc-theme-surface);
-  @include data-table.sort-icon-active-color($mdc-theme-surface);
+  @include data-table.sort-icon-color($mdc-theme-on-surface);
+  @include data-table.sort-icon-active-color($mdc-theme-on-surface);
   //  Table Rows fill color
   @include data-table.fill-color($mdc-theme-background);
   @include data-table.header-row-fill-color(var(--tableHeaderBackgroundColor));
