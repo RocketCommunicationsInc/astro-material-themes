@@ -58,6 +58,10 @@
   position: relative;
   z-index: 1;
 
+  @include top-app-bar.ink-color(var(--defaultText));
+  @include top-app-bar.icon-ink-color($mdc-theme-primary);
+  @include top-app-bar.fill-color(var(--globalAppHeader));
+
   &:not(.mdc-top-app-bar--short) {
     width: 100%;
   }
@@ -67,7 +71,9 @@
 
 .mdc-card {
   width: 100%;
-  color: $mdc-theme-on-surface;
+  color: $mdc-theme-on-secondary;
+
+  @include card.fill-color(var(--globalAppHeader));
 
   .demo-card__primary {
     padding: 1rem;
@@ -296,7 +302,7 @@
 
 .component-wrapper > .mdc-list {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background: $mdc-theme-background;
+  background: var(--tableRowBackgroundColor);
 
   .mdc-list-item__graphic {
     background-color: if(
