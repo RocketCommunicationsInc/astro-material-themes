@@ -61,7 +61,7 @@
 
   @include top-app-bar.ink-color(var(--defaultText));
   @include top-app-bar.icon-ink-color($mdc-theme-primary);
-  @include top-app-bar.fill-color(var(--globalAppHeader));
+  @include top-app-bar.fill-color($mdc-theme-surface);
 
   &:not(.mdc-top-app-bar--short) {
     width: 100%;
@@ -81,7 +81,7 @@
   width: 100%;
   color: $mdc-theme-on-secondary;
 
-  @include card.fill-color(var(--globalAppHeader));
+  @include card.fill-color($mdc-theme-surface);
 
   .demo-card__primary {
     padding: 1rem;
@@ -112,9 +112,10 @@
 }
 
 .mdc-menu.mdc-menu-surface {
-  background-color: var(--inputBackground);
+  // background-color: var(--inputBackground);
   // color: $mdc-theme-on-primary;
   .mdc-list {
+    background: var(--inputBackground);
     @include list.item-primary-text-ink-color($mdc-theme-on-primary);
     @include list.item-graphic-ink-color($mdc-theme-on-primary);
     // .mdc-list-item
@@ -122,16 +123,6 @@
 }
 
 // Select
-
-.mdc-select__menu {
-  .mdc-list {
-    .mdc-list-item--disabled {
-      .mdc-list-item__text {
-        color: rgba(0, 0, 0, 0.4);
-      }
-    }
-  }
-}
 
 .mdc-select--filled {
   width: 160px;
@@ -194,7 +185,7 @@
 
   .mdc-drawer {
     @include mdc-elevation(16);
-    @include drawer.surface-fill-color(var(--globalAppHeader));
+    @include drawer.surface-fill-color($mdc-theme-surface);
     @include drawer.title-ink-color($mdc-theme-on-surface);
     @include drawer.subtitle-ink-color(rgba($mdc-theme-on-secondary, 0.8));
     // @include drawer.item-icon-ink-color($mdc-theme-on-secondary);
@@ -298,7 +289,7 @@
   justify-content: start;
   z-index: 1;
 
-  @include snackbar.fill-color(var(--globalAppHeader));
+  @include snackbar.fill-color($mdc-theme-surface);
   @include snackbar.label-ink-color($mdc-theme-on-secondary);
 }
 
@@ -313,7 +304,7 @@
     max-width: 100%;
   }
 
-  @include dialog.container-fill-color(var(--globalAppHeader));
+  @include dialog.container-fill-color($mdc-theme-surface);
   @include dialog.title-ink-color($mdc-theme-on-secondary);
   @include dialog.content-ink-color($mdc-theme-on-secondary, 0.8);
 }
@@ -344,21 +335,27 @@
 
 // List
 
-.component-wrapper > .mdc-list {
+.mdc-list {
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: var(--tableRowBackgroundColor);
 
-  .mdc-list-item__graphic {
-    background-color: if(
-      mdc-theme-contrast-tone($mdc-theme-background) == "dark",
-      rgba(0, 0, 0, 0.12),
-      rgba(255, 255, 255, 0.12)
-    );
-    color: if(
-      mdc-theme-contrast-tone($mdc-theme-background) == "dark",
-      rgba(0, 0, 0, 0.68),
-      rgba(255, 255, 255, 0.68)
-    );
+  // .mdc-list-item__graphic {
+  //   background-color: if(
+  //     mdc-theme-contrast-tone($mdc-theme-background) == "dark",
+  //     rgba(0, 0, 0, 0.12),
+  //     rgba(255, 255, 255, 0.12)
+  //   );
+  //   color: if(
+  //     mdc-theme-contrast-tone($mdc-theme-background) == "dark",
+  //     rgba(0, 0, 0, 0.68),
+  //     rgba(255, 255, 255, 0.68)
+  //   );
+  // }
+
+  .mdc-list-item--disabled {
+    .mdc-list-item__text {
+      color: rgba(0, 0, 0, 0.4);
+    }
   }
 }
 
