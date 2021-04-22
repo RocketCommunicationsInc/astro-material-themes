@@ -1,0 +1,417 @@
+// Material Theming
+// After importing all MDC Web components, apply mixins to theme individual components
+
+//  Buttons
+
+.mdc-button {
+  // @include mdc-button-shape-radius(50%);
+  @include button.outline-color($mdc-theme-primary);
+  @include button.horizontal-padding(1rem);
+}
+
+.mdc-button.mdc-button--raised {
+  @include button.container-fill-color(
+    (
+      hover: lighten($mdc-theme-primary, 10%),
+    )
+  );
+}
+
+button.mdc-icon-button {
+  color: $mdc-theme-primary;
+
+  &hover {
+    background-color: transparent;
+    color: lighten($mdc-theme-primary, 10%);
+  }
+}
+
+a.mdc-icon-button:hover {
+  color: lighten($mdc-theme-primary, 10%);
+}
+
+// Checkbox and radio
+
+.mdc-checkbox {
+  // Enabled container colors
+  @include checkbox.container-colors(
+    $unmarked-stroke-color: $mdc-theme-primary,
+    $marked-fill-color: $mdc-theme-background,
+    $marked-stroke-color: $mdc-theme-primary
+  );
+
+  // Disabled container colors
+  @include checkbox.disabled-container-colors(
+    $unmarked-stroke-color: rgba($mdc-theme-primary, 0.4),
+    $marked-fill-color: rgba($mdc-theme-background, 0.4),
+    $marked-stroke-color: rgba($mdc-theme-primary, 0.4)
+  );
+
+  @include checkbox.ink-color($mdc-theme-primary);
+  @include checkbox.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
+}
+
+.mdc-radio {
+  margin-right: 4px;
+
+  // Enabled Colors
+  @include radio.unchecked-stroke-color($mdc-theme-primary);
+  @include radio.checked-stroke-color($mdc-theme-primary);
+  @include radio.ink-color($mdc-theme-primary);
+
+  // Disabled Colors
+  @include radio.disabled-unchecked-stroke-color(rgba($mdc-theme-primary, 0.4));
+  @include radio.disabled-checked-stroke-color(rgba($mdc-theme-primary, 0.4));
+  @include radio.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
+}
+
+// Switch
+
+.mdc-switch {
+  @include rtl.reflexive-box(margin, right, 20px);
+  @include switch.toggled-on-thumb-color($mdc-theme-on-surface);
+  @include switch.toggled-off-thumb-color($mdc-theme-on-surface);
+  @include switch.toggled-on-track-color($mdc-theme-primary);
+  @include switch.toggled-off-track-color($mdc-theme-on-surface);
+}
+
+// Top app bar
+
+.component-wrapper .mdc-top-app-bar {
+  @include mdc-elevation(4);
+  position: relative;
+  z-index: 1;
+
+  @include top-app-bar.ink-color(var(--defaultText));
+  @include top-app-bar.icon-ink-color($mdc-theme-primary);
+  @include top-app-bar.fill-color($mdc-theme-surface);
+
+  &:not(.mdc-top-app-bar--short) {
+    width: 100%;
+  }
+}
+
+// FAB Buttons
+
+.mdc-fab {
+  @include fab.container-color($mdc-theme-primary);
+  @include fab.ink-color($mdc-theme-on-primary);
+}
+
+// Card
+
+.mdc-card {
+  width: 100%;
+  color: $mdc-theme-on-secondary;
+
+  @include card.fill-color($mdc-theme-surface);
+
+  .demo-card__primary {
+    padding: 1rem;
+  }
+
+  .demo-card__title,
+  .demo-card__subtitle {
+    margin: 0;
+  }
+
+  .demo-card__secondary {
+    padding: 0 1rem 8px;
+    opacity: 0.87;
+  }
+}
+
+// Linear progress
+
+.mdc-linear-progress {
+  width: 100%;
+}
+
+// Menu
+
+.mdc-menu-surface--anchor > .mdc-menu {
+  position: relative;
+  z-index: 1;
+}
+
+.mdc-menu.mdc-menu-surface {
+  // background-color: var(--inputBackground);
+  // color: $mdc-theme-on-primary;
+  .mdc-list {
+    background: var(--inputBackground);
+    @include list.item-primary-text-ink-color($mdc-theme-on-primary);
+    @include list.item-graphic-ink-color($mdc-theme-on-primary);
+    // .mdc-list-item
+  }
+}
+
+// Select
+
+.mdc-select--filled {
+  width: 160px;
+
+  $select-filled-text-colors: (
+    default: #000,
+    disabled: rgba(0, 0, 0, 0.4),
+    hover: #000,
+    focus: #000,
+  );
+
+  @include select.label-color($select-filled-text-colors);
+  @include select.label-floating-color($select-filled-text-colors);
+  @include select.ink-color($select-filled-text-colors);
+  @include select.dropdown-icon-color($select-filled-text-colors);
+  @include select.container-fill-color(
+    (
+      default: $mdc-theme-primary,
+      disabled: rgba($mdc-theme-primary, 0.4),
+    )
+  );
+}
+
+.mdc-select--outlined {
+  width: 160px;
+
+  $select-outline-text-colors: (
+    default: $mdc-theme-primary,
+    disabled: rgba($mdc-theme-primary, 0.4),
+  );
+
+  @include select.ink-color($select-outline-text-colors);
+  @include select.label-color($select-outline-text-colors);
+  @include select.label-floating-color($select-outline-text-colors);
+  @include select.dropdown-icon-color($select-outline-text-colors);
+  @include select.outline-color($select-outline-text-colors);
+}
+
+// Chips
+
+.mdc-chip {
+  @include chips.fill-color($mdc-theme-background);
+  @include chips.outline(2px, solid, $mdc-theme-primary);
+  @include chips.ink-color($mdc-theme-primary);
+  @include chips.leading-icon-color($mdc-theme-primary, 1);
+  @include chips.trailing-icon-color($mdc-theme-primary, 1);
+  // @include chips.selected-ink-color(#92cbff);
+}
+
+.mdc-chip-set--choice {
+  .mdc-chip.mdc-chip--selected {
+    background-color: var(--cardBackgroundColor);
+  }
+}
+
+// Drawer
+
+.drawer-component-wrapper {
+  background: rgba(0, 0, 0, 0.3);
+
+  .mdc-drawer {
+    @include mdc-elevation(16);
+    @include drawer.surface-fill-color($mdc-theme-surface);
+    @include drawer.title-ink-color($mdc-theme-on-surface);
+    @include drawer.subtitle-ink-color(rgba($mdc-theme-on-secondary, 0.8));
+    // @include drawer.item-icon-ink-color($mdc-theme-on-secondary);
+    // @include drawer.item-text-ink-color($mdc-theme-on-secondary);
+    @include drawer.activated-overlay-color(lighten($mdc-theme-surface, 10%));
+
+    .mdc-drawer__content {
+      padding: 0;
+    }
+  }
+}
+
+// Text field
+
+.mdc-text-field {
+  width: 100%;
+}
+
+.mdc-text-field--filled {
+  @include textfield.fill-color(var(--inputBackground));
+  @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
+  @include textfield.ink-color(var(--primaryElementText));
+  @include textfield.placeholder-color(darken($mdc-theme-on-surface, 60%));
+  @include textfield.label-color(var(--primaryElementText));
+  @include textfield.disabled-label-color(var(--primaryElementText));
+}
+
+.mdc-text-field--outlined {
+  @include textfield.ink-color($mdc-theme-primary);
+  @include textfield.placeholder-color(rgba($mdc-theme-primary, 0.4));
+  @include textfield.label-color($mdc-theme-primary);
+  @include textfield.outline-color($mdc-theme-primary);
+
+  // Disabled colors
+  @include textfield.disabled-outline-color(rgba($mdc-theme-primary, 0.4));
+  @include textfield.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
+  @include textfield.disabled-label-color(rgba($mdc-theme-primary, 0.4));
+}
+
+// Helper Text
+.mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line {
+  .mdc-text-field-helper-text {
+    color: var(--defaultText);
+  }
+}
+
+.mdc-text-field--disabled + .mdc-text-field-helper-line {
+  .mdc-text-field-helper-text {
+    color: var(--secondaryText);
+  }
+}
+
+// Data Table
+
+.mdc-data-table {
+  @include data-table.sort-icon-color($mdc-theme-on-surface);
+  @include data-table.sort-icon-active-color($mdc-theme-on-surface);
+  //  Table Rows fill color
+  @include data-table.fill-color($mdc-theme-background);
+  @include data-table.header-row-fill-color(var(--tableHeaderBackgroundColor));
+  @include data-table.row-fill-color(var(--tableRowBackgroundColor));
+  @include data-table.selected-row-fill-color(
+    lighten($mdc-theme-background, 15%)
+  );
+  @include data-table.divider-color(var(--tableRowBorderColor));
+  @include data-table.divider-size(2px);
+  @include data-table.row-hover-fill-color(var(--tableRowHoverBackgroundColor));
+  @include data-table.header-row-text-color(var(--tableHeaderTextColor));
+  @include data-table.row-text-color(var(--tableRowTextColor));
+}
+
+// Tabs
+.component-wrapper .mdc-tab-bar {
+  background: $mdc-theme-background;
+
+  .mdc-tab {
+    font-family: Roboto;
+    @include mdc-tab-active-text-label-color($mdc-theme-on-secondary);
+    @include mdc-tab-states-color($mdc-theme-background);
+    @include mdc-tab-text-label-color($mdc-theme-primary);
+
+    .mdc-tab-indicator--active {
+      @include mdc-tab-ink-color($mdc-theme-primary);
+    }
+
+    .mdc-tab-indicator {
+      @include mdc-tab-indicator-underline-color($mdc-theme-primary);
+    }
+  }
+
+  .mdc-tab-indicator {
+    @include mdc-tab-indicator-underline-color($mdc-theme-primary);
+  }
+}
+
+// Snackbar
+
+.mdc-snackbar {
+  position: relative;
+  margin: 0;
+  justify-content: start;
+  z-index: 1;
+
+  @include snackbar.fill-color($mdc-theme-surface);
+  @include snackbar.label-ink-color($mdc-theme-on-secondary);
+}
+
+// Dialog
+
+.mdc-dialog {
+  position: relative;
+  justify-content: start;
+  z-index: 1;
+
+  .mdc-dialog__surface {
+    max-width: 100%;
+  }
+
+  @include dialog.container-fill-color($mdc-theme-surface);
+  @include dialog.title-ink-color($mdc-theme-on-secondary);
+  @include dialog.content-ink-color($mdc-theme-on-secondary, 0.8);
+}
+
+// ------------------ Slider ---------------------------------
+
+// Enabled
+.mdc-slider:not(.mdc-slider--disabled) {
+  @include slider.track-active-color($mdc-theme-primary);
+  @include slider.track-inactive-color(var(--sliderTrackBackgroundColor), 1);
+  @include slider.thumb-color(var(--sliderThumbBackgroundColor));
+  @include slider.tick-mark-active-color(var(--sliderThumbBorderColor));
+  @include slider.tick-mark-inactive-color(#000);
+  @include slider.value-indicator-color($mdc-theme-primary, 0.7);
+  @include slider.value-indicator-text-color(#000);
+}
+
+// Disabled
+.mdc-slider.mdc-slider--disabled {
+  @include slider.track-active-color($mdc-theme-primary);
+  @include slider.track-inactive-color(var(--sliderTrackBackgroundColor), 1);
+  @include slider.thumb-color(var(--sliderThumbBackgroundColor));
+  @include slider.tick-mark-active-color(var(--sliderThumbBorderColor));
+  @include slider.tick-mark-inactive-color(#000);
+  @include slider.value-indicator-color($mdc-theme-primary, 0.7);
+  @include slider.value-indicator-text-color(#000);
+}
+
+// List
+
+.mdc-list {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--tableRowBackgroundColor);
+
+  // .mdc-list-item__graphic {
+  //   background-color: if(
+  //     mdc-theme-contrast-tone($mdc-theme-background) == "dark",
+  //     rgba(0, 0, 0, 0.12),
+  //     rgba(255, 255, 255, 0.12)
+  //   );
+  //   color: if(
+  //     mdc-theme-contrast-tone($mdc-theme-background) == "dark",
+  //     rgba(0, 0, 0, 0.68),
+  //     rgba(255, 255, 255, 0.68)
+  //   );
+  // }
+
+  .mdc-list-item--disabled {
+    .mdc-list-item__text {
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+// Image list
+
+.mdc-image-list {
+  @include mdc-image-list-masonry-columns(2);
+
+  max-width: 400px;
+  max-height: 600px;
+  margin: 0;
+}
+
+.component-wrapper {
+  &.button-component-wrapper,
+  &.fab-component-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  // Offset built-in padding to left-align all components
+
+  &.chips-component-wrapper {
+    @include mdc-rtl-reflexive-box(margin, left, -8px);
+  }
+
+  &.checkbox-component-wrapper,
+  &.radio-component-wrapper {
+    @include mdc-rtl-reflexive-box(margin, left, -10px);
+  }
+
+  &.icon-button-component-wrapper {
+    @include mdc-rtl-reflexive-box(margin, left, -12px);
+  }
+}

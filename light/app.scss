@@ -1,0 +1,85 @@
+// Import ASTRO
+@use "static/css/astro.min";
+
+// Import global Material Theming colors
+@use "my-colors";
+
+// Import component namespace for customization
+// NOTE: This allows mixins and properties to be called directly. Ex. `@include button.outline-color()`
+@use "@material/slider";
+@use "@material/button";
+@use "@material/card";
+@use "@material/checkbox";
+@use "@material/chips";
+@use "@material/dialog";
+@use "@material/drawer";
+@use "@material/elevation";
+@use "@material/fab";
+@use "@material/form-field";
+@use "@material/icon-button";
+@use "@material/image-list";
+@use "@material/linear-progress";
+@use "@material/list";
+@use "@material/menu";
+@use "@material/menu-surface";
+@use "@material/radio";
+@use "@material/rtl";
+@use "@material/select";
+@use "@material/shape";
+@use "@material/snackbar";
+@use "@material/switch";
+@use "@material/tab-bar";
+@use "@material/tab-scroller";
+@use "@material/tab-indicator";
+@use "@material/tab";
+@use "@material/textfield";
+@use "@material/top-app-bar";
+@use "@material/data-table";
+
+// Import styles for each MDC Web component
+@import "@material/slider/styles";
+@import "@material/button/mdc-button";
+
+@import "@material/card/mdc-card";
+@import "@material/checkbox/mdc-checkbox";
+@import "@material/chips/mdc-chips";
+@import "@material/dialog/mdc-dialog";
+@import "@material/drawer/mdc-drawer";
+@import "@material/elevation/mdc-elevation";
+@import "@material/fab/mdc-fab";
+@import "@material/form-field/mdc-form-field";
+@import "@material/icon-button/mdc-icon-button";
+@import "@material/image-list/mdc-image-list";
+@import "@material/linear-progress/mdc-linear-progress";
+@import "@material/list/mdc-list";
+@import "@material/menu/mdc-menu";
+@import "@material/menu-surface/mdc-menu-surface";
+@import "@material/radio/mdc-radio";
+// @import "@material/rtl/mixins";
+@import "@material/select/mdc-select";
+// @import "@material/shape/mixins";
+// @import "@material/shape/functions";
+@import "@material/snackbar/mdc-snackbar";
+@import "@material/switch/mdc-switch";
+@import "@material/tab-bar/mdc-tab-bar";
+@import "@material/tab-scroller/mdc-tab-scroller";
+@import "@material/tab-indicator/mdc-tab-indicator";
+@import "@material/tab/mdc-tab";
+@import "@material/textfield/mdc-text-field";
+@import "@material/textfield/helper-text/index";
+@import "@material/theme/color-palette";
+@import "@material/theme/functions";
+// @import "@material/ripple/mixins";
+@import "@material/theme/mixins";
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/typography/mdc-typography";
+@import "@material/data-table/mdc-data-table";
+
+// Import global Material Theming typography and fonts
+@import "my-theme";
+
+// Import site-specific SCSS file
+@import "my-layout";
+
+// Import theme-specific component SCSS files
+@import "my-components";
