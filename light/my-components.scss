@@ -34,21 +34,20 @@ a.mdc-icon-button:hover {
 
 .mdc-checkbox {
   // Enabled container colors
+  @include checkbox.ink-color($mdc-theme-on-primary);
   @include checkbox.container-colors(
-    $unmarked-stroke-color: $mdc-theme-primary,
-    $marked-fill-color: $mdc-theme-background,
-    $marked-stroke-color: $mdc-theme-primary
+    $unmarked-stroke-color: $mdc-theme-secondary,
+    $marked-fill-color: $mdc-theme-secondary,
+    $marked-stroke-color: $mdc-theme-secondary
   );
 
   // Disabled container colors
+  @include checkbox.disabled-ink-color(rgba($mdc-theme-on-primary, 0.4));
   @include checkbox.disabled-container-colors(
-    $unmarked-stroke-color: rgba($mdc-theme-primary, 0.4),
-    $marked-fill-color: rgba($mdc-theme-background, 0.4),
-    $marked-stroke-color: rgba($mdc-theme-primary, 0.4)
+    $unmarked-stroke-color: rgba($mdc-theme-secondary, 0.4),
+    $marked-fill-color: rgba($mdc-theme-secondary, 0.4),
+    // $marked-stroke-color: rgba($mdc-theme-secondary, 0.4)
   );
-
-  @include checkbox.ink-color($mdc-theme-primary);
-  @include checkbox.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
 }
 
 .mdc-radio {
@@ -69,10 +68,10 @@ a.mdc-icon-button:hover {
 
 .mdc-switch {
   @include rtl.reflexive-box(margin, right, 20px);
-  @include switch.toggled-on-thumb-color($mdc-theme-on-surface);
-  @include switch.toggled-off-thumb-color($mdc-theme-on-surface);
-  @include switch.toggled-on-track-color($mdc-theme-primary);
-  @include switch.toggled-off-track-color($mdc-theme-on-surface);
+  @include switch.toggled-on-thumb-color($mdc-theme-on-primary);
+  @include switch.toggled-off-thumb-color($mdc-theme-on-primary);
+  @include switch.toggled-on-track-color($mdc-theme-secondary);
+  @include switch.toggled-off-track-color(var(--secondaryText));
 }
 
 // Top app bar
@@ -151,10 +150,10 @@ a.mdc-icon-button:hover {
   width: 160px;
 
   $select-filled-text-colors: (
-    default: #000,
+    default: $mdc-theme-surface,
     disabled: rgba(0, 0, 0, 0.4),
-    hover: #000,
-    focus: #000,
+    hover: $mdc-theme-on-surface,
+    focus: $mdc-theme-primary,
   );
 
   @include select.label-color($select-filled-text-colors);

@@ -55,10 +55,7 @@
 @import "@material/menu/mdc-menu";
 @import "@material/menu-surface/mdc-menu-surface";
 @import "@material/radio/mdc-radio";
-// @import "@material/rtl/mixins";
 @import "@material/select/mdc-select";
-// @import "@material/shape/mixins";
-// @import "@material/shape/functions";
 @import "@material/snackbar/mdc-snackbar";
 @import "@material/switch/mdc-switch";
 @import "@material/tab-bar/mdc-tab-bar";
@@ -69,14 +66,13 @@
 @import "@material/textfield/helper-text/index";
 @import "@material/theme/color-palette";
 @import "@material/theme/functions";
-// @import "@material/ripple/mixins";
 @import "@material/theme/mixins";
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/typography/mdc-typography";
 @import "@material/data-table/mdc-data-table";
 
 // Import global Material Theming typography and fonts
-@import "my-theme";
+@import "my-font-shape";
 
 // Import site-specific SCSS file
 @import "my-layout";

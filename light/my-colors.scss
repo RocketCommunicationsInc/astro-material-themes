@@ -3,15 +3,15 @@
 @use "sass:map";
 
 @use "@material/theme" with (
-  $primary: #4dacff,
-  $secondary: #4dacff,
-  $on-primary: #000000,
-  $on-secondary: #ffffff,
-  $background: #101923,
-  $error: rgb(255, 56, 56),
+  $primary: #005a8f,
+  $secondary: #005a8f,
+  $on-primary: #ffffff,
+  $on-secondary: #51555b,
+  $background: #eaeef4,
+  $error: #7f1c1c,
   $on-error: #ffffff,
-  $surface: #1b2d3e,
-  $on-surface: #ffffff,
+  $surface: #ffffff,
+  $on-surface: #292a2d,
 );
 
 $headline-typography: (
@@ -24,7 +24,8 @@ $headline-typography: (
   $styles-headline1: map.merge($headline-typography, (font-size: 2.375rem)),
   $styles-headline2: map.merge($headline-typography, (font-size: 1.75rem)),
   $styles-headline3: map.merge($headline-typography, (font-size: 1.375rem)),
-  $styles-body1: (margin: 0 0 1rem),
+  $styles-body1: (margin: 0 0 1rem, font-size: 1rem),
+  $styles-body2: (margin: 0 0 1rem, font-size: 0.875rem),
   $styles-button: (
     text-transform: none,
     font-size: 1rem,
