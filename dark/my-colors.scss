@@ -5,7 +5,7 @@
 @use "@material/theme" with (
   $primary: #4dacff,
   $secondary: #4dacff,
-  $on-primary: #000000,
+  $on-primary: #080c11,
   $on-secondary: #ffffff,
   $background: #101923,
   $error: rgb(255, 56, 56),
@@ -14,21 +14,25 @@
   $on-surface: #ffffff,
 );
 
-$headline-typography: (
-  font-weight: 300,
-  margin: 0 0 0.5rem,
-);
 
 @use "@material/typography" with (
   $font-family: unquote("Roboto, sans-serif"),
-  $styles-headline1: map.merge($headline-typography, (font-size: 2.375rem)),
-  $styles-headline2: map.merge($headline-typography, (font-size: 1.75rem)),
-  $styles-headline3: map.merge($headline-typography, (font-size: 1.375rem)),
-  $styles-body1: (margin: 0 0 1rem),
+  $styles-headline1: (font-size: 2.125rem, letter-spacing: 0.25px, font-weight: normal),
+  $styles-headline2: (font-size: 1.5rem, font-weight: normal),
+  $styles-headline3: (font-size: 1.25rem, font-weight: 500, letter-spacing: 0.15px),
+  $styles-headline4: (font-size: 1.25rem, font-weight: 300, letter-spacing: 0.15px),
+  $styles-headline5: (font-size: 1.125rem, font-weight: normal),
+  $styles-headline6: (font-size: 1.125rem, font-weight: 300),
+  $styles-subtitle1: (font-size: 1rem, letter-spacing: 0.5px, font-weight: normal),
+  $styles-subtitle2: (font-size: 0.875rem, font-weight: normal, letter-spacing: 0.5px),
+  $styles-body1: (font-size: 1rem, letter-spacing: 0.5px, font-weight: normal),
+  $styles-body2: (font-size: 0.875rem, font-weight: normal, letter-spacing: 0.5px),
   $styles-button: (
     text-transform: none,
     font-size: 1rem,
+    letter-spacing: 0.5px,
     white-space: nowrap,
     text-overflow: ellipsis,
   ),
+  $styles-overline: (font-size: 0.75rem, font-weight: normal)
 );
