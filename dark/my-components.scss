@@ -17,6 +17,20 @@
   );
 }
 
+.mdc-button.mdc-button--outlined {
+  // @include button.container-fill-color(
+  //   (
+  //     default: transparent,
+  //     hover: transparent,
+  //   )
+  // );
+  @include button.outline-color(
+    (
+      hover: var(--primaryLightHover),
+    )
+  );
+}
+
 button.mdc-icon-button {
   color: $mdc-theme-primary;
 
@@ -84,7 +98,7 @@ a.mdc-icon-button:hover {
 
   @include top-app-bar.ink-color(var(--defaultText));
   @include top-app-bar.icon-ink-color($mdc-theme-primary);
-  @include top-app-bar.fill-color($mdc-theme-surface);
+  @include top-app-bar.fill-color(var(--globalAppHeader));
 
   &:not(.mdc-top-app-bar--short) {
     width: 100%;
@@ -193,6 +207,19 @@ a.mdc-icon-button:hover {
   @include chips.leading-icon-color($mdc-theme-primary, 1);
   @include chips.trailing-icon-color($mdc-theme-primary, 1);
   // @include chips.selected-ink-color(#92cbff);
+
+  .mdc-chip__checkmark-path {
+    stroke: $mdc-theme-primary;
+  }
+
+  &:hover {
+    @include chips.outline(2px, solid, var(--primaryLightHover));
+    @include chips.ink-color(#92cbff4d);
+    @include chips.leading-icon-color(#92cbff4d);
+    .mdc-chip__checkmark-path {
+      stroke: var(--primaryLightHover);
+    }
+  }
 }
 
 .mdc-chip-set--choice {
@@ -227,16 +254,22 @@ a.mdc-icon-button:hover {
   width: 100%;
 }
 
-.mdc-text-field--filled {
+.mdc-text-field--filled:not(.mdc-text-field--invalid) {
   @include textfield.fill-color(var(--inputBackground));
   @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
   @include textfield.ink-color(var(--primaryElementText));
-  @include textfield.placeholder-color(darken($mdc-theme-on-surface, 60%));
+  @include textfield.placeholder-color(var(--secondaryText));
   @include textfield.label-color(var(--primaryElementText));
   @include textfield.disabled-label-color(var(--primaryElementText));
 }
 
-.mdc-text-field--outlined {
+.mdc-text-field--filled.mdc-text-field--invalid {
+  @include textfield.fill-color(var(--inputBackground));
+  @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
+  @include textfield.ink-color(var(--primaryElementText));
+}
+
+.mdc-text-field--outlined:not(.mdc-text-field--invalid) {
   @include textfield.ink-color($mdc-theme-primary);
   @include textfield.placeholder-color(rgba($mdc-theme-primary, 0.4));
   @include textfield.label-color($mdc-theme-primary);
@@ -285,17 +318,20 @@ a.mdc-icon-button:hover {
   background: $mdc-theme-background;
 
   .mdc-tab {
-    font-family: Roboto;
-    @include mdc-tab-active-text-label-color($mdc-theme-on-secondary);
-    @include mdc-tab-states-color($mdc-theme-background);
-    @include mdc-tab-text-label-color($mdc-theme-primary);
+    @include tab.active-text-label-color($mdc-theme-on-secondary);
+    @include tab.states-color($mdc-theme-background);
+    @include tab.text-label-color($mdc-theme-primary);
 
     .mdc-tab-indicator--active {
-      @include mdc-tab-ink-color($mdc-theme-primary);
+      @include tab.ink-color($mdc-theme-primary);
     }
 
     .mdc-tab-indicator {
       @include mdc-tab-indicator-underline-color($mdc-theme-primary);
+    }
+
+    &:hover {
+      @include tab.text-label-color($mdc-theme-on-secondary);
     }
   }
 
@@ -361,6 +397,10 @@ a.mdc-icon-button:hover {
 .mdc-list {
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: var(--tableRowBackgroundColor);
+
+  .mdc-list-item:hover {
+    background-color: var(--primaryLightHover);
+  }
 
   // .mdc-list-item__graphic {
   //   background-color: if(
