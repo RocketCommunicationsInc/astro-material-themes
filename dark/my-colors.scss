@@ -3,17 +3,16 @@
 @use "sass:map";
 
 @use "@material/theme" with (
-  $primary: #4dacff,
-  $secondary: #4dacff,
-  $on-primary: #080c11,
-  $on-secondary: #ffffff,
-  $background: #101923,
-  $error: rgb(255, 56, 56),
-  $on-error: #ffffff,
-  $surface: #1b2d3e,
-  $on-surface: #ffffff,
+  $primary: #4dacff, // --primary
+  $secondary: #4dacff, // --primary
+  $on-primary: #080c11, // --primaryElementText
+  $on-secondary: #ffffff, // --defaultText
+  $background: #101923, // --backgroundColor
+  $error: rgb(255, 56, 56), // --colorCritical
+  $on-error: #ffffff, // --defaultText
+  $surface: #1b2d3e, // --surfaceElements
+  $on-surface: #ffffff, // --defaultText
 );
-
 
 @use "@material/typography" with (
   $font-family: unquote("Roboto, sans-serif"),
