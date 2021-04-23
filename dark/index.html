@@ -189,7 +189,7 @@
               <code class="theme-summary-code">$mdc-typography--headline3</code>
               <figure class="theme-summary-typography mdc-typography--headline3">H3</figure>
             </div>
-            <!-- <hr class="mdc-list-divider typography-baseline-divider">
+            <hr class="mdc-list-divider typography-baseline-divider">
             <div class="theme-summary-line theme-summary-line--typography">
               <code class="theme-summary-code">$mdc-typography--headline4</code>
               <figure class="theme-summary-typography mdc-typography--headline4">H4</figure>
@@ -203,7 +203,7 @@
             <div class="theme-summary-line theme-summary-line--typography">
               <code class="theme-summary-code">$mdc-typography--headline6</code>
               <figure class="theme-summary-typography mdc-typography--headline6">H6</figure>
-            </div> -->
+            </div>
             <hr class="mdc-list-divider typography-baseline-divider">
             <div class="theme-summary-line theme-summary-line--typography">
               <code class="theme-summary-code">$mdc-typography--subtitle1</code>
@@ -698,7 +698,7 @@
                     <div class="mdc-chip">
                       <div class="mdc-chip__checkmark" >
                         <svg class="mdc-chip__checkmark-svg" viewbox="-2 -3 30 30">
-                          <path class="mdc-chip__checkmark-path" fill="none" stroke="var(--primary)"
+                          <path class="mdc-chip__checkmark-path" stroke="var(--primary)"
                                 d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
                         </svg>
                       </div>
@@ -1172,11 +1172,26 @@
                     <span class="mdc-notched-outline">
                       <span class="mdc-notched-outline__leading"></span>
                       <span class="mdc-notched-outline__notch">
-                        <span class="mdc-floating-label" id="my-label-id">Label</span>
+                        <span class="mdc-floating-label" id="my-label-id">Disabled</span>
                       </span>
                       <span class="mdc-notched-outline__trailing"></span>
                     </span>
                     <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" placeholder="Placeholder Text" disabled>
+                  </label>
+                  <div class="mdc-text-field-helper-line">
+                    <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent">Assistive text</div>
+                  </div>
+                </div>
+                <div class="component-wrapper text-field-component-wrapper text-field-component-wrapper-1">
+                  <label class="mdc-text-field mdc-text-field--outlined mdc-text-field--invalid">
+                    <span class="mdc-notched-outline">
+                      <span class="mdc-notched-outline__leading"></span>
+                      <span class="mdc-notched-outline__notch">
+                        <span class="mdc-floating-label" id="my-label-id">Invalid</span>
+                      </span>
+                      <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" required minlength="8">
                   </label>
                   <div class="mdc-text-field-helper-line">
                     <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent">Assistive text</div>
@@ -1200,7 +1215,7 @@
                 <div class="component-wrapper text-field-component-wrapper text-field-component-wrapper-2">
                   <label class="mdc-text-field mdc-text-field--filled mdc-text-field--disabled">
                     <span class="mdc-text-field__ripple"></span>
-                    <span class="mdc-floating-label" id="my-label-id">Label</span>
+                    <span class="mdc-floating-label" id="my-label-id">Disabled</span>
                     <input class="mdc-text-field__input" type="text"
                            aria-labelledby="my-label-id"
                            aria-controls="my-helper-id"
@@ -1213,6 +1228,21 @@
                     <div class="mdc-text-field-helper-text" id="my-helper-id" aria-hidden="true">Helper Text</div>
                   </div>
                 </div>
+                <div class="component-wrapper text-field-component-wrapper text-field-component-wrapper-2">
+                  <label class="mdc-text-field mdc-text-field--filled mdc-text-field--invalid">
+                    <span class="mdc-text-field__ripple"></span>
+                    <span class="mdc-floating-label" id="my-label-id">Invalid</span>
+                    <input class="mdc-text-field__input" type="text"
+                           aria-labelledby="my-label-id"
+                           aria-controls="my-helper-id"
+                           aria-describedby="my-helper-id"
+                           placeholder="Placeholder Text"
+                           required
+                           minlength="8">
+                    <span class="mdc-line-ripple"></span>
+                  </label>
+                </div>
+
 
               </section>
     
