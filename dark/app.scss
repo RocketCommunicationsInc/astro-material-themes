@@ -4,6 +4,9 @@
 // Import global Material Theming colors
 @use "my-colors";
 
+// Import Typography Settings
+@use "my-typography.scss";
+
 // Import component namespace for customization
 // NOTE: This allows mixins and properties to be called directly. Ex. `@include button.outline-color()`
 @use "@material/slider";
