@@ -74,19 +74,19 @@ a.mdc-icon-button:hover {
   // Enabled container colors
   @include checkbox.container-colors(
     $unmarked-stroke-color: $mdc-theme-primary,
-    $marked-fill-color: $mdc-theme-background,
+    $marked-fill-color: $mdc-theme-primary,
     $marked-stroke-color: $mdc-theme-primary
   );
 
   // Disabled container colors
   @include checkbox.disabled-container-colors(
     $unmarked-stroke-color: rgba($mdc-theme-primary, 0.4),
-    $marked-fill-color: rgba($mdc-theme-background, 0.4),
+    $marked-fill-color: rgba($mdc-theme-primary, 0.4),
     $marked-stroke-color: rgba($mdc-theme-primary, 0.4)
   );
 
-  @include checkbox.ink-color($mdc-theme-primary);
-  @include checkbox.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
+  @include checkbox.ink-color($mdc-theme-on-primary);
+  @include checkbox.disabled-ink-color(rgba($mdc-theme-on-primary, 0.4));
 }
 
 .mdc-radio {
@@ -363,7 +363,7 @@ a.mdc-icon-button:hover {
   }
 }
 
-// Snackbar
+// ------------- Snackbar -------------------------
 
 .mdc-snackbar {
   position: relative;
@@ -415,7 +415,7 @@ a.mdc-icon-button:hover {
   @include slider.value-indicator-text-color(#000);
 }
 
-// List
+// ------------------ List ---------------------------------
 
 .mdc-list {
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -445,7 +445,7 @@ a.mdc-icon-button:hover {
   }
 }
 
-// Image list
+// ------------------ Image List ---------------------------------
 
 .mdc-image-list {
   @include mdc-image-list-masonry-columns(2);
