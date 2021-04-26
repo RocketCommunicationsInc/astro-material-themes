@@ -106,10 +106,26 @@ a.mdc-icon-button:hover {
 
 .mdc-switch {
   @include rtl.reflexive-box(margin, right, 20px);
-  @include switch.toggled-on-thumb-color($mdc-theme-on-surface);
+  // @include switch.toggled-on-thumb-color($mdc-theme-on-surface);
   @include switch.toggled-on-track-color($mdc-theme-primary);
-  @include switch.toggled-off-thumb-color($mdc-theme-on-surface);
+  // @include switch.toggled-off-thumb-color($mdc-theme-on-surface);
   @include switch.toggled-off-track-color(my-colors.$secondary-text);
+
+  // On State
+  &.mdc-switch--checked {
+    .mdc-switch__thumb {
+      background-color: $mdc-theme-on-surface;
+      border: 1px solid $mdc-theme-primary;
+    }
+  }
+
+  // Off State
+  &:not(.mdc-switch--checked) {
+    .mdc-switch__thumb {
+      background-color: $mdc-theme-on-surface;
+      border: 1px solid my-colors.$secondary-text;
+    }
+  }
 }
 
 // Top app bar
