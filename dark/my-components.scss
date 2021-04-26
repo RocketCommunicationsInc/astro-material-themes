@@ -81,8 +81,7 @@ a.mdc-icon-button:hover {
   // Disabled container colors
   @include checkbox.disabled-container-colors(
     $unmarked-stroke-color: rgba($mdc-theme-primary, 0.4),
-    $marked-fill-color: rgba($mdc-theme-primary, 0.4),
-    $marked-stroke-color: rgba($mdc-theme-primary, 0.4)
+    $marked-fill-color: rgba($mdc-theme-primary, 0.4)
   );
 
   @include checkbox.ink-color($mdc-theme-on-primary);
@@ -108,9 +107,9 @@ a.mdc-icon-button:hover {
 .mdc-switch {
   @include rtl.reflexive-box(margin, right, 20px);
   @include switch.toggled-on-thumb-color($mdc-theme-on-surface);
-  @include switch.toggled-off-thumb-color($mdc-theme-on-surface);
   @include switch.toggled-on-track-color($mdc-theme-primary);
-  @include switch.toggled-off-track-color($mdc-theme-on-surface);
+  @include switch.toggled-off-thumb-color($mdc-theme-on-surface);
+  @include switch.toggled-off-track-color(my-colors.$secondary-text);
 }
 
 // Top app bar
@@ -193,13 +192,26 @@ a.mdc-icon-button:hover {
   );
 
   @include select.label-color($select-filled-text-colors);
-  @include select.label-floating-color($select-filled-text-colors);
-  @include select.ink-color($select-filled-text-colors);
   @include select.dropdown-icon-color($select-filled-text-colors);
+  @include select.ink-color($select-filled-text-colors);
+  @include select.label-floating-color(
+    $select-filled-text-colors // (
+    //   default: $mdc-theme-primary,
+    //   hover: my-colors.$primary-light,
+    // )
+  );
   @include select.container-fill-color(
     (
-      default: $mdc-theme-primary,
-      disabled: rgba($mdc-theme-primary, 0.4),
+      default: my-colors.$input-background,
+      disabled: rgba(my-colors.$input-background, 0.4),
+    )
+  );
+  @include select.bottom-line-color(
+    (
+      default: my-colors.$input-background,
+      hover: my-colors.$primary-light,
+      focus: $mdc-theme-primary,
+      disabled: rgba(0, 0, 0, 0.4),
     )
   );
 }
@@ -245,7 +257,11 @@ a.mdc-icon-button:hover {
 
 .mdc-chip-set--choice {
   .mdc-chip.mdc-chip--selected {
-    background-color: my-colors.$card-background;
+    @include chips.fill-color($mdc-theme-background);
+    @include chips.outline(2px, solid, my-colors.$primary-light);
+    @include chips.ink-color(my-colors.$primary-light);
+    @include chips.leading-icon-color(my-colors.$primary-light, 1);
+    @include chips.trailing-icon-color(my-colors.$primary-light, 1);
   }
 }
 
