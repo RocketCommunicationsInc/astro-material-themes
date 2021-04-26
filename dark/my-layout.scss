@@ -35,11 +35,11 @@ body {
 
   .mdc-drawer__content {
     padding: 24px;
-    color: var(--defaultText);
+    color: $mdc-theme-on-secondary;
   }
 
   h6 {
-    color: var(--secondaryText);
+    color: $mdc-theme-on-secondary;
     margin: 0;
   }
   p {
@@ -90,11 +90,11 @@ body {
   }
 
   .section-header a {
-    color: var(--secondaryText);
+    color: my-colors.$secondary-text;
 
     &:hover,
     &:focus {
-      color: var(--defaultText);
+      color: $mdc-theme-on-secondary;
     }
   }
 }
