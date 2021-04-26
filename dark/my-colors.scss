@@ -2,6 +2,20 @@
 // To begin customizing your theme, modify these variables. By default each theme starts off with our baseline values, so you can easily swap them out.
 @use "sass:map";
 
+$primary-light: #92cbff; // --primaryLight
+$primary-light-hover: #92cbff4d; // --primaryLightHover
+$global-app-header: #172635; // --globalAppHeader
+$input-background: #ffffff; // --inputBackground
+$card-background: rgb(32, 50, 70); // --cardBackgroundColor
+$secondary-text: #d4d8dd; // --secondaryText
+$primary-dark: #3a87cf; // --primaryDark
+$table-header-background: $global-app-header;
+$table-row-hover-background: $primary-light-hover;
+$slider-track-background: $secondary-text;
+$slider-thumb-background: $primary-dark;
+$slider-thumb-border: $input-background;
+
+// These colors are used later with a $mdc-theme-* tag in front
 @use "@material/theme" with (
   $primary: #4dacff, // --primary
   $secondary: #4dacff, // --primary
