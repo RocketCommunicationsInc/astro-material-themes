@@ -179,7 +179,7 @@ a.mdc-icon-button:hover {
   }
 }
 
-// Select
+// ------------------------ Select ------------------------
 
 .mdc-select--filled {
   width: 160px;
@@ -231,6 +231,21 @@ a.mdc-icon-button:hover {
   @include select.outline-color($select-outline-text-colors);
 }
 
+// Select menu Colors
+.mdc-select {
+  .mdc-select__menu {
+    .mdc-list {
+      .mdc-list-item.mdc-list-item--selected {
+        color: $mdc-theme-on-primary;
+        background-color: $mdc-theme-primary;
+      }
+      .mdc-list-item {
+        color: $mdc-theme-on-primary;
+      }
+    }
+  }
+}
+
 // Chips
 
 .mdc-chip {
@@ -247,8 +262,8 @@ a.mdc-icon-button:hover {
 
   &:hover {
     @include chips.outline(2px, solid, my-colors.$primary-light);
-    @include chips.ink-color(#92cbff4d);
-    @include chips.leading-icon-color(#92cbff4d);
+    @include chips.ink-color(my-colors.$primary-light);
+    @include chips.leading-icon-color(my-colors.$primary-light);
     .mdc-chip__checkmark-path {
       stroke: my-colors.$primary-light;
     }
@@ -257,11 +272,17 @@ a.mdc-icon-button:hover {
 
 .mdc-chip-set--choice {
   .mdc-chip.mdc-chip--selected {
-    @include chips.fill-color($mdc-theme-background);
-    @include chips.outline(2px, solid, my-colors.$primary-light);
-    @include chips.ink-color(my-colors.$primary-light);
-    @include chips.leading-icon-color(my-colors.$primary-light, 1);
-    @include chips.trailing-icon-color(my-colors.$primary-light, 1);
+    @include chips.fill-color($mdc-theme-primary);
+    @include chips.outline(2px, solid, $mdc-theme-primary);
+    @include chips.ink-color($mdc-theme-on-primary);
+    @include chips.leading-icon-color($mdc-theme-on-primary, 1);
+    @include chips.trailing-icon-color($mdc-theme-on-primary, 1);
+
+    &:hover {
+      @include chips.fill-color(my-colors.$primary-light);
+      @include chips.outline(2px, solid, my-colors.$primary-light);
+      @include chips.leading-icon-color($mdc-theme-on-primary);
+    }
   }
 }
 
@@ -285,49 +306,78 @@ a.mdc-icon-button:hover {
   }
 }
 
-// Text field
+// -------------------- Text field -----------------
 
 .mdc-text-field {
   width: 100%;
 }
 
+// Filled and valid
 .mdc-text-field--filled:not(.mdc-text-field--invalid) {
   @include textfield.fill-color(my-colors.$input-background);
-  @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
   @include textfield.ink-color($mdc-theme-on-primary);
-  @include textfield.placeholder-color(my-colors.$secondary-text);
+  @include textfield.placeholder-color(rgba($mdc-theme-on-primary, 0.6));
   @include textfield.label-color($mdc-theme-on-primary);
+  @include textfield.hover-bottom-line-color(my-colors.$primary-light);
+  @include icon.leading-icon-color($mdc-theme-primary);
+  @include icon.trailing-icon-color($mdc-theme-primary);
+
+  // Disabled colors
   @include textfield.disabled-label-color($mdc-theme-on-primary);
+  @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
+  @include icon.disabled-icon-color(rgba($mdc-theme-primary, 0.4));
 }
 
+// Filled and invalid
 .mdc-text-field--filled.mdc-text-field--invalid {
   @include textfield.fill-color(my-colors.$input-background);
   @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
   @include textfield.ink-color($mdc-theme-on-primary);
 }
 
+// Outlined and valid
 .mdc-text-field--outlined:not(.mdc-text-field--invalid) {
   @include textfield.ink-color($mdc-theme-primary);
-  @include textfield.placeholder-color(rgba($mdc-theme-primary, 0.4));
+  @include textfield.placeholder-color(rgba($mdc-theme-primary, 0.6));
   @include textfield.label-color($mdc-theme-primary);
   @include textfield.outline-color($mdc-theme-primary);
+  @include icon.leading-icon-color($mdc-theme-primary);
+  @include icon.trailing-icon-color($mdc-theme-primary);
 
   // Disabled colors
   @include textfield.disabled-outline-color(rgba($mdc-theme-primary, 0.4));
   @include textfield.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
   @include textfield.disabled-label-color(rgba($mdc-theme-primary, 0.4));
+  @include icon.disabled-icon-color(rgba($mdc-theme-primary, 0.4));
+}
+
+// Outlined an invalid
+.mdc-text-field--outlined.mdc-text-field--invalid {
+  @include icon.leading-icon-color($mdc-theme-error);
 }
 
 // Helper Text
 .mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line {
+  flex-direction: row-reverse;
+  padding-right: 0;
   .mdc-text-field-helper-text {
-    color: $mdc-theme-on-secondary;
+    color: my-colors.$secondary-text;
+    text-align: end;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+    font-weight: normal;
   }
 }
 
 .mdc-text-field--disabled + .mdc-text-field-helper-line {
+  flex-direction: row-reverse;
+  padding-right: 0;
   .mdc-text-field-helper-text {
-    color: my-colors.$secondary-text;
+    color: rgba(my-colors.$secondary-text, 0.4);
+    text-align: end;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+    font-weight: normal;
   }
 }
 
