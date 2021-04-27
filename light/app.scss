@@ -4,6 +4,9 @@
 // Import global Material Theming colors
 @use "my-colors";
 
+// Import Typography Settings
+@use "my-typography";
+
 // Import component namespace for customization
 // NOTE: This allows mixins and properties to be called directly. Ex. `@include button.outline-color()`
 @use "@material/slider";
@@ -23,6 +26,7 @@
 @use "@material/menu";
 @use "@material/menu-surface";
 @use "@material/radio";
+@use "@material/ripple";
 @use "@material/rtl";
 @use "@material/select";
 @use "@material/shape";
@@ -33,13 +37,14 @@
 @use "@material/tab-indicator";
 @use "@material/tab";
 @use "@material/textfield";
+@use "@material/textfield/icon";
 @use "@material/top-app-bar";
+@use "@material/typography/mdc-typography";
 @use "@material/data-table";
 
 // Import styles for each MDC Web component
 @import "@material/slider/styles";
 @import "@material/button/mdc-button";
-
 @import "@material/card/mdc-card";
 @import "@material/checkbox/mdc-checkbox";
 @import "@material/chips/mdc-chips";
@@ -72,9 +77,9 @@
 @import "@material/data-table/mdc-data-table";
 
 // Import global Material Theming typography and fonts
-@import "my-font-shape";
+@import "my-theme";
 
-// Import site-specific SCSS file
+// Import index.html Styling
 @import "my-layout";
 
 // Import theme-specific component SCSS files
