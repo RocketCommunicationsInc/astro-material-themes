@@ -142,6 +142,10 @@ a.mdc-icon-button:hover {
 .mdc-fab {
   @include fab.container-color($mdc-theme-primary);
   @include fab.ink-color($mdc-theme-on-primary);
+
+  &:hover {
+    @include fab.container-color(my-colors.$primary-light);
+  }
 }
 
 // --------------------- Card --------------------------
@@ -488,6 +492,7 @@ a.mdc-icon-button:hover {
   justify-content: start;
   z-index: 1;
   border: 1px solid $mdc-theme-primary;
+  border-radius: 3px;
 
   .mdc-dialog__surface {
     max-width: 100%;
