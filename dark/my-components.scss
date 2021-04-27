@@ -1,3 +1,5 @@
+// Style Individual Components
+
 // ------------------ Buttons ----------------------
 
 .mdc-button {
@@ -31,7 +33,6 @@
 }
 
 .mdc-button.mdc-button--outlined {
-  // @include button.outline-color($mdc-theme-primary);
   @include button.ink-color(
     (
       default: $mdc-theme-primary,
@@ -100,9 +101,7 @@ a.mdc-icon-button:hover {
 
 .mdc-switch {
   @include rtl.reflexive-box(margin, right, 20px);
-  // @include switch.toggled-on-thumb-color($mdc-theme-on-surface);
   @include switch.toggled-on-track-color($mdc-theme-primary);
-  // @include switch.toggled-off-thumb-color($mdc-theme-on-surface);
   @include switch.toggled-off-track-color(my-colors.$secondary-text);
 
   // On State
@@ -204,12 +203,7 @@ a.mdc-icon-button:hover {
   @include select.label-color($select-filled-text-colors);
   @include select.dropdown-icon-color($select-filled-text-colors);
   @include select.ink-color($select-filled-text-colors);
-  @include select.label-floating-color(
-    $select-filled-text-colors // (
-    //   default: $mdc-theme-primary,
-    //   hover: my-colors.$primary-light,
-    // )
-  );
+  @include select.label-floating-color($select-filled-text-colors);
   @include select.container-fill-color(
     (
       default: my-colors.$input-background,
@@ -454,28 +448,28 @@ a.mdc-icon-button:hover {
 // ----------------- Tabs -----------------------
 .component-wrapper .mdc-tab-bar {
   background: $mdc-theme-background;
+}
 
-  .mdc-tab {
-    @include tab.active-text-label-color($mdc-theme-on-secondary);
-    @include tab.states-color($mdc-theme-background);
-    @include tab.text-label-color($mdc-theme-primary);
+.mdc-tab {
+  @include tab.active-text-label-color($mdc-theme-on-secondary);
+  @include tab.states-color($mdc-theme-background);
+  @include tab.text-label-color($mdc-theme-primary);
 
-    .mdc-tab-indicator--active {
-      @include tab.ink-color($mdc-theme-primary);
-    }
-
-    .mdc-tab-indicator {
-      @include mdc-tab-indicator-underline-color($mdc-theme-primary);
-    }
-
-    &:hover {
-      @include tab.text-label-color($mdc-theme-on-secondary);
-    }
+  .mdc-tab-indicator--active {
+    @include tab.ink-color($mdc-theme-primary);
   }
 
   .mdc-tab-indicator {
     @include mdc-tab-indicator-underline-color($mdc-theme-primary);
   }
+
+  &:hover {
+    @include tab.text-label-color($mdc-theme-on-secondary);
+  }
+}
+
+.mdc-tab-indicator {
+  @include mdc-tab-indicator-underline-color($mdc-theme-primary);
 }
 
 // ------------------- Snackbar -------------------
