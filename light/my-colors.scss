@@ -1,35 +1,43 @@
-/* Build a Material theme */
-// To begin customizing your theme, modify these variables. By default each theme starts off with our baseline values, so you can easily swap them out.
-@use "sass:map";
+// Theme Colors
+// Must be hard-coded for Material mixins
 
+$background-color: #eaeef4; // --backgroundColor
+$default-text: #292a2d; // --defaultText
+$secondary-text: #51555b; // --secondaryText
+$global-app-header: #172635; // --globalAppHeader
+$surface-elements: #ffffff; // --surfaceElements
+$primary: #005a8f; // --primary
+$primary-light: #2f7aa7; // --primaryLight
+$primary-dark: #004872; // --primaryDark
+$primary-dark-hover: #0048724d; // --primaryDarkHover
+$primary-element-text: #ffffff; // --primaryElementText
+$input-background: #ffffff; // --inputBackground
+$input-dark: #080c11; // --inputDark
+$card-background: rgb(226, 230, 238); // --cardBackgroundColor
+$primary-dark: #004872; // --primaryDark
+$wcag-compliance: rgba(0, 0, 0, 0.5); // --wcagCompliance
+$critical-border: #7f1c1c; // --criticalBorder
+$color-critical: rgb(255, 42, 4); // --colorCritical
+$colo-serious: rgb(255, 175, 61); // --colorSerious
+$color-caution: rgb(250, 216, 0); // --colorCaution
+$color-normal: rgb(0, 226, 0); // --colorNormal
+$color-standby: rgb(100, 217, 255); // --colorStandby
+$color-off: rgb(142, 154, 163); // --colorOff
+$table-header-background: $global-app-header;
+$table-row-hover-background: $primary-dark-hover;
+$slider-track-background: $input-background;
+$slider-thumb-background: $primary-dark;
+$slider-thumb-border: $input-background;
+
+// These colors are used later with a $mdc-theme-* tag in front
 @use "@material/theme" with (
-  $primary: #005a8f,
-  $secondary: #005a8f,
-  $on-primary: #ffffff,
-  $on-secondary: #51555b,
-  $background: #eaeef4,
-  $error: #7f1c1c,
-  $on-error: #ffffff,
-  $surface: #ffffff,
-  $on-surface: #292a2d,
-);
-
-$headline-typography: (
-  font-weight: 300,
-  margin: 0 0 0.5rem,
-);
-
-@use "@material/typography" with (
-  $font-family: unquote("Roboto, sans-serif"),
-  $styles-headline1: map.merge($headline-typography, (font-size: 2.375rem)),
-  $styles-headline2: map.merge($headline-typography, (font-size: 1.75rem)),
-  $styles-headline3: map.merge($headline-typography, (font-size: 1.375rem)),
-  $styles-body1: (margin: 0 0 1rem, font-size: 1rem),
-  $styles-body2: (margin: 0 0 1rem, font-size: 0.875rem),
-  $styles-button: (
-    text-transform: none,
-    font-size: 1rem,
-    white-space: nowrap,
-    text-overflow: ellipsis,
-  ),
+  $primary: $primary,
+  $secondary: $primary-dark,
+  $on-primary: $primary-element-text,
+  $on-secondary: $default-text,
+  $background: $background-color,
+  $error: $color-critical,
+  $on-error: $primary-element-text,
+  $surface: $surface-elements,
+  $on-surface: $default-text,
 );
