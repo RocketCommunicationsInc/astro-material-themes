@@ -1,34 +1,28 @@
-/* Build a Material theme */
-// To begin customizing your theme, modify these variables. By default each theme starts off with our baseline values, so you can easily swap them out.
-@use "sass:map";
+// Theme Colors
+// Must be hard-coded for Material mixins
 
+$primary-light: #92cbff; // --primaryLight
+$primary-light-hover: #92cbff4d; // --primaryLightHover
+$global-app-header: #172635; // --globalAppHeader
+$input-background: #ffffff; // --inputBackground
+$card-background: rgb(32, 50, 70); // --cardBackgroundColor
+$secondary-text: #d4d8dd; // --secondaryText
+$primary-dark: #3a87cf; // --primaryDark
+$table-header-background: $global-app-header;
+$table-row-hover-background: $primary-light-hover;
+$slider-track-background: $secondary-text;
+$slider-thumb-background: $primary-dark;
+$slider-thumb-border: $input-background;
+
+// These colors are used later with a $mdc-theme-* tag in front
 @use "@material/theme" with (
-  $primary: #4dacff,
-  $secondary: #4dacff,
-  $on-primary: #000000,
-  $on-secondary: #ffffff,
-  $background: #101923,
-  $error: rgb(255, 56, 56),
-  $on-error: #ffffff,
-  $surface: #1b2d3e,
-  $on-surface: #ffffff,
-);
-
-$headline-typography: (
-  font-weight: 300,
-  margin: 0 0 0.5rem,
-);
-
-@use "@material/typography" with (
-  $font-family: unquote("Roboto, sans-serif"),
-  $styles-headline1: map.merge($headline-typography, (font-size: 2.375rem)),
-  $styles-headline2: map.merge($headline-typography, (font-size: 1.75rem)),
-  $styles-headline3: map.merge($headline-typography, (font-size: 1.375rem)),
-  $styles-body1: (margin: 0 0 1rem),
-  $styles-button: (
-    text-transform: none,
-    font-size: 1rem,
-    white-space: nowrap,
-    text-overflow: ellipsis,
-  ),
+  $primary: #4dacff, // --primary
+  $secondary: #4dacff, // --primary
+  $on-primary: #080c11, // --primaryElementText
+  $on-secondary: #ffffff, // --defaultText
+  $background: #101923, // --backgroundColor
+  $error: rgb(255, 56, 56), // --colorCritical
+  $on-error: #ffffff, // --defaultText
+  $surface: #1b2d3e, // --surfaceElements
+  $on-surface: #ffffff, // --defaultText
 );

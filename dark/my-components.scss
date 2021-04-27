@@ -1,18 +1,50 @@
-// Material Theming
-// After importing all MDC Web components, apply mixins to theme individual components
+// Style Individual Components
 
-//  Buttons
+// ------------------ Buttons ----------------------
 
 .mdc-button {
   // @include mdc-button-shape-radius(50%);
-  @include button.outline-color($mdc-theme-primary);
   @include button.horizontal-padding(1rem);
+  @include button.ink-color(
+    (
+      hover: my-colors.$primary-light,
+      disabled: rgba(my-colors.$primary-light, 0.4),
+    )
+  );
+  &:hover {
+    @include button.ink-color(my-colors.$primary-light);
+  }
 }
 
 .mdc-button.mdc-button--raised {
+  @include button.outline-color($mdc-theme-primary);
+  @include button.ink-color(
+    (
+      hover: $mdc-theme-on-primary,
+      disabled: rgba($mdc-theme-on-primary, 0.4),
+    )
+  );
   @include button.container-fill-color(
     (
-      hover: lighten($mdc-theme-primary, 10%),
+      hover: my-colors.$primary-light,
+      disabled: rgba($mdc-theme-primary, 0.4),
+    )
+  );
+}
+
+.mdc-button.mdc-button--outlined {
+  @include button.ink-color(
+    (
+      default: $mdc-theme-primary,
+      hover: my-colors.$primary-light,
+      disabled: rgba($mdc-theme-primary, 0.4),
+    )
+  );
+  @include button.outline-color(
+    (
+      default: $mdc-theme-primary,
+      hover: my-colors.$primary-light,
+      disabled: rgba($mdc-theme-primary, 0.4),
     )
   );
 }
@@ -30,27 +62,27 @@ a.mdc-icon-button:hover {
   color: lighten($mdc-theme-primary, 10%);
 }
 
-// Checkbox and radio
+// ------------------ Checkbox -------------------
 
 .mdc-checkbox {
   // Enabled container colors
   @include checkbox.container-colors(
     $unmarked-stroke-color: $mdc-theme-primary,
-    $marked-fill-color: $mdc-theme-background,
+    $marked-fill-color: $mdc-theme-primary,
     $marked-stroke-color: $mdc-theme-primary
   );
 
   // Disabled container colors
   @include checkbox.disabled-container-colors(
     $unmarked-stroke-color: rgba($mdc-theme-primary, 0.4),
-    $marked-fill-color: rgba($mdc-theme-background, 0.4),
-    $marked-stroke-color: rgba($mdc-theme-primary, 0.4)
+    $marked-fill-color: rgba($mdc-theme-primary, 0.4)
   );
 
-  @include checkbox.ink-color($mdc-theme-primary);
-  @include checkbox.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
+  @include checkbox.ink-color($mdc-theme-on-primary);
+  @include checkbox.disabled-ink-color(rgba($mdc-theme-on-primary, 0.4));
 }
 
+//  ----------------- Radio ---------------------------
 .mdc-radio {
   margin-right: 4px;
 
@@ -65,40 +97,54 @@ a.mdc-icon-button:hover {
   @include radio.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
 }
 
-// Switch
+// ------------------ Switch -----------------------------
 
 .mdc-switch {
   @include rtl.reflexive-box(margin, right, 20px);
-  @include switch.toggled-on-thumb-color($mdc-theme-on-surface);
-  @include switch.toggled-off-thumb-color($mdc-theme-on-surface);
   @include switch.toggled-on-track-color($mdc-theme-primary);
-  @include switch.toggled-off-track-color($mdc-theme-on-surface);
+  @include switch.toggled-off-track-color(my-colors.$secondary-text);
+
+  // On State
+  &.mdc-switch--checked {
+    .mdc-switch__thumb {
+      background-color: $mdc-theme-on-surface;
+      border: 1px solid $mdc-theme-primary;
+    }
+  }
+
+  // Off State
+  &:not(.mdc-switch--checked) {
+    .mdc-switch__thumb {
+      background-color: $mdc-theme-on-surface;
+      border: 1px solid my-colors.$secondary-text;
+    }
+  }
 }
 
-// Top app bar
+// ------------------ Top app bar -------------------
 
-.component-wrapper .mdc-top-app-bar {
+.mdc-top-app-bar {
   @include mdc-elevation(4);
   position: relative;
   z-index: 1;
 
-  @include top-app-bar.ink-color(var(--defaultText));
+  @include top-app-bar.ink-color($mdc-theme-on-surface);
   @include top-app-bar.icon-ink-color($mdc-theme-primary);
-  @include top-app-bar.fill-color($mdc-theme-surface);
+  @include top-app-bar.fill-color(my-colors.$global-app-header);
 
   &:not(.mdc-top-app-bar--short) {
     width: 100%;
   }
 }
 
-// FAB Buttons
+// ---------------- FAB Buttons -----------------
 
 .mdc-fab {
   @include fab.container-color($mdc-theme-primary);
   @include fab.ink-color($mdc-theme-on-primary);
 }
 
-// Card
+// --------------------- Card --------------------------
 
 .mdc-card {
   width: 100%;
@@ -121,13 +167,13 @@ a.mdc-icon-button:hover {
   }
 }
 
-// Linear progress
+// ------------------ Linear progress ---------------------
 
 .mdc-linear-progress {
   width: 100%;
 }
 
-// Menu
+// ---------------------- Menu ----------------------------
 
 .mdc-menu-surface--anchor > .mdc-menu {
   position: relative;
@@ -135,17 +181,14 @@ a.mdc-icon-button:hover {
 }
 
 .mdc-menu.mdc-menu-surface {
-  // background-color: var(--inputBackground);
-  // color: $mdc-theme-on-primary;
   .mdc-list {
-    background: var(--inputBackground);
+    background: my-colors.$input-background;
     @include list.item-primary-text-ink-color($mdc-theme-on-primary);
     @include list.item-graphic-ink-color($mdc-theme-on-primary);
-    // .mdc-list-item
   }
 }
 
-// Select
+// ------------------------ Select ------------------------
 
 .mdc-select--filled {
   width: 160px;
@@ -158,13 +201,21 @@ a.mdc-icon-button:hover {
   );
 
   @include select.label-color($select-filled-text-colors);
-  @include select.label-floating-color($select-filled-text-colors);
-  @include select.ink-color($select-filled-text-colors);
   @include select.dropdown-icon-color($select-filled-text-colors);
+  @include select.ink-color($select-filled-text-colors);
+  @include select.label-floating-color($select-filled-text-colors);
   @include select.container-fill-color(
     (
-      default: $mdc-theme-primary,
-      disabled: rgba($mdc-theme-primary, 0.4),
+      default: my-colors.$input-background,
+      disabled: rgba(my-colors.$input-background, 0.4),
+    )
+  );
+  @include select.bottom-line-color(
+    (
+      default: my-colors.$input-background,
+      hover: my-colors.$primary-light,
+      focus: $mdc-theme-primary,
+      disabled: rgba(0, 0, 0, 0.4),
     )
   );
 }
@@ -184,7 +235,22 @@ a.mdc-icon-button:hover {
   @include select.outline-color($select-outline-text-colors);
 }
 
-// Chips
+// Select menu Colors
+.mdc-select {
+  .mdc-select__menu {
+    .mdc-list {
+      .mdc-list-item.mdc-list-item--selected {
+        color: $mdc-theme-on-primary;
+        background-color: $mdc-theme-primary;
+      }
+      .mdc-list-item {
+        color: $mdc-theme-on-primary;
+      }
+    }
+  }
+}
+
+// ----------------- Chips -----------------------
 
 .mdc-chip {
   @include chips.fill-color($mdc-theme-background);
@@ -193,15 +259,38 @@ a.mdc-icon-button:hover {
   @include chips.leading-icon-color($mdc-theme-primary, 1);
   @include chips.trailing-icon-color($mdc-theme-primary, 1);
   // @include chips.selected-ink-color(#92cbff);
+
+  .mdc-chip__checkmark-path {
+    stroke: $mdc-theme-primary;
+  }
+
+  &:hover {
+    @include chips.outline(2px, solid, my-colors.$primary-light);
+    @include chips.ink-color(my-colors.$primary-light);
+    @include chips.leading-icon-color(my-colors.$primary-light);
+    .mdc-chip__checkmark-path {
+      stroke: my-colors.$primary-light;
+    }
+  }
 }
 
 .mdc-chip-set--choice {
   .mdc-chip.mdc-chip--selected {
-    background-color: var(--cardBackgroundColor);
+    @include chips.fill-color($mdc-theme-primary);
+    @include chips.outline(2px, solid, $mdc-theme-primary);
+    @include chips.ink-color($mdc-theme-on-primary);
+    @include chips.leading-icon-color($mdc-theme-on-primary, 1);
+    @include chips.trailing-icon-color($mdc-theme-on-primary, 1);
+
+    &:hover {
+      @include chips.fill-color(my-colors.$primary-light);
+      @include chips.outline(2px, solid, my-colors.$primary-light);
+      @include chips.leading-icon-color($mdc-theme-on-primary);
+    }
   }
 }
 
-// Drawer
+// ----------------- Drawer ------------------------
 
 .drawer-component-wrapper {
   background: rgba(0, 0, 0, 0.3);
@@ -221,90 +310,166 @@ a.mdc-icon-button:hover {
   }
 }
 
-// Text field
+// -------------------- Text field -----------------
 
 .mdc-text-field {
   width: 100%;
 }
 
-.mdc-text-field--filled {
-  @include textfield.fill-color(var(--inputBackground));
+// Filled and valid
+.mdc-text-field--filled:not(.mdc-text-field--invalid) {
+  @include textfield.fill-color(my-colors.$input-background);
+  @include textfield.ink-color($mdc-theme-on-primary);
+  @include textfield.placeholder-color(rgba($mdc-theme-on-primary, 0.6));
+  @include textfield.label-color($mdc-theme-on-primary);
+  @include textfield.hover-bottom-line-color(my-colors.$primary-light);
+  @include icon.leading-icon-color($mdc-theme-primary);
+  @include icon.trailing-icon-color($mdc-theme-primary);
+
+  // Disabled colors
+  @include textfield.disabled-label-color($mdc-theme-on-primary);
   @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
-  @include textfield.ink-color(var(--primaryElementText));
-  @include textfield.placeholder-color(darken($mdc-theme-on-surface, 60%));
-  @include textfield.label-color(var(--primaryElementText));
-  @include textfield.disabled-label-color(var(--primaryElementText));
+  @include icon.disabled-icon-color(rgba($mdc-theme-primary, 0.4));
 }
 
-.mdc-text-field--outlined {
+// Filled and invalid
+.mdc-text-field--filled.mdc-text-field--invalid {
+  @include textfield.fill-color(my-colors.$input-background);
+  @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
+  @include textfield.ink-color($mdc-theme-on-primary);
+}
+
+// Outlined and valid
+.mdc-text-field--outlined:not(.mdc-text-field--invalid) {
   @include textfield.ink-color($mdc-theme-primary);
-  @include textfield.placeholder-color(rgba($mdc-theme-primary, 0.4));
+  @include textfield.placeholder-color(rgba($mdc-theme-primary, 0.6));
   @include textfield.label-color($mdc-theme-primary);
   @include textfield.outline-color($mdc-theme-primary);
+  @include icon.leading-icon-color($mdc-theme-primary);
+  @include icon.trailing-icon-color($mdc-theme-primary);
 
   // Disabled colors
   @include textfield.disabled-outline-color(rgba($mdc-theme-primary, 0.4));
   @include textfield.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
   @include textfield.disabled-label-color(rgba($mdc-theme-primary, 0.4));
+  @include icon.disabled-icon-color(rgba($mdc-theme-primary, 0.4));
+}
+
+// Outlined an invalid
+.mdc-text-field--outlined.mdc-text-field--invalid {
+  @include icon.leading-icon-color($mdc-theme-error);
 }
 
 // Helper Text
 .mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line {
+  flex-direction: row-reverse;
+  padding-right: 0;
   .mdc-text-field-helper-text {
-    color: var(--defaultText);
+    color: my-colors.$secondary-text;
+    text-align: end;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+    font-weight: normal;
   }
 }
 
 .mdc-text-field--disabled + .mdc-text-field-helper-line {
+  flex-direction: row-reverse;
+  padding-right: 0;
   .mdc-text-field-helper-text {
-    color: var(--secondaryText);
+    color: rgba(my-colors.$secondary-text, 0.4);
+    text-align: end;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+    font-weight: normal;
   }
 }
 
-// Data Table
+// -------------------- Data Table ---------------------
 
 .mdc-data-table {
   @include data-table.sort-icon-color($mdc-theme-on-surface);
   @include data-table.sort-icon-active-color($mdc-theme-on-surface);
   //  Table Rows fill color
   @include data-table.fill-color($mdc-theme-background);
-  @include data-table.header-row-fill-color(var(--tableHeaderBackgroundColor));
-  @include data-table.row-fill-color(var(--tableRowBackgroundColor));
+  @include data-table.header-row-fill-color(my-colors.$table-header-background);
+  @include data-table.row-fill-color($mdc-theme-surface);
   @include data-table.selected-row-fill-color(
     lighten($mdc-theme-background, 15%)
   );
-  @include data-table.divider-color(var(--tableRowBorderColor));
+  @include data-table.divider-color($mdc-theme-background);
   @include data-table.divider-size(2px);
-  @include data-table.row-hover-fill-color(var(--tableRowHoverBackgroundColor));
-  @include data-table.header-row-text-color(var(--tableHeaderTextColor));
-  @include data-table.row-text-color(var(--tableRowTextColor));
+  @include data-table.row-hover-fill-color(
+    my-colors.$table-row-hover-background
+  );
+  @include data-table.header-row-text-color($mdc-theme-on-secondary);
+  @include data-table.row-text-color($mdc-theme-on-secondary);
+
+  // Set typography
+  .mdc-data-table__table {
+    .mdc-data-table__header-row {
+      .mdc-data-table__header-cell {
+        // Header Row to H5
+        font-size: map-get(
+          $map: $mdc-typography-styles-headline5,
+          $key: font-size
+        );
+        font-weight: map-get(
+          $map: $mdc-typography-styles-headline5,
+          $key: font-weight
+        );
+        letter-spacing: var(--mdc-typography-headline5-letter-spacing);
+        line-height: var(--mdc-typography-headline5-line-height);
+        text-decoration: var(--mdc-typography-headline5-text-decoration);
+        text-transform: var(--mdc-typography-headline5-text-transform);
+      }
+    }
+
+    .mdc-data-table__content {
+      .mdc-data-table__cell {
+        // Table data to Body1
+        font-size: map-get($map: $mdc-typography-styles-body1, $key: font-size);
+        letter-spacing: map-get(
+          $map: $mdc-typography-styles-body1,
+          $key: letter-spacing
+        );
+        font-weight: map-get(
+          $map: $mdc-typography-styles-body1,
+          $key: font-weight
+        );
+        line-height: var(--mdc-typography-body1-line-height);
+        text-decoration: var(--mdc-typography-body1-text-decoration);
+        text-transform: var(--mdc-typography-body1-text-transform);
+      }
+    }
+  }
 }
 
-// Tabs
-.component-wrapper .mdc-tab-bar {
-  background: $mdc-theme-background;
+// ----------------- Tabs -----------------------
 
-  .mdc-tab {
-    font-family: Roboto;
-    @include mdc-tab-active-text-label-color($mdc-theme-on-secondary);
-    @include mdc-tab-states-color($mdc-theme-background);
-    @include mdc-tab-text-label-color($mdc-theme-primary);
+.mdc-tab {
+  @include tab.active-text-label-color($mdc-theme-on-secondary);
+  @include tab.states-color($mdc-theme-background);
+  @include tab.text-label-color($mdc-theme-primary);
 
-    .mdc-tab-indicator--active {
-      @include mdc-tab-ink-color($mdc-theme-primary);
-    }
-
-    .mdc-tab-indicator {
-      @include mdc-tab-indicator-underline-color($mdc-theme-primary);
-    }
+  .mdc-tab-indicator--active {
+    @include tab.ink-color($mdc-theme-primary);
   }
 
   .mdc-tab-indicator {
     @include mdc-tab-indicator-underline-color($mdc-theme-primary);
   }
+
+  &:hover {
+    @include tab.text-label-color($mdc-theme-on-secondary);
+  }
 }
 
-// Snackbar
+.mdc-tab-indicator {
+  @include mdc-tab-indicator-underline-color($mdc-theme-primary);
+}
+
+// ------------------- Snackbar -------------------
 
 .mdc-snackbar {
   position: relative;
@@ -316,20 +481,40 @@ a.mdc-icon-button:hover {
   @include snackbar.label-ink-color($mdc-theme-on-secondary);
 }
 
-// Dialog
+// ------------------- Dialog ---------------------
 
 .mdc-dialog {
   position: relative;
   justify-content: start;
   z-index: 1;
+  border: 1px solid $mdc-theme-primary;
 
   .mdc-dialog__surface {
     max-width: 100%;
+
+    .mdc-dialog__title {
+      background-color: $mdc-theme-primary;
+      text-align: center;
+      font-size: map-get($map: $mdc-typography-styles-body1, $key: font-size);
+      letter-spacing: map-get(
+        $map: $mdc-typography-styles-body1,
+        $key: letter-spacing
+      );
+      font-weight: bold;
+      line-height: var(--mdc-typography-body1-line-height);
+      text-decoration: var(--mdc-typography-body1-text-decoration);
+      text-transform: var(--mdc-typography-body1-text-transform);
+
+      &:before {
+        height: 30px;
+      }
+    }
   }
 
   @include dialog.container-fill-color($mdc-theme-surface);
-  @include dialog.title-ink-color($mdc-theme-on-secondary);
+  @include dialog.title-ink-color($mdc-theme-on-primary);
   @include dialog.content-ink-color($mdc-theme-on-secondary, 0.8);
+  @include dialog.content-padding(1rem, 1.5rem, 1rem, 1.5rem);
 }
 
 // ------------------ Slider ---------------------------------
@@ -337,9 +522,9 @@ a.mdc-icon-button:hover {
 // Enabled
 .mdc-slider:not(.mdc-slider--disabled) {
   @include slider.track-active-color($mdc-theme-primary);
-  @include slider.track-inactive-color(var(--sliderTrackBackgroundColor), 1);
-  @include slider.thumb-color(var(--sliderThumbBackgroundColor));
-  @include slider.tick-mark-active-color(var(--sliderThumbBorderColor));
+  @include slider.track-inactive-color(my-colors.$slider-track-background, 1);
+  @include slider.thumb-color(my-colors.$slider-thumb-background);
+  @include slider.tick-mark-active-color(my-colors.$slider-thumb-border);
   @include slider.tick-mark-inactive-color(#000);
   @include slider.value-indicator-color($mdc-theme-primary, 0.7);
   @include slider.value-indicator-text-color(#000);
@@ -348,32 +533,23 @@ a.mdc-icon-button:hover {
 // Disabled
 .mdc-slider.mdc-slider--disabled {
   @include slider.track-active-color($mdc-theme-primary);
-  @include slider.track-inactive-color(var(--sliderTrackBackgroundColor), 1);
-  @include slider.thumb-color(var(--sliderThumbBackgroundColor));
-  @include slider.tick-mark-active-color(var(--sliderThumbBorderColor));
+  @include slider.track-inactive-color(my-colors.$slider-track-background, 1);
+  @include slider.thumb-color(my-colors.$slider-thumb-background);
+  @include slider.tick-mark-active-color(my-colors.$slider-thumb-border);
   @include slider.tick-mark-inactive-color(#000);
   @include slider.value-indicator-color($mdc-theme-primary, 0.7);
   @include slider.value-indicator-text-color(#000);
 }
 
-// List
+// ------------------ List ---------------------------------
 
 .mdc-list {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background: var(--tableRowBackgroundColor);
+  background: $mdc-theme-surface;
 
-  // .mdc-list-item__graphic {
-  //   background-color: if(
-  //     mdc-theme-contrast-tone($mdc-theme-background) == "dark",
-  //     rgba(0, 0, 0, 0.12),
-  //     rgba(255, 255, 255, 0.12)
-  //   );
-  //   color: if(
-  //     mdc-theme-contrast-tone($mdc-theme-background) == "dark",
-  //     rgba(0, 0, 0, 0.68),
-  //     rgba(255, 255, 255, 0.68)
-  //   );
-  // }
+  .mdc-list-item:hover {
+    background-color: my-colors.$primary-light-hover;
+  }
 
   .mdc-list-item--disabled {
     .mdc-list-item__text {
@@ -382,7 +558,7 @@ a.mdc-icon-button:hover {
   }
 }
 
-// Image list
+// ------------------ Image List ---------------------------------
 
 .mdc-image-list {
   @include mdc-image-list-masonry-columns(2);
