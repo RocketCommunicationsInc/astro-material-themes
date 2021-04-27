@@ -194,10 +194,10 @@ a.mdc-icon-button:hover {
   width: 160px;
 
   $select-filled-text-colors: (
-    default: #000,
-    disabled: rgba(0, 0, 0, 0.4),
-    hover: #000,
-    focus: #000,
+    default: $mdc-theme-on-secondary,
+    disabled: rgba($mdc-theme-on-secondary, 0.4),
+    hover: $mdc-theme-on-secondary,
+    focus: $mdc-theme-on-secondary,
   );
 
   @include select.label-color($select-filled-text-colors);
@@ -207,15 +207,16 @@ a.mdc-icon-button:hover {
   @include select.container-fill-color(
     (
       default: my-colors.$input-background,
+      hover: my-colors.$primary-dark-hover,
       disabled: rgba(my-colors.$input-background, 0.4),
     )
   );
   @include select.bottom-line-color(
     (
-      default: my-colors.$input-background,
-      hover: my-colors.$primary-light,
+      default: my-colors.$global-app-header,
+      hover: my-colors.$global-app-header,
       focus: $mdc-theme-primary,
-      disabled: rgba(0, 0, 0, 0.4),
+      disabled: rgba($mdc-theme-on-secondary, 0.4),
     )
   );
 }
@@ -241,10 +242,10 @@ a.mdc-icon-button:hover {
     .mdc-list {
       .mdc-list-item.mdc-list-item--selected {
         color: $mdc-theme-on-primary;
-        background-color: $mdc-theme-primary;
+        background-color: my-colors.$primary-light;
       }
       .mdc-list-item {
-        color: $mdc-theme-on-primary;
+        color: $mdc-theme-on-secondary;
       }
     }
   }
@@ -548,7 +549,7 @@ a.mdc-icon-button:hover {
   background: $mdc-theme-surface;
 
   .mdc-list-item:hover {
-    background-color: rgba(my-colors.$primary-dark, 0.3);
+    background-color: my-colors.$primary-dark-hover;
   }
 
   .mdc-list-item--disabled {
