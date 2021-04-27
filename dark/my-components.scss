@@ -1,11 +1,4 @@
-// Material Theming
-// After importing all MDC Web components, apply mixins to theme individual components
-
-// ASTRO Colors outside of 12-color Material Theme.
-// Colors are assigned to variables so all Material Theme mixins can function properly
-// @include $primary-light;
-
-//  Buttons
+// ------------------ Buttons ----------------------
 
 .mdc-button {
   // @include mdc-button-shape-radius(50%);
@@ -68,7 +61,7 @@ a.mdc-icon-button:hover {
   color: lighten($mdc-theme-primary, 10%);
 }
 
-// Checkbox and radio
+// ------------------ Checkbox -------------------
 
 .mdc-checkbox {
   // Enabled container colors
@@ -88,6 +81,7 @@ a.mdc-icon-button:hover {
   @include checkbox.disabled-ink-color(rgba($mdc-theme-on-primary, 0.4));
 }
 
+//  ----------------- Radio ---------------------------
 .mdc-radio {
   margin-right: 4px;
 
@@ -128,7 +122,7 @@ a.mdc-icon-button:hover {
   }
 }
 
-// Top app bar
+// ------------------ Top app bar -------------------
 
 .component-wrapper .mdc-top-app-bar {
   @include mdc-elevation(4);
@@ -151,7 +145,7 @@ a.mdc-icon-button:hover {
   @include fab.ink-color($mdc-theme-on-primary);
 }
 
-// Card
+// --------------------- Card --------------------------
 
 .mdc-card {
   width: 100%;
@@ -262,7 +256,7 @@ a.mdc-icon-button:hover {
   }
 }
 
-// Chips
+// ----------------- Chips -----------------------
 
 .mdc-chip {
   @include chips.fill-color($mdc-theme-background);
@@ -302,7 +296,7 @@ a.mdc-icon-button:hover {
   }
 }
 
-// Drawer
+// ----------------- Drawer ------------------------
 
 .drawer-component-wrapper {
   background: rgba(0, 0, 0, 0.3);
@@ -397,7 +391,7 @@ a.mdc-icon-button:hover {
   }
 }
 
-// Data Table
+// -------------------- Data Table ---------------------
 
 .mdc-data-table {
   @include data-table.sort-icon-color($mdc-theme-on-surface);
@@ -416,9 +410,48 @@ a.mdc-icon-button:hover {
   );
   @include data-table.header-row-text-color($mdc-theme-on-secondary);
   @include data-table.row-text-color($mdc-theme-on-secondary);
+
+  // Set typography
+  .mdc-data-table__table {
+    .mdc-data-table__header-row {
+      .mdc-data-table__header-cell {
+        // Header Row to H5
+        font-size: map-get(
+          $map: $mdc-typography-styles-headline5,
+          $key: font-size
+        );
+        font-weight: map-get(
+          $map: $mdc-typography-styles-headline5,
+          $key: font-weight
+        );
+        letter-spacing: var(--mdc-typography-headline5-letter-spacing);
+        line-height: var(--mdc-typography-headline5-line-height);
+        text-decoration: var(--mdc-typography-headline5-text-decoration);
+        text-transform: var(--mdc-typography-headline5-text-transform);
+      }
+    }
+
+    .mdc-data-table__content {
+      .mdc-data-table__cell {
+        // Table data to Body1
+        font-size: map-get($map: $mdc-typography-styles-body1, $key: font-size);
+        letter-spacing: map-get(
+          $map: $mdc-typography-styles-body1,
+          $key: letter-spacing
+        );
+        font-weight: map-get(
+          $map: $mdc-typography-styles-body1,
+          $key: font-weight
+        );
+        line-height: var(--mdc-typography-body1-line-height);
+        text-decoration: var(--mdc-typography-body1-text-decoration);
+        text-transform: var(--mdc-typography-body1-text-transform);
+      }
+    }
+  }
 }
 
-// Tabs
+// ----------------- Tabs -----------------------
 .component-wrapper .mdc-tab-bar {
   background: $mdc-theme-background;
 
@@ -445,7 +478,7 @@ a.mdc-icon-button:hover {
   }
 }
 
-// ------------- Snackbar -------------------------
+// ------------------- Snackbar -------------------
 
 .mdc-snackbar {
   position: relative;
@@ -463,14 +496,34 @@ a.mdc-icon-button:hover {
   position: relative;
   justify-content: start;
   z-index: 1;
+  border: 1px solid $mdc-theme-primary;
 
   .mdc-dialog__surface {
     max-width: 100%;
+
+    .mdc-dialog__title {
+      background-color: $mdc-theme-primary;
+      text-align: center;
+      font-size: map-get($map: $mdc-typography-styles-body1, $key: font-size);
+      letter-spacing: map-get(
+        $map: $mdc-typography-styles-body1,
+        $key: letter-spacing
+      );
+      font-weight: bold;
+      line-height: var(--mdc-typography-body1-line-height);
+      text-decoration: var(--mdc-typography-body1-text-decoration);
+      text-transform: var(--mdc-typography-body1-text-transform);
+
+      &:before {
+        height: 30px;
+      }
+    }
   }
 
   @include dialog.container-fill-color($mdc-theme-surface);
-  @include dialog.title-ink-color($mdc-theme-on-secondary);
+  @include dialog.title-ink-color($mdc-theme-on-primary);
   @include dialog.content-ink-color($mdc-theme-on-secondary, 0.8);
+  @include dialog.content-padding(1rem, 1.5rem, 1rem, 1.5rem);
 }
 
 // ------------------ Slider ---------------------------------
