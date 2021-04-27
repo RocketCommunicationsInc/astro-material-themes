@@ -123,7 +123,7 @@ a.mdc-icon-button:hover {
 
 // ------------------ Top app bar -------------------
 
-.component-wrapper .mdc-top-app-bar {
+.mdc-top-app-bar {
   @include mdc-elevation(4);
   position: relative;
   z-index: 1;
@@ -167,13 +167,13 @@ a.mdc-icon-button:hover {
   }
 }
 
-// Linear progress
+// ------------------ Linear progress ---------------------
 
 .mdc-linear-progress {
   width: 100%;
 }
 
-// Menu
+// ---------------------- Menu ----------------------------
 
 .mdc-menu-surface--anchor > .mdc-menu {
   position: relative;
@@ -446,9 +446,6 @@ a.mdc-icon-button:hover {
 }
 
 // ----------------- Tabs -----------------------
-.component-wrapper .mdc-tab-bar {
-  background: $mdc-theme-background;
-}
 
 .mdc-tab {
   @include tab.active-text-label-color($mdc-theme-on-secondary);
@@ -484,7 +481,7 @@ a.mdc-icon-button:hover {
   @include snackbar.label-ink-color($mdc-theme-on-secondary);
 }
 
-// Dialog
+// ------------------- Dialog ---------------------
 
 .mdc-dialog {
   position: relative;
@@ -553,19 +550,6 @@ a.mdc-icon-button:hover {
   .mdc-list-item:hover {
     background-color: my-colors.$primary-light-hover;
   }
-
-  // .mdc-list-item__graphic {
-  //   background-color: if(
-  //     mdc-theme-contrast-tone($mdc-theme-background) == "dark",
-  //     rgba(0, 0, 0, 0.12),
-  //     rgba(255, 255, 255, 0.12)
-  //   );
-  //   color: if(
-  //     mdc-theme-contrast-tone($mdc-theme-background) == "dark",
-  //     rgba(0, 0, 0, 0.68),
-  //     rgba(255, 255, 255, 0.68)
-  //   );
-  // }
 
   .mdc-list-item--disabled {
     .mdc-list-item__text {
