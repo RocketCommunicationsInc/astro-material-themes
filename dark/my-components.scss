@@ -97,7 +97,7 @@ a.mdc-icon-button:hover {
   @include radio.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
 }
 
-// Switch
+// ------------------ Switch -----------------------------
 
 .mdc-switch {
   @include rtl.reflexive-box(margin, right, 20px);
@@ -137,7 +137,7 @@ a.mdc-icon-button:hover {
   }
 }
 
-// FAB Buttons
+// ---------------- FAB Buttons -----------------
 
 .mdc-fab {
   @include fab.container-color($mdc-theme-primary);
