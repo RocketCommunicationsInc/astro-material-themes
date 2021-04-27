@@ -1,12 +1,64 @@
-/*  Typography */
-// To change your theme's typography, we recommend importing a font from Google Fonts and setting the global font-family https://fonts.google.com
-
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-
 /* Shape */
 // The shapes of small, medium, and large components can be themed by overriding the default values. We recommend using our shape customization tool to help you pick your radius values. https://material.io/design/shape/about-shape.html#shape-customization-tool
 
-$mdc-shape-small-component-radius: 3px;
-$mdc-shape-medium-component-radius: 3px;
-$mdc-shape-large-component-radius: 3px;
+// $mdc-shape-small-component-radius: 3px;
+// $mdc-shape-medium-component-radius: 3px;
+// $mdc-shape-large-component-radius: 3px;
+
+// Theme Colors
+// Must be hard-coded for Material mixins
+$primary-light: #92cbff; // --primaryLight
+$primary-light-hover: #92cbff4d; // --primaryLightHover
+$global-app-header: #172635; // --globalAppHeader
+$input-background: #ffffff; // --inputBackground
+$card-background: rgb(32, 50, 70); // --cardBackgroundColor
+$secondary-text: #d4d8dd; // --secondaryText
+$primary-dark: #3a87cf; // --primaryDark
+$table-header-background: $global-app-header;
+$table-row-hover-background: $primary-light-hover;
+$slider-track-background: $secondary-text;
+$slider-thumb-background: $primary-dark;
+$slider-thumb-border: $input-background;
+
+// These colors are used later with a $mdc-theme-* tag in front
+@use "@material/theme" with (
+  $primary: #4dacff, // --primary
+  $secondary: #4dacff, // --primary
+  $on-primary: #080c11, // --primaryElementText
+  $on-secondary: #ffffff, // --defaultText
+  $background: #101923, // --backgroundColor
+  $error: rgb(255, 56, 56), // --colorCritical
+  $on-error: #ffffff, // --defaultText
+  $surface: #1b2d3e, // --surfaceElements
+  $on-surface: #ffffff, // --defaultText
+);
+
+// Typography styles
+@use "@material/typography" with (
+    $font-family: unquote("Roboto, sans-serif"),
+    $styles-headline1: (font-size: 2.125rem, letter-spacing: 0.25px, font-weight: normal),
+    $styles-headline2: (font-size: 1.5rem, font-weight: normal),
+    $styles-headline3: (font-size: 1.25rem, font-weight: 500, letter-spacing: 0.15px),
+    $styles-headline4: (font-size: 1.25rem, font-weight: 300, letter-spacing: 0.15px),
+    $styles-headline5: (font-size: 1.125rem, font-weight: normal),
+    $styles-headline6: (font-size: 1.125rem, font-weight: 300),
+    $styles-subtitle1: (font-size: 1rem, letter-spacing: 0.5px, font-weight: normal),
+    $styles-subtitle2: (font-size: 0.875rem, font-weight: normal, letter-spacing: 0.5px),
+    $styles-body1: (font-size: 1rem, letter-spacing: 0.5px, font-weight: normal),
+    $styles-body2: (font-size: 0.875rem, font-weight: normal, letter-spacing: 0.5px),
+    $styles-button: (
+      text-transform: none,
+      font-size: 1rem,
+      letter-spacing: 0.5px,
+      white-space: nowrap,
+      text-overflow: ellipsis,
+    ),
+    $styles-overline: (font-size: 0.75rem, font-weight: normal)
+  );
+
+// Material Shape
+@use "@material/shape" with (
+    $small-component-radius: 3px,
+    $medium-component-radius: 3px,
+    $large-component-radius: 3px
+);
