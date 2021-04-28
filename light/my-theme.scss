@@ -1,12 +1,74 @@
-/*  Typography */
-// To change your theme's typography, we recommend importing a font from Google Fonts and setting the global font-family https://fonts.google.com
+// Theme Colors
+// Must be hard-coded for Material mixins
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+$background-color: #eaeef4; // --backgroundColor
+$default-text: #292a2d; // --defaultText
+$secondary-text: #51555b; // --secondaryText
+$global-app-header: #172635; // --globalAppHeader
+$surface-elements: #ffffff; // --surfaceElements
+$primary: #005a8f; // --primary
+$primary-light: #2f7aa7; // --primaryLight
+$primary-dark: #004872; // --primaryDark
+$primary-dark-hover: #0048724d; // --primaryDarkHover
+$primary-element-text: #ffffff; // --primaryElementText
+$input-background: #ffffff; // --inputBackground
+$input-dark: #080c11; // --inputDark
+$card-background: rgb(226, 230, 238); // --cardBackgroundColor
+$primary-dark: #004872; // --primaryDark
+$wcag-compliance: rgba(0, 0, 0, 0.5); // --wcagCompliance
+$critical-border: #7f1c1c; // --criticalBorder
+$color-critical: rgb(255, 42, 4); // --colorCritical
+$colo-serious: rgb(255, 175, 61); // --colorSerious
+$color-caution: rgb(250, 216, 0); // --colorCaution
+$color-normal: rgb(0, 226, 0); // --colorNormal
+$color-standby: rgb(100, 217, 255); // --colorStandby
+$color-off: rgb(142, 154, 163); // --colorOff
+$on-global-app-header: #4dacff; // Dark Theme --primary
+$table-header-background: $global-app-header;
+$table-row-hover-background: $primary-dark-hover;
+$slider-track-background: $input-background;
+$slider-thumb-background: $primary-dark;
+$slider-thumb-border: $input-background;
 
-/* Shape */
-// The shapes of small, medium, and large components can be themed by overriding the default values. We recommend using our shape customization tool to help you pick your radius values. https://material.io/design/shape/about-shape.html#shape-customization-tool
+// These colors are used later with a $mdc-theme-* tag in front
+@use "@material/theme" with (
+  $primary: $primary,
+  $secondary: $primary-dark,
+  $on-primary: $primary-element-text,
+  $on-secondary: $default-text,
+  $background: $background-color,
+  $error: $color-critical,
+  $on-error: $primary-element-text,
+  $surface: $surface-elements,
+  $on-surface: $default-text,
+);
 
-$mdc-shape-small-component-radius: 3px;
-$mdc-shape-medium-component-radius: 3px;
-$mdc-shape-large-component-radius: 3px;
+// Typography styles
+@use "@material/typography" with (
+    $font-family: unquote("Roboto, sans-serif"),
+    $styles-headline1: (font-size: 2.125rem, letter-spacing: 0.25px, font-weight: normal),
+    $styles-headline2: (font-size: 1.5rem, font-weight: normal),
+    $styles-headline3: (font-size: 1.25rem, font-weight: 500, letter-spacing: 0.15px),
+    $styles-headline4: (font-size: 1.25rem, font-weight: 300, letter-spacing: 0.15px),
+    $styles-headline5: (font-size: 1.125rem, font-weight: normal),
+    $styles-headline6: (font-size: 1.125rem, font-weight: 300),
+    $styles-subtitle1: (font-size: 1rem, letter-spacing: 0.5px, font-weight: normal),
+    $styles-subtitle2: (font-size: 0.875rem, font-weight: normal, letter-spacing: 0.5px),
+    $styles-body1: (font-size: 1rem, letter-spacing: 0.5px, font-weight: normal),
+    $styles-body2: (font-size: 0.875rem, font-weight: normal, letter-spacing: 0.5px),
+    $styles-button: (
+      text-transform: none,
+      font-size: 1rem,
+      letter-spacing: 0.5px,
+      white-space: nowrap,
+      text-overflow: ellipsis,
+    ),
+    $styles-overline: (font-size: 0.75rem, font-weight: normal)
+  );
+
+// Material Shape
+@use "@material/shape" with (
+    $small-component-radius: 3px,
+    $medium-component-radius: 3px,
+    $large-component-radius: 3px
+);

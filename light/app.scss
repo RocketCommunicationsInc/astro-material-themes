@@ -1,11 +1,8 @@
 // Import ASTRO
 @use "static/css/astro.min";
 
-// Import global Material Theming colors
-@use "my-colors";
-
-// Import Typography Settings
-@use "my-typography";
+// Import global Material Theming colors, typography, and shapes
+@use "my-theme";
 
 // Import component namespace for customization
 // NOTE: This allows mixins and properties to be called directly. Ex. `@include button.outline-color()`
@@ -76,8 +73,9 @@
 @import "@material/typography/mdc-typography";
 @import "@material/data-table/mdc-data-table";
 
-// Import global Material Theming typography and fonts
-@import "my-theme";
+// Import Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 // Import index.html Styling
 @import "my-layout";
