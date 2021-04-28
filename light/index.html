@@ -464,7 +464,8 @@
                   <section
                     class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
                   >
-                    <a class="material-icons mdc-top-app-bar__navigation-icon"
+                    <a
+                      class="material-icons mdc-icon-button mdc-top-app-bar__navigation-icon"
                       >menu</a
                     >
                     <span class="mdc-top-app-bar__title">Headline 6</span>
@@ -1822,7 +1823,7 @@
               class="component-wrapper text-field-component-wrapper text-field-component-wrapper-1"
             >
               <label
-                class="mdc-text-field mdc-text-field--outlined mdc-text-field--invalid mdc-text-field--with-leading-icon"
+                class="mdc-text-field mdc-text-field--outlined mdc-text-field--invalid"
               >
                 <span class="mdc-notched-outline">
                   <span class="mdc-notched-outline__leading"></span>
@@ -1833,12 +1834,6 @@
                   </span>
                   <span class="mdc-notched-outline__trailing"></span>
                 </span>
-                <i
-                  class="material-icons mdc-text-field__icon mdc-text-field__icon--leading"
-                  tabindex="0"
-                  role="button"
-                  >bolt</i
-                >
                 <input
                   type="text"
                   class="mdc-text-field__input"
@@ -1851,6 +1846,13 @@
                 <div
                   class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent"
                 >
+                  <i
+                    class="material-icons mdc-text-field__icon"
+                    tabindex="0"
+                    role="button"
+                  >
+                    warning
+                  </i>
                   Assistive text
                 </div>
               </div>
@@ -1930,7 +1932,7 @@
               class="component-wrapper text-field-component-wrapper text-field-component-wrapper-2"
             >
               <label
-                class="mdc-text-field mdc-text-field--filled mdc-text-field--invalid mdc-text-field--with-trailing-icon"
+                class="mdc-text-field mdc-text-field--filled mdc-text-field--invalid"
               >
                 <span class="mdc-text-field__ripple"></span>
                 <span class="mdc-floating-label" id="my-label-id">Invalid</span>
@@ -1944,12 +1946,6 @@
                   required
                   minlength="8"
                 />
-                <i
-                  class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing"
-                  tabindex="0"
-                  role="button"
-                  >bolt</i
-                >
                 <span class="mdc-line-ripple"></span>
               </label>
               <div class="mdc-text-field-helper-line">
@@ -1958,6 +1954,13 @@
                   id="my-helper-id"
                   aria-hidden="true"
                 >
+                  <i
+                    class="material-icons mdc-text-field__icon"
+                    tabindex="0"
+                    role="button"
+                  >
+                    warning
+                  </i>
                   Helper Text
                 </div>
               </div>
@@ -2173,7 +2176,7 @@
                       class="mdc-dialog__title mdc-typography--body1"
                       id="my-dialog-title"
                     >
-                      Dialog Title
+                      Dialog title
                     </div>
                     <div class="mdc-dialog__content" id="my-dialog-content">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,

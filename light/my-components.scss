@@ -142,6 +142,10 @@ a.mdc-icon-button:hover {
 .mdc-fab {
   @include fab.container-color($mdc-theme-primary);
   @include fab.ink-color($mdc-theme-on-primary);
+
+  &:hover {
+    @include fab.container-color(my-theme.$primary-dark);
+  }
 }
 
 // --------------------- Card --------------------------
@@ -319,16 +323,16 @@ a.mdc-icon-button:hover {
 // Filled and valid
 .mdc-text-field--filled:not(.mdc-text-field--invalid) {
   @include textfield.fill-color(my-theme.$input-background);
-  @include textfield.ink-color($mdc-theme-on-primary);
-  @include textfield.placeholder-color(rgba($mdc-theme-on-primary, 0.6));
-  @include textfield.label-color($mdc-theme-on-primary);
-  @include textfield.hover-bottom-line-color(my-theme.$primary-light);
+  @include textfield.ink-color($mdc-theme-on-secondary);
+  @include textfield.placeholder-color(rgba($mdc-theme-on-secondary, 0.4));
+  @include textfield.label-color($mdc-theme-on-secondary);
+  @include textfield.hover-bottom-line-color(my-theme.$primary-dark-hover);
   @include icon.leading-icon-color($mdc-theme-primary);
   @include icon.trailing-icon-color($mdc-theme-primary);
 
   // Disabled colors
-  @include textfield.disabled-label-color($mdc-theme-on-primary);
-  @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
+  @include textfield.disabled-label-color($mdc-theme-on-secondary);
+  @include textfield.disabled-fill-color(rgba(my-theme.$input-background, 0.4));
   @include icon.disabled-icon-color(rgba($mdc-theme-primary, 0.4));
 }
 
@@ -336,13 +340,13 @@ a.mdc-icon-button:hover {
 .mdc-text-field--filled.mdc-text-field--invalid {
   @include textfield.fill-color(my-theme.$input-background);
   @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
-  @include textfield.ink-color($mdc-theme-on-primary);
+  @include textfield.ink-color($mdc-theme-on-secondary);
 }
 
 // Outlined and valid
 .mdc-text-field--outlined:not(.mdc-text-field--invalid) {
   @include textfield.ink-color($mdc-theme-primary);
-  @include textfield.placeholder-color(rgba($mdc-theme-primary, 0.6));
+  @include textfield.placeholder-color(rgba($mdc-theme-primary, 0.4));
   @include textfield.label-color($mdc-theme-primary);
   @include textfield.outline-color($mdc-theme-primary);
   @include icon.leading-icon-color($mdc-theme-primary);
@@ -362,11 +366,11 @@ a.mdc-icon-button:hover {
 
 // Helper Text
 .mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line {
-  flex-direction: row-reverse;
-  padding-right: 0;
+  // flex-direction: row-reverse;
+  padding-left: 0;
   .mdc-text-field-helper-text {
     color: my-theme.$secondary-text;
-    text-align: end;
+    text-align: start;
     font-size: 0.875rem;
     letter-spacing: 0.5px;
     font-weight: normal;
@@ -374,14 +378,34 @@ a.mdc-icon-button:hover {
 }
 
 .mdc-text-field--disabled + .mdc-text-field-helper-line {
-  flex-direction: row-reverse;
-  padding-right: 0;
+  padding-left: 0;
   .mdc-text-field-helper-text {
     color: rgba(my-theme.$secondary-text, 0.4);
-    text-align: end;
+    text-align: start;
     font-size: 0.875rem;
     letter-spacing: 0.5px;
     font-weight: normal;
+  }
+}
+
+.mdc-text-field.mdc-text-field--invalid + .mdc-text-field-helper-line {
+  padding-left: 0;
+  justify-content: flex-start;
+  color: $mdc-theme-error;
+
+  .mdc-text-field-helper-text {
+    display: flex;
+    align-items: center;
+    color: $mdc-theme-error;
+    font-weight: bold;
+
+    .material-icons {
+      margin-right: 0.25rem;
+    }
+  }
+
+  .material-icons {
+    margin-right: 0.25rem;
   }
 }
 
@@ -488,10 +512,10 @@ a.mdc-icon-button:hover {
   position: relative;
   justify-content: start;
   z-index: 1;
-  border: 1px solid $mdc-theme-primary;
 
   .mdc-dialog__surface {
     max-width: 100%;
+    border: 1px solid $mdc-theme-primary;
 
     .mdc-dialog__title {
       background-color: $mdc-theme-primary;
@@ -523,23 +547,23 @@ a.mdc-icon-button:hover {
 // Enabled
 .mdc-slider:not(.mdc-slider--disabled) {
   @include slider.track-active-color($mdc-theme-primary);
-  @include slider.track-inactive-color(my-theme.$slider-track-background, 1);
+  @include slider.track-inactive-color(my-theme.$slider-track-background, 0.4);
   @include slider.thumb-color(my-theme.$slider-thumb-background);
   @include slider.tick-mark-active-color(my-theme.$slider-thumb-border);
   @include slider.tick-mark-inactive-color(#000);
   @include slider.value-indicator-color($mdc-theme-primary, 0.7);
-  @include slider.value-indicator-text-color(#000);
+  @include slider.value-indicator-text-color($mdc-theme-on-primary);
 }
 
 // Disabled
 .mdc-slider.mdc-slider--disabled {
   @include slider.track-active-color($mdc-theme-primary);
-  @include slider.track-inactive-color(my-theme.$slider-track-background, 1);
+  @include slider.track-inactive-color(my-theme.$slider-track-background, 0.4);
   @include slider.thumb-color(my-theme.$slider-thumb-background);
   @include slider.tick-mark-active-color(my-theme.$slider-thumb-border);
   @include slider.tick-mark-inactive-color(#000);
   @include slider.value-indicator-color($mdc-theme-primary, 0.7);
-  @include slider.value-indicator-text-color(#000);
+  @include slider.value-indicator-text-color($mdc-theme-on-primary);
 }
 
 // ------------------ List ---------------------------------
