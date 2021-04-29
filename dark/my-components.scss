@@ -302,14 +302,37 @@ a.mdc-icon-button:hover {
   .mdc-drawer {
     @include mdc-elevation(16);
     @include drawer.surface-fill-color($mdc-theme-surface);
-    @include drawer.title-ink-color($mdc-theme-on-surface);
     @include drawer.subtitle-ink-color(rgba($mdc-theme-on-secondary, 0.8));
     // @include drawer.item-icon-ink-color($mdc-theme-on-secondary);
     // @include drawer.item-text-ink-color($mdc-theme-on-secondary);
     @include drawer.activated-overlay-color(lighten($mdc-theme-surface, 10%));
 
+    .mdc-drawer__title {
+      color: $mdc-theme-on-secondary;
+    }
+
     .mdc-drawer__content {
       padding: 0;
+
+      .mdc-list {
+        @include drawer.surface-fill-color(my-theme.$global-app-header);
+        @include list.item-primary-text-ink-color($mdc-theme-on-secondary);
+        @include list.item-secondary-text-ink-color(
+          rgba($mdc-theme-on-secondary, 0.9)
+        );
+
+        .mdc-list-item {
+          color: $mdc-theme-on-secondary;
+
+          .mdc-list-item__graphic {
+            color: $mdc-theme-on-secondary;
+          }
+
+          &.mdc-list-item--activated {
+            background-color: my-theme.$list-selected;
+          }
+        }
+      }
     }
   }
 }
@@ -552,13 +575,27 @@ a.mdc-icon-button:hover {
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: $mdc-theme-surface;
 
+  @include list.item-selected-text-color($mdc-theme-on-secondary);
+  @include list.item-disabled-text-color(rgba($mdc-theme-on-secondary, 0.4));
+
   .mdc-list-item:hover {
-    background-color: my-theme.$primary-light-hover;
+    background-color: rgba(my-theme.$list-selected, 0.4);
+  }
+
+  .mdc-list-item--selected {
+    background-color: my-theme.$list-selected;
+    @include list.item-secondary-text-ink-color(
+      rgba($mdc-theme-on-secondary, 0.8)
+    );
+
+    &:hover {
+      background-color: my-theme.$list-selected;
+    }
   }
 
   .mdc-list-item--disabled {
     .mdc-list-item__text {
-      color: rgba(0, 0, 0, 0.4);
+      color: rgba($mdc-theme-on-secondary, 0.4);
     }
   }
 }
