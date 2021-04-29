@@ -80,6 +80,14 @@ a.mdc-icon-button:hover {
 
   @include checkbox.ink-color($mdc-theme-on-primary);
   @include checkbox.disabled-ink-color(rgba($mdc-theme-on-primary, 0.4));
+
+  &:hover {
+    @include checkbox.container-colors(
+      $unmarked-stroke-color: my-theme.$primary-light,
+      $marked-fill-color: my-theme.$primary-light,
+      $marked-stroke-color: my-theme.$primary-light
+    );
+  }
 }
 
 //  ----------------- Radio ---------------------------
