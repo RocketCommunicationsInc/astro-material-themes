@@ -104,6 +104,11 @@ a.mdc-icon-button:hover {
   @include switch.toggled-on-track-color($mdc-theme-primary);
   @include switch.toggled-off-track-color(my-theme.$secondary-text);
 
+  // Remove automatic opacity
+  .mdc-switch__track {
+    opacity: 1;
+  }
+
   // On State
   &.mdc-switch--checked {
     .mdc-switch__track {
@@ -120,6 +125,12 @@ a.mdc-icon-button:hover {
     .mdc-switch__thumb {
       background-color: $mdc-theme-on-primary;
       border: 1px solid my-theme.$secondary-text;
+    }
+  }
+
+  &:hover {
+    .mdc-switch__track {
+      background-color: my-theme.$primary-light;
     }
   }
 }
@@ -192,6 +203,10 @@ a.mdc-icon-button:hover {
     background: my-theme.$input-background;
     @include list.item-primary-text-ink-color($mdc-theme-on-secondary);
     @include list.item-graphic-ink-color($mdc-theme-on-primary);
+
+    .mdc-list-item.mdc-list-item--selected {
+      background-color: $mdc-theme-primary;
+    }
   }
 }
 
@@ -330,11 +345,8 @@ a.mdc-icon-button:hover {
             color: $mdc-theme-on-primary;
           }
 
-          // @include drawer.item-icon-ink-color($mdc-theme-on-primary);
-          // @include drawer.item-text-ink-color($mdc-theme-on-primary);
-
           &.mdc-list-item--activated {
-            background-color: my-theme.$drawer-selected;
+            background-color: my-theme.$list-selected;
           }
         }
       }
