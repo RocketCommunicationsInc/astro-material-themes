@@ -54,12 +54,12 @@ button.mdc-icon-button {
 
   &hover {
     background-color: transparent;
-    color: lighten($mdc-theme-primary, 10%);
+    color: my-theme.$primary-light;
   }
 }
 
 a.mdc-icon-button:hover {
-  color: lighten($mdc-theme-primary, 10%);
+  color: my-theme.$primary-light;
 }
 
 // ------------------ Checkbox -------------------
@@ -231,7 +231,7 @@ a.mdc-icon-button:hover {
 
   $select-filled-text-colors: (
     default: $mdc-theme-on-secondary,
-    disabled: rgba($mdc-theme-on-secondary, 0.4),
+    disabled: $mdc-theme-on-secondary,
     hover: $mdc-theme-on-secondary,
     focus: $mdc-theme-on-secondary,
   );
@@ -419,9 +419,12 @@ a.mdc-icon-button:hover {
 }
 
 // Helper Text
-.mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line {
-  // flex-direction: row-reverse;
+.mdc-text-field + .mdc-text-field-helper-line {
   padding-left: 0;
+  padding-top: 10px;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line {
   .mdc-text-field-helper-text {
     color: my-theme.$secondary-text;
     text-align: start;
@@ -432,7 +435,6 @@ a.mdc-icon-button:hover {
 }
 
 .mdc-text-field--disabled + .mdc-text-field-helper-line {
-  padding-left: 0;
   .mdc-text-field-helper-text {
     color: rgba(my-theme.$secondary-text, 0.4);
     text-align: start;
@@ -443,7 +445,6 @@ a.mdc-icon-button:hover {
 }
 
 .mdc-text-field.mdc-text-field--invalid + .mdc-text-field-helper-line {
-  padding-left: 0;
   justify-content: flex-start;
   color: $mdc-theme-error;
 
@@ -455,6 +456,7 @@ a.mdc-icon-button:hover {
 
     .material-icons {
       margin-right: 0.25rem;
+      font-size: 1.25rem;
     }
   }
 }

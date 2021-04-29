@@ -279,12 +279,19 @@ a.mdc-icon-button:hover {
 .mdc-select {
   .mdc-select__menu {
     .mdc-list {
+      .mdc-list-item {
+        color: $mdc-theme-on-primary;
+      }
+
+      .mdc-list-item.mdc-list-item--disabled {
+        .mdc-list-item__text {
+          color: rgba($mdc-theme-on-primary, 0.4);
+        }
+      }
+
       .mdc-list-item.mdc-list-item--selected {
         color: $mdc-theme-on-primary;
         background-color: $mdc-theme-primary;
-      }
-      .mdc-list-item {
-        color: $mdc-theme-on-primary;
       }
     }
   }
@@ -424,8 +431,12 @@ a.mdc-icon-button:hover {
 }
 
 // Helper Text
-.mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line {
+.mdc-text-field + .mdc-text-field-helper-line {
   padding-left: 0;
+  padding-top: 10px;
+}
+
+.mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line {
   .mdc-text-field-helper-text {
     color: my-theme.$secondary-text;
     text-align: end;
@@ -436,7 +447,6 @@ a.mdc-icon-button:hover {
 }
 
 .mdc-text-field--disabled + .mdc-text-field-helper-line {
-  padding-left: 0;
   .mdc-text-field-helper-text {
     color: rgba(my-theme.$secondary-text, 0.4);
     text-align: end;
@@ -447,7 +457,6 @@ a.mdc-icon-button:hover {
 }
 
 .mdc-text-field.mdc-text-field--invalid + .mdc-text-field-helper-line {
-  padding-left: 0;
   justify-content: flex-start;
   color: $mdc-theme-error;
 
@@ -459,6 +468,7 @@ a.mdc-icon-button:hover {
 
     .material-icons {
       margin-right: 0.25rem;
+      font-size: 1.25rem;
     }
   }
 }
