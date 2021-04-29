@@ -234,10 +234,10 @@ a.mdc-icon-button:hover {
   width: 160px;
 
   $select-filled-text-colors: (
-    default: #000,
-    disabled: rgba(0, 0, 0, 0.4),
-    hover: #000,
-    focus: #000,
+    default: $mdc-theme-on-primary,
+    disabled: $mdc-theme-on-primary,
+    hover: $mdc-theme-on-primary,
+    focus: $mdc-theme-on-primary,
   );
 
   @include select.label-color($select-filled-text-colors);
@@ -425,8 +425,7 @@ a.mdc-icon-button:hover {
 
 // Helper Text
 .mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line {
-  flex-direction: row-reverse;
-  padding-right: 0;
+  padding-left: 0;
   .mdc-text-field-helper-text {
     color: my-theme.$secondary-text;
     text-align: end;
@@ -437,14 +436,30 @@ a.mdc-icon-button:hover {
 }
 
 .mdc-text-field--disabled + .mdc-text-field-helper-line {
-  flex-direction: row-reverse;
-  padding-right: 0;
+  padding-left: 0;
   .mdc-text-field-helper-text {
     color: rgba(my-theme.$secondary-text, 0.4);
     text-align: end;
     font-size: 0.875rem;
     letter-spacing: 0.5px;
     font-weight: normal;
+  }
+}
+
+.mdc-text-field.mdc-text-field--invalid + .mdc-text-field-helper-line {
+  padding-left: 0;
+  justify-content: flex-start;
+  color: $mdc-theme-error;
+
+  .mdc-text-field-helper-text {
+    display: flex;
+    align-items: center;
+    color: $mdc-theme-error;
+    font-weight: bold;
+
+    .material-icons {
+      margin-right: 0.25rem;
+    }
   }
 }
 

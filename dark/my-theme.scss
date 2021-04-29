@@ -31,11 +31,11 @@ $slider-thumb-border: $input-background;
 @use "@material/typography" with (
     $font-family: unquote("Roboto, sans-serif"),
     $styles-headline1: (font-size: 2.125rem, letter-spacing: 0.25px, font-weight: normal),
-    $styles-headline2: (font-size: 1.5rem, font-weight: normal),
+    $styles-headline2: (font-size: 1.5rem, font-weight: normal, letter-spacing: 0),
     $styles-headline3: (font-size: 1.25rem, font-weight: 500, letter-spacing: 0.15px),
     $styles-headline4: (font-size: 1.25rem, font-weight: 300, letter-spacing: 0.15px),
-    $styles-headline5: (font-size: 1.125rem, font-weight: normal),
-    $styles-headline6: (font-size: 1.125rem, font-weight: 300),
+    $styles-headline5: (font-size: 1.125rem, font-weight: normal, letter-spacing: 0),
+    $styles-headline6: (font-size: 1.125rem, font-weight: 300, letter-spacing: 0),
     $styles-subtitle1: (font-size: 1rem, letter-spacing: 0.5px, font-weight: normal),
     $styles-subtitle2: (font-size: 0.875rem, font-weight: normal, letter-spacing: 0.5px),
     $styles-body1: (font-size: 1rem, letter-spacing: 0.5px, font-weight: normal),
@@ -47,7 +47,8 @@ $slider-thumb-border: $input-background;
       white-space: nowrap,
       text-overflow: ellipsis,
     ),
-    $styles-overline: (font-size: 0.75rem, font-weight: normal)
+    $styles-caption: (letter-spacing: 0),
+    $styles-overline: (font-size: 0.75rem, font-weight: normal, letter-spacing: 0)
   );
 
 // Material Shape
