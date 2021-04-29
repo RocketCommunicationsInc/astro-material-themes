@@ -103,6 +103,12 @@ a.mdc-icon-button:hover {
   @include radio.disabled-unchecked-stroke-color(rgba($mdc-theme-primary, 0.4));
   @include radio.disabled-checked-stroke-color(rgba($mdc-theme-primary, 0.4));
   @include radio.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
+
+  &:hover {
+    @include radio.unchecked-stroke-color(my-theme.$primary-light);
+    @include radio.checked-stroke-color(my-theme.$primary-light);
+    @include radio.ink-color(my-theme.$primary-light);
+  }
 }
 
 // ------------------ Switch -----------------------------
