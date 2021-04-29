@@ -1,4 +1,4 @@
 // Enter your theme name here!
-const themeName = "Astro Dark Theme";
+const themeName = "Astro Light Theme";
 
 export default themeName;

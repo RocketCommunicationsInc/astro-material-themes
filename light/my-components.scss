@@ -106,6 +106,9 @@ a.mdc-icon-button:hover {
 
   // On State
   &.mdc-switch--checked {
+    .mdc-switch__track {
+      opacity: 1;
+    }
     .mdc-switch__thumb {
       background-color: $mdc-theme-on-primary;
       border: 1px solid $mdc-theme-primary;
@@ -245,7 +248,7 @@ a.mdc-icon-button:hover {
     .mdc-list {
       .mdc-list-item.mdc-list-item--selected {
         color: $mdc-theme-on-primary;
-        background-color: my-theme.$primary-light;
+        background-color: my-theme.$primary;
       }
       .mdc-list-item {
         color: $mdc-theme-on-secondary;
@@ -301,15 +304,40 @@ a.mdc-icon-button:hover {
 
   .mdc-drawer {
     @include mdc-elevation(16);
-    @include drawer.surface-fill-color($mdc-theme-surface);
-    @include drawer.title-ink-color($mdc-theme-on-surface);
-    @include drawer.subtitle-ink-color(rgba($mdc-theme-on-secondary, 0.8));
-    // @include drawer.item-icon-ink-color($mdc-theme-on-secondary);
-    // @include drawer.item-text-ink-color($mdc-theme-on-secondary);
-    @include drawer.activated-overlay-color(lighten($mdc-theme-surface, 10%));
+    @include drawer.surface-fill-color(my-theme.$global-app-header);
+    @include drawer.subtitle-ink-color($mdc-theme-on-primary);
+    @include drawer.item-icon-ink-color($mdc-theme-on-primary);
+    // @include drawer.item-text-ink-color($mdc-theme-on-primary);
+    @include drawer.divider-color($mdc-theme-on-primary);
+    .mdc-drawer__title {
+      color: $mdc-theme-on-primary;
+    }
 
     .mdc-drawer__content {
       padding: 0;
+
+      .mdc-list {
+        @include drawer.surface-fill-color(my-theme.$global-app-header);
+        @include list.item-primary-text-ink-color($mdc-theme-on-primary);
+        @include list.item-secondary-text-ink-color(
+          rgba($mdc-theme-on-primary, 0.9)
+        );
+
+        .mdc-list-item {
+          color: $mdc-theme-on-primary;
+
+          .mdc-list-item__graphic {
+            color: $mdc-theme-on-primary;
+          }
+
+          // @include drawer.item-icon-ink-color($mdc-theme-on-primary);
+          // @include drawer.item-text-ink-color($mdc-theme-on-primary);
+
+          &.mdc-list-item--activated {
+            background-color: my-theme.$drawer-selected;
+          }
+        }
+      }
     }
   }
 }
@@ -402,10 +430,6 @@ a.mdc-icon-button:hover {
     .material-icons {
       margin-right: 0.25rem;
     }
-  }
-
-  .material-icons {
-    margin-right: 0.25rem;
   }
 }
 
@@ -572,8 +596,22 @@ a.mdc-icon-button:hover {
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: $mdc-theme-surface;
 
+  @include list.item-selected-text-color($mdc-theme-on-primary);
+  @include list.item-disabled-text-color(rgba($mdc-theme-on-secondary, 0.4));
+
   .mdc-list-item:hover {
     background-color: my-theme.$primary-dark-hover;
+  }
+
+  .mdc-list-item--selected {
+    background-color: my-theme.$primary-dark;
+    @include list.item-secondary-text-ink-color(
+      rgba($mdc-theme-on-primary, 0.8)
+    );
+
+    &:hover {
+      background-color: my-theme.$primary-dark;
+    }
   }
 
   .mdc-list-item--disabled {
