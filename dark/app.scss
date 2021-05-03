@@ -1,12 +1,47 @@
-// Import Astro Styles and Variables
-// NOTE: Will change once static assets have been published to NPM
+// Import ASTRO
 @use "static/css/astro.min";
 
-// Import global Material Theming variables
-@import "my-theme";
+// Import Astro Material Theme: Colors, Typography, and Shape
+@use "my-theme";
+
+// Import component namespace for customization
+// NOTE: This allows mixins and properties to be called directly. Ex. `@include button.outline-color()`
+@use "@material/slider";
+@use "@material/button";
+@use "@material/card";
+@use "@material/checkbox";
+@use "@material/chips";
+@use "@material/dialog";
+@use "@material/drawer";
+@use "@material/elevation";
+@use "@material/fab";
+@use "@material/form-field";
+@use "@material/icon-button";
+@use "@material/image-list";
+@use "@material/linear-progress";
+@use "@material/list";
+@use "@material/menu";
+@use "@material/menu-surface";
+@use "@material/radio";
+@use "@material/ripple";
+@use "@material/rtl";
+@use "@material/select";
+@use "@material/shape";
+@use "@material/snackbar";
+@use "@material/switch";
+@use "@material/tab-bar";
+@use "@material/tab-scroller";
+@use "@material/tab-indicator";
+@use "@material/tab";
+@use "@material/textfield";
+@use "@material/textfield/icon";
+@use "@material/top-app-bar";
+@use "@material/typography/mdc-typography";
+@use "@material/data-table";
 
 // Import styles for each MDC Web component
-@import "@material/button/styles";
+@import "@material/slider/styles";
+@import "@material/button/mdc-button";
 @import "@material/card/mdc-card";
 @import "@material/checkbox/mdc-checkbox";
 @import "@material/chips/mdc-chips";
@@ -22,12 +57,7 @@
 @import "@material/menu/mdc-menu";
 @import "@material/menu-surface/mdc-menu-surface";
 @import "@material/radio/mdc-radio";
-@import "@material/ripple/mixins";
-@import "@material/rtl/mixins";
 @import "@material/select/mdc-select";
-@import "@material/shape/mixins";
-@import "@material/shape/functions";
-@import "@material/slider/styles";
 @import "@material/snackbar/mdc-snackbar";
 @import "@material/switch/mdc-switch";
 @import "@material/tab-bar/mdc-tab-bar";
@@ -43,6 +73,12 @@
 @import "@material/typography/mdc-typography";
 @import "@material/data-table/mdc-data-table";
 
-// Import site-specific CSS files
+// Import Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+// Import index.html Styling
 @import "my-layout";
+
+// Import theme-specific component SCSS files
 @import "my-components";
