@@ -24,12 +24,14 @@ $color-normal: rgb(0, 226, 0); // --colorNormal
 $color-standby: rgb(100, 217, 255); // --colorStandby
 $color-off: rgb(142, 154, 163); // --colorOff
 $list-selected: #1c3f5e; // -- Given by Daniel for List/Drawer selected background
-$on-global-app-header: #4dacff; // Dark Theme --primary
+$dark-theme-primary: #4dacff; // Dark Theme --primary
+$dark-theme-primary-light: #92cbff; // Dark Theme --primaryLight
 $table-header-background: $global-app-header;
 $table-row-hover-background: $primary-dark-hover;
 $slider-track-background: $secondary-text;
 $slider-thumb-background: $primary-dark;
 $slider-thumb-border: $input-background;
+$global-app-header-icon: $dark-theme-primary;
 
 // These colors are used later with a $mdc-theme-* tag in front
 @use "@material/theme" with (
@@ -63,6 +65,7 @@ $slider-thumb-border: $input-background;
       letter-spacing: 0.5px,
       white-space: nowrap,
       text-overflow: ellipsis,
+      font-weight: 400,
     ),
     $styles-caption: (letter-spacing: 0),
     $styles-overline: (font-size: 0.75rem, font-weight: normal, letter-spacing: 0)

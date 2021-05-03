@@ -63,7 +63,7 @@ body {
   }
 
   a {
-    color: rgba(255, 255, 255, 0.54);
+    color: $mdc-theme-primary;
     text-decoration: none;
     font-family: Roboto, sans-serif;
 
@@ -535,7 +535,7 @@ body {
   font-size: 12px;
   padding: 16px;
   border: 1px solid $mdc-theme-primary;
-  background-color: #101923;
+  background-color: $mdc-theme-background;
 }
 
 .font-link {
