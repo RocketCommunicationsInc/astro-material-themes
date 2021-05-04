@@ -368,6 +368,7 @@ a.mdc-icon-button:hover {
           &.mdc-list-item--activated {
             background-color: $mdc-theme-primary;
             color: $mdc-theme-on-primary;
+
             .mdc-list-item__graphic {
               color: $mdc-theme-on-primary;
             }
@@ -384,41 +385,33 @@ a.mdc-icon-button:hover {
   width: 100%;
 }
 
+// All Filled
+.mdc-text-field--filled {
+  @include textfield.fill-color(my-theme.$input-background);
+  @include textfield.placeholder-color(rgba($mdc-theme-on-secondary, 0.4));
+  @include textfield.disabled-fill-color(rgba(my-theme.$input-background, 0.4));
+  @include textfield.ink-color($mdc-theme-on-secondary);
+
+  .mdc-text-field__ripple {
+    &::before {
+      background-color: transparent;
+    }
+    &::after {
+      background-color: transparent;
+    }
+  }
+}
+
 // Filled and valid
 .mdc-text-field--filled:not(.mdc-text-field--invalid) {
-  @include textfield.fill-color(my-theme.$input-background);
-  @include textfield.ink-color($mdc-theme-on-secondary);
-  @include textfield.placeholder-color(rgba($mdc-theme-on-secondary, 0.4));
   @include textfield.label-color($mdc-theme-on-secondary);
   @include textfield.hover-bottom-line-color(my-theme.$primary-dark-hover);
   @include icon.leading-icon-color($mdc-theme-primary);
   @include icon.trailing-icon-color($mdc-theme-primary);
 
-  &.mdc-text-field--focused {
-    // @include textfield.fill-color($mdc-theme-primary);
-    // background-color: rgba(my-theme.$input-background, 1);
-    // opacity: 1;
-  }
-
   // Disabled colors
   @include textfield.disabled-label-color($mdc-theme-on-secondary);
-  @include textfield.disabled-fill-color(rgba(my-theme.$input-background, 0.4));
   @include icon.disabled-icon-color(rgba($mdc-theme-primary, 0.4));
-
-  &:hover {
-    @include textfield.fill-color(my-theme.$input-background);
-  }
-
-  &:focus {
-    @include textfield.fill-color(my-theme.$input-background);
-  }
-}
-
-// Filled and invalid
-.mdc-text-field--filled.mdc-text-field--invalid {
-  // @include textfield.fill-color(my-theme.$input-background);
-  @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
-  @include textfield.ink-color($mdc-theme-on-secondary);
 }
 
 // Outlined and valid
@@ -440,6 +433,7 @@ a.mdc-icon-button:hover {
 // Outlined an invalid
 .mdc-text-field--outlined.mdc-text-field--invalid {
   @include icon.leading-icon-color($mdc-theme-error);
+  @include icon.trailing-icon-color($mdc-theme-error);
 }
 
 // Helper Text
@@ -473,13 +467,13 @@ a.mdc-icon-button:hover {
   color: $mdc-theme-error;
 
   .mdc-text-field-helper-text {
-    // display: flex;
+    display: flex;
     align-items: center;
     color: $mdc-theme-error;
     font-weight: bold;
 
     .material-icons {
-      margin-right: 0.25rem;
+      margin-right: 0.5rem;
       font-size: 1.25rem;
     }
   }
