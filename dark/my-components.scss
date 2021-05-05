@@ -629,7 +629,6 @@ a.mdc-icon-button:hover {
 // ------------------ List ---------------------------------
 
 .mdc-list {
-  border: 1px solid rgba(0, 0, 0, 0.1);
   background: $mdc-theme-surface;
 
   @include list.item-selected-text-color($mdc-theme-on-secondary);
