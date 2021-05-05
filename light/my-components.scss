@@ -325,8 +325,8 @@ a.mdc-icon-button:hover {
     @include chips.trailing-icon-color($mdc-theme-on-primary, 1);
 
     &:hover {
-      @include chips.fill-color(my-theme.$primary-light);
-      @include chips.outline(2px, solid, my-theme.$primary-light);
+      @include chips.fill-color(my-theme.$primary-dark);
+      @include chips.outline(2px, solid, my-theme.$primary-dark);
       @include chips.leading-icon-color($mdc-theme-on-primary);
     }
   }
@@ -488,7 +488,7 @@ a.mdc-icon-button:hover {
   @include data-table.header-row-text-color($mdc-theme-on-primary);
   @include data-table.fill-color($mdc-theme-surface);
   @include data-table.row-fill-color($mdc-theme-surface);
-  @include data-table.selected-row-fill-color($mdc-theme-background);
+  @include data-table.selected-row-fill-color(my-theme.$table-row-background);
   // @include data-table.divider-color($mdc-theme-background);
   @include data-table.divider-size(2px);
   @include data-table.row-hover-fill-color(
@@ -517,24 +517,31 @@ a.mdc-icon-button:hover {
     }
 
     .mdc-data-table__content {
-      .mdc-data-table__row--selected {
-        border: 1px solid $mdc-theme-primary;
-      }
+      .mdc-data-table__row {
+        .mdc-data-table__cell {
+          // Table data to Body1
+          font-size: map-get(
+            $map: $mdc-typography-styles-body1,
+            $key: font-size
+          );
+          letter-spacing: map-get(
+            $map: $mdc-typography-styles-body1,
+            $key: letter-spacing
+          );
+          font-weight: map-get(
+            $map: $mdc-typography-styles-body1,
+            $key: font-weight
+          );
+          line-height: var(--mdc-typography-body1-line-height);
+          text-decoration: var(--mdc-typography-body1-text-decoration);
+          text-transform: var(--mdc-typography-body1-text-transform);
+        }
 
-      .mdc-data-table__cell {
-        // Table data to Body1
-        font-size: map-get($map: $mdc-typography-styles-body1, $key: font-size);
-        letter-spacing: map-get(
-          $map: $mdc-typography-styles-body1,
-          $key: letter-spacing
-        );
-        font-weight: map-get(
-          $map: $mdc-typography-styles-body1,
-          $key: font-weight
-        );
-        line-height: var(--mdc-typography-body1-line-height);
-        text-decoration: var(--mdc-typography-body1-text-decoration);
-        text-transform: var(--mdc-typography-body1-text-transform);
+        &.mdc-data-table__row--selected {
+          .mdc-data-table__cell {
+            color: $mdc-theme-on-primary;
+          }
+        }
       }
     }
   }
@@ -620,7 +627,7 @@ a.mdc-icon-button:hover {
   @include slider.track-inactive-color(my-theme.$slider-track-background, 0.4);
   @include slider.thumb-color(my-theme.$slider-thumb-background);
   @include slider.tick-mark-active-color(my-theme.$slider-thumb-border);
-  @include slider.tick-mark-inactive-color(#000);
+  @include slider.tick-mark-inactive-color($mdc-theme-on-surface);
   @include slider.value-indicator-color($mdc-theme-primary, 0.7);
   @include slider.value-indicator-text-color($mdc-theme-on-primary);
 }
@@ -631,7 +638,7 @@ a.mdc-icon-button:hover {
   @include slider.track-inactive-color(my-theme.$slider-track-background, 0.4);
   @include slider.thumb-color(my-theme.$slider-thumb-background);
   @include slider.tick-mark-active-color(my-theme.$slider-thumb-border);
-  @include slider.tick-mark-inactive-color(#000);
+  @include slider.tick-mark-inactive-color($mdc-theme-on-surface);
   @include slider.value-indicator-color($mdc-theme-primary, 0.7);
   @include slider.value-indicator-text-color($mdc-theme-on-primary);
 }
@@ -639,7 +646,6 @@ a.mdc-icon-button:hover {
 // ------------------ List ---------------------------------
 
 .mdc-list {
-  border: 1px solid rgba(0, 0, 0, 0.1);
   background: $mdc-theme-surface;
 
   @include list.item-selected-text-color($mdc-theme-on-primary);

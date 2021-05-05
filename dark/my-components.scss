@@ -482,14 +482,10 @@ a.mdc-icon-button:hover {
   @include data-table.fill-color($mdc-theme-background);
   @include data-table.header-row-fill-color(my-theme.$table-header-background);
   @include data-table.row-fill-color($mdc-theme-surface);
-  @include data-table.selected-row-fill-color(
-    lighten($mdc-theme-background, 15%)
-  );
+  @include data-table.selected-row-fill-color(my-theme.$list-selected);
   @include data-table.divider-color($mdc-theme-background);
   @include data-table.divider-size(2px);
-  @include data-table.row-hover-fill-color(
-    my-theme.$table-row-hover-background
-  );
+  @include data-table.row-hover-fill-color(rgba(my-theme.$list-selected, 0.6));
   @include data-table.header-row-text-color($mdc-theme-on-secondary);
   @include data-table.row-text-color($mdc-theme-on-secondary);
 
