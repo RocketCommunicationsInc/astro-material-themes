@@ -366,7 +366,7 @@ a.mdc-icon-button:hover {
           // }
 
           &.mdc-list-item--activated {
-            background-color: $mdc-theme-primary;
+            background-color: my-theme.$primary;
             color: $mdc-theme-on-primary;
 
             .mdc-list-item__graphic {
@@ -488,7 +488,9 @@ a.mdc-icon-button:hover {
   @include data-table.header-row-text-color($mdc-theme-on-primary);
   @include data-table.fill-color($mdc-theme-surface);
   @include data-table.row-fill-color($mdc-theme-surface);
-  @include data-table.selected-row-fill-color(my-theme.$table-row-background);
+  @include data-table.selected-row-fill-color(
+    my-theme.$table-row-selected-background
+  );
   // @include data-table.divider-color($mdc-theme-background);
   @include data-table.divider-size(2px);
   @include data-table.row-hover-fill-color(
@@ -651,18 +653,19 @@ a.mdc-icon-button:hover {
   @include list.item-selected-text-color($mdc-theme-on-primary);
   @include list.item-disabled-text-color(rgba($mdc-theme-on-secondary, 0.4));
 
+  // !! Applies to Drawer, Menu, List, and Select Menu
   .mdc-list-item:hover {
-    background-color: my-theme.$primary-dark-hover;
+    background-color: rgba(my-theme.$primary-dark, 0.2);
   }
 
   .mdc-list-item--selected {
-    background-color: my-theme.$primary-dark;
+    background-color: my-theme.$primary;
     @include list.item-secondary-text-ink-color(
       rgba($mdc-theme-on-primary, 0.8)
     );
 
     &:hover {
-      background-color: my-theme.$primary-dark;
+      background-color: my-theme.$primary;
     }
   }
 
