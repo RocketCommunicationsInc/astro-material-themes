@@ -485,7 +485,7 @@ a.mdc-icon-button:hover {
   @include data-table.selected-row-fill-color(my-theme.$list-selected);
   @include data-table.divider-color($mdc-theme-background);
   @include data-table.divider-size(2px);
-  @include data-table.row-hover-fill-color(rgba(my-theme.$list-selected, 0.6));
+  @include data-table.row-hover-fill-color(rgba(my-theme.$list-selected, 0.4));
   @include data-table.header-row-text-color($mdc-theme-on-secondary);
   @include data-table.row-text-color($mdc-theme-on-secondary);
 
@@ -510,6 +510,7 @@ a.mdc-icon-button:hover {
     }
 
     .mdc-data-table__content {
+      background-color: $mdc-theme-surface;
       .mdc-data-table__cell {
         // Table data to Body1
         font-size: map-get($map: $mdc-typography-styles-body1, $key: font-size);
