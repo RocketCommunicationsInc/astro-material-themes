@@ -25,7 +25,7 @@ module.exports = [
             {
               loader: "file-loader",
               options: {
-                name: "bundle.css",
+                name: "lightTheme.css",
               },
             },
             { loader: "extract-loader" },
