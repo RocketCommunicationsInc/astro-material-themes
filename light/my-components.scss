@@ -2,17 +2,17 @@
 
 // ------------------ Buttons ----------------------
 
+// Text buttons primarily, also global unless overwritten
 .mdc-button {
-  // @include mdc-button-shape-radius(50%);
   @include button.horizontal-padding(1rem);
   @include button.ink-color(
     (
-      hover: my-theme.$primary-light,
-      disabled: rgba(my-theme.$primary-light, 0.4),
+      hover: my-theme.$primary-dark,
+      disabled: rgba(my-theme.$primary-dark, 0.4),
     )
   );
   &:hover {
-    @include button.ink-color(my-theme.$primary-light);
+    @include button.ink-color(my-theme.$primary-dark);
   }
 }
 
@@ -26,7 +26,7 @@
   );
   @include button.container-fill-color(
     (
-      hover: my-theme.$primary-light,
+      hover: my-theme.$primary-dark,
       disabled: rgba($mdc-theme-primary, 0.4),
     )
   );
@@ -36,14 +36,14 @@
   @include button.ink-color(
     (
       default: $mdc-theme-primary,
-      hover: my-theme.$primary-light,
+      hover: my-theme.$primary-dark,
       disabled: rgba($mdc-theme-primary, 0.4),
     )
   );
   @include button.outline-color(
     (
       default: $mdc-theme-primary,
-      hover: my-theme.$primary-light,
+      hover: my-theme.$primary-dark,
       disabled: rgba($mdc-theme-primary, 0.4),
     )
   );
@@ -54,12 +54,12 @@ button.mdc-icon-button {
 
   &hover {
     background-color: transparent;
-    color: lighten($mdc-theme-primary, 10%);
+    color: my-theme.$primary-dark;
   }
 }
 
 a.mdc-icon-button:hover {
-  color: lighten($mdc-theme-primary, 10%);
+  color: my-theme.$primary-dark;
 }
 
 // ------------------ Checkbox -------------------
@@ -83,9 +83,9 @@ a.mdc-icon-button:hover {
 
   &:hover {
     @include checkbox.container-colors(
-      $unmarked-stroke-color: my-theme.$primary-light,
-      $marked-fill-color: my-theme.$primary-light,
-      $marked-stroke-color: my-theme.$primary-light
+      $unmarked-stroke-color: my-theme.$primary-dark,
+      $marked-fill-color: my-theme.$primary-dark,
+      $marked-stroke-color: my-theme.$primary-dark
     );
   }
 }
@@ -105,9 +105,9 @@ a.mdc-icon-button:hover {
   @include radio.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
 
   &:hover {
-    @include radio.unchecked-stroke-color(my-theme.$primary-light);
-    @include radio.checked-stroke-color(my-theme.$primary-light);
-    @include radio.ink-color(my-theme.$primary-light);
+    @include radio.unchecked-stroke-color(my-theme.$primary-dark);
+    @include radio.checked-stroke-color(my-theme.$primary-dark);
+    @include radio.ink-color(my-theme.$primary-dark);
   }
 }
 
@@ -125,8 +125,11 @@ a.mdc-icon-button:hover {
 
   // On State
   &.mdc-switch--checked {
+    .mdc-switch__track {
+      opacity: 1;
+    }
     .mdc-switch__thumb {
-      background-color: $mdc-theme-on-surface;
+      background-color: $mdc-theme-on-primary;
       border: 1px solid $mdc-theme-primary;
     }
   }
@@ -134,14 +137,14 @@ a.mdc-icon-button:hover {
   // Off State
   &:not(.mdc-switch--checked) {
     .mdc-switch__thumb {
-      background-color: $mdc-theme-on-surface;
+      background-color: $mdc-theme-on-primary;
       border: 1px solid my-theme.$secondary-text;
     }
   }
 
   &:hover {
     .mdc-switch__track {
-      background-color: my-theme.$primary-light;
+      background-color: my-theme.$primary-dark;
     }
   }
 }
@@ -153,9 +156,15 @@ a.mdc-icon-button:hover {
   position: relative;
   z-index: 1;
 
-  @include top-app-bar.ink-color($mdc-theme-on-surface);
-  @include top-app-bar.icon-ink-color($mdc-theme-primary);
+  @include top-app-bar.ink-color($mdc-theme-on-primary);
+  @include top-app-bar.icon-ink-color(my-theme.$global-app-header-icon);
   @include top-app-bar.fill-color(my-theme.$global-app-header);
+
+  .mdc-top-app-bar__row {
+    .mdc-icon-button:hover {
+      color: my-theme.$dark-theme-primary-light;
+    }
+  }
 
   &:not(.mdc-top-app-bar--short) {
     width: 100%;
@@ -169,7 +178,7 @@ a.mdc-icon-button:hover {
   @include fab.ink-color($mdc-theme-on-primary);
 
   &:hover {
-    @include fab.container-color(my-theme.$primary-light);
+    @include fab.container-color(my-theme.$primary-dark);
   }
 }
 
@@ -212,18 +221,11 @@ a.mdc-icon-button:hover {
 .mdc-menu.mdc-menu-surface {
   .mdc-list {
     background: my-theme.$input-background;
-    @include list.item-primary-text-ink-color($mdc-theme-on-primary);
-    @include list.item-graphic-ink-color($mdc-theme-on-primary);
+    @include list.item-primary-text-ink-color($mdc-theme-on-secondary);
+    @include list.item-graphic-ink-color($mdc-theme-on-secondary);
 
-    .mdc-list-item {
-      &:hover {
-        background-color: my-theme.$primary-light;
-      }
-
-      &.mdc-list-item--selected {
-        background-color: $mdc-theme-primary;
-        color: $mdc-theme-on-primary;
-      }
+    .mdc-list-item.mdc-list-item--selected {
+      background-color: $mdc-theme-primary;
     }
   }
 }
@@ -234,10 +236,10 @@ a.mdc-icon-button:hover {
   width: 160px;
 
   $select-filled-text-colors: (
-    default: $mdc-theme-on-primary,
-    disabled: $mdc-theme-on-primary,
-    hover: $mdc-theme-on-primary,
-    focus: $mdc-theme-on-primary,
+    default: $mdc-theme-on-secondary,
+    disabled: $mdc-theme-on-secondary,
+    hover: $mdc-theme-on-secondary,
+    focus: $mdc-theme-on-secondary,
   );
 
   @include select.label-color($select-filled-text-colors);
@@ -252,10 +254,10 @@ a.mdc-icon-button:hover {
   );
   @include select.bottom-line-color(
     (
-      default: my-theme.$input-background,
-      hover: my-theme.$primary-light,
+      default: my-theme.$global-app-header,
+      hover: my-theme.$global-app-header,
       focus: $mdc-theme-primary,
-      disabled: rgba(0, 0, 0, 0.4),
+      disabled: rgba($mdc-theme-on-secondary, 0.4),
     )
   );
 }
@@ -279,19 +281,12 @@ a.mdc-icon-button:hover {
 .mdc-select {
   .mdc-select__menu {
     .mdc-list {
-      .mdc-list-item {
-        color: $mdc-theme-on-primary;
-      }
-
-      .mdc-list-item.mdc-list-item--disabled {
-        .mdc-list-item__text {
-          color: rgba($mdc-theme-on-primary, 0.4);
-        }
-      }
-
       .mdc-list-item.mdc-list-item--selected {
         color: $mdc-theme-on-primary;
-        background-color: $mdc-theme-primary;
+        background-color: my-theme.$primary;
+      }
+      .mdc-list-item {
+        color: $mdc-theme-on-secondary;
       }
     }
   }
@@ -312,11 +307,11 @@ a.mdc-icon-button:hover {
   }
 
   &:hover {
-    @include chips.outline(2px, solid, my-theme.$primary-light);
-    @include chips.ink-color(my-theme.$primary-light);
-    @include chips.leading-icon-color(my-theme.$primary-light);
+    @include chips.outline(2px, solid, my-theme.$primary-dark);
+    @include chips.ink-color(my-theme.$primary-dark);
+    @include chips.leading-icon-color(my-theme.$primary-dark);
     .mdc-chip__checkmark-path {
-      stroke: my-theme.$primary-light;
+      stroke: my-theme.$primary-dark;
     }
   }
 }
@@ -330,8 +325,8 @@ a.mdc-icon-button:hover {
     @include chips.trailing-icon-color($mdc-theme-on-primary, 1);
 
     &:hover {
-      @include chips.fill-color(my-theme.$primary-light);
-      @include chips.outline(2px, solid, my-theme.$primary-light);
+      @include chips.fill-color(my-theme.$primary-dark);
+      @include chips.outline(2px, solid, my-theme.$primary-dark);
       @include chips.leading-icon-color($mdc-theme-on-primary);
     }
   }
@@ -344,35 +339,39 @@ a.mdc-icon-button:hover {
 
   .mdc-drawer {
     @include mdc-elevation(16);
-    @include drawer.surface-fill-color($mdc-theme-surface);
-    @include drawer.subtitle-ink-color(rgba($mdc-theme-on-secondary, 0.8));
-    // @include drawer.item-icon-ink-color($mdc-theme-on-secondary);
-    // @include drawer.item-text-ink-color($mdc-theme-on-secondary);
-    @include drawer.activated-overlay-color(lighten($mdc-theme-surface, 10%));
-
+    // @include drawer.surface-fill-color(my-theme.$global-app-header);
+    @include drawer.subtitle-ink-color($mdc-theme-on-surface);
+    @include drawer.item-icon-ink-color($mdc-theme-on-surface);
+    // @include drawer.item-text-ink-color($mdc-theme-on-primary);
+    @include drawer.divider-color($mdc-theme-on-surface);
     .mdc-drawer__title {
-      color: $mdc-theme-on-secondary;
+      color: $mdc-theme-on-surface;
     }
 
     .mdc-drawer__content {
       padding: 0;
 
       .mdc-list {
-        @include drawer.surface-fill-color(my-theme.$global-app-header);
-        @include list.item-primary-text-ink-color($mdc-theme-on-secondary);
+        // @include drawer.surface-fill-color(my-theme.$global-app-header);
+        @include list.item-primary-text-ink-color($mdc-theme-on-surface);
         @include list.item-secondary-text-ink-color(
-          rgba($mdc-theme-on-secondary, 0.9)
+          rgba($mdc-theme-on-surface, 0.9)
         );
 
         .mdc-list-item {
-          color: $mdc-theme-on-secondary;
+          color: $mdc-theme-on-surface;
 
-          .mdc-list-item__graphic {
-            color: $mdc-theme-on-secondary;
-          }
+          // .mdc-list-item__graphic {
+          //   color: $mdc-theme-on-surface;
+          // }
 
           &.mdc-list-item--activated {
-            background-color: my-theme.$list-selected;
+            background-color: my-theme.$primary;
+            color: $mdc-theme-on-primary;
+
+            .mdc-list-item__graphic {
+              color: $mdc-theme-on-primary;
+            }
           }
         }
       }
@@ -386,33 +385,39 @@ a.mdc-icon-button:hover {
   width: 100%;
 }
 
+// All Filled
+.mdc-text-field--filled {
+  @include textfield.fill-color(my-theme.$input-background);
+  @include textfield.placeholder-color(rgba($mdc-theme-on-secondary, 0.4));
+  @include textfield.disabled-fill-color(rgba(my-theme.$input-background, 0.4));
+  @include textfield.ink-color($mdc-theme-on-secondary);
+
+  .mdc-text-field__ripple {
+    &::before {
+      background-color: transparent;
+    }
+    &::after {
+      background-color: transparent;
+    }
+  }
+}
+
 // Filled and valid
 .mdc-text-field--filled:not(.mdc-text-field--invalid) {
-  @include textfield.fill-color(my-theme.$input-background);
-  @include textfield.ink-color($mdc-theme-on-primary);
-  @include textfield.placeholder-color(rgba($mdc-theme-on-primary, 0.6));
-  @include textfield.label-color($mdc-theme-on-primary);
-  @include textfield.hover-bottom-line-color(my-theme.$primary-light);
+  @include textfield.label-color($mdc-theme-on-secondary);
+  @include textfield.hover-bottom-line-color(my-theme.$primary-dark-hover);
   @include icon.leading-icon-color($mdc-theme-primary);
   @include icon.trailing-icon-color($mdc-theme-primary);
 
   // Disabled colors
-  @include textfield.disabled-label-color($mdc-theme-on-primary);
-  @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
+  @include textfield.disabled-label-color($mdc-theme-on-secondary);
   @include icon.disabled-icon-color(rgba($mdc-theme-primary, 0.4));
-}
-
-// Filled and invalid
-.mdc-text-field--filled.mdc-text-field--invalid {
-  @include textfield.fill-color(my-theme.$input-background);
-  @include textfield.disabled-fill-color(rgba($mdc-theme-on-secondary, 0.4));
-  @include textfield.ink-color($mdc-theme-on-primary);
 }
 
 // Outlined and valid
 .mdc-text-field--outlined:not(.mdc-text-field--invalid) {
   @include textfield.ink-color($mdc-theme-primary);
-  @include textfield.placeholder-color(rgba($mdc-theme-primary, 0.6));
+  @include textfield.placeholder-color(rgba($mdc-theme-primary, 0.4));
   @include textfield.label-color($mdc-theme-primary);
   @include textfield.outline-color($mdc-theme-primary);
   @include icon.leading-icon-color($mdc-theme-primary);
@@ -428,18 +433,20 @@ a.mdc-icon-button:hover {
 // Outlined an invalid
 .mdc-text-field--outlined.mdc-text-field--invalid {
   @include icon.leading-icon-color($mdc-theme-error);
+  @include icon.trailing-icon-color($mdc-theme-error);
 }
 
 // Helper Text
 .mdc-text-field + .mdc-text-field-helper-line {
   padding-left: 0;
   padding-top: 10px;
+  justify-content: flex-start;
 }
 
 .mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line {
   .mdc-text-field-helper-text {
     color: my-theme.$secondary-text;
-    text-align: end;
+    text-align: start;
     font-size: 0.875rem;
     letter-spacing: 0.5px;
     font-weight: normal;
@@ -449,7 +456,7 @@ a.mdc-icon-button:hover {
 .mdc-text-field--disabled + .mdc-text-field-helper-line {
   .mdc-text-field-helper-text {
     color: rgba(my-theme.$secondary-text, 0.4);
-    text-align: end;
+    text-align: start;
     font-size: 0.875rem;
     letter-spacing: 0.5px;
     font-weight: normal;
@@ -457,7 +464,6 @@ a.mdc-icon-button:hover {
 }
 
 .mdc-text-field.mdc-text-field--invalid + .mdc-text-field-helper-line {
-  justify-content: flex-start;
   color: $mdc-theme-error;
 
   .mdc-text-field-helper-text {
@@ -467,7 +473,7 @@ a.mdc-icon-button:hover {
     font-weight: bold;
 
     .material-icons {
-      margin-right: 0.25rem;
+      margin-right: 0.5rem;
       font-size: 1.25rem;
     }
   }
@@ -478,15 +484,18 @@ a.mdc-icon-button:hover {
 .mdc-data-table {
   @include data-table.sort-icon-color($mdc-theme-on-surface);
   @include data-table.sort-icon-active-color($mdc-theme-on-surface);
-  //  Table Rows fill color
-  @include data-table.fill-color($mdc-theme-background);
   @include data-table.header-row-fill-color(my-theme.$table-header-background);
+  @include data-table.header-row-text-color($mdc-theme-on-primary);
+  @include data-table.fill-color($mdc-theme-surface);
   @include data-table.row-fill-color($mdc-theme-surface);
-  @include data-table.selected-row-fill-color(my-theme.$list-selected);
-  @include data-table.divider-color($mdc-theme-background);
+  @include data-table.selected-row-fill-color(
+    my-theme.$table-row-selected-background
+  );
+  // @include data-table.divider-color($mdc-theme-background);
   @include data-table.divider-size(2px);
-  @include data-table.row-hover-fill-color(rgba(my-theme.$list-selected, 0.4));
-  @include data-table.header-row-text-color($mdc-theme-on-secondary);
+  @include data-table.row-hover-fill-color(
+    my-theme.$table-row-hover-background
+  );
   @include data-table.row-text-color($mdc-theme-on-secondary);
 
   // Set typography
@@ -510,21 +519,31 @@ a.mdc-icon-button:hover {
     }
 
     .mdc-data-table__content {
-      background-color: $mdc-theme-surface;
-      .mdc-data-table__cell {
-        // Table data to Body1
-        font-size: map-get($map: $mdc-typography-styles-body1, $key: font-size);
-        letter-spacing: map-get(
-          $map: $mdc-typography-styles-body1,
-          $key: letter-spacing
-        );
-        font-weight: map-get(
-          $map: $mdc-typography-styles-body1,
-          $key: font-weight
-        );
-        line-height: var(--mdc-typography-body1-line-height);
-        text-decoration: var(--mdc-typography-body1-text-decoration);
-        text-transform: var(--mdc-typography-body1-text-transform);
+      .mdc-data-table__row {
+        .mdc-data-table__cell {
+          // Table data to Body1
+          font-size: map-get(
+            $map: $mdc-typography-styles-body1,
+            $key: font-size
+          );
+          letter-spacing: map-get(
+            $map: $mdc-typography-styles-body1,
+            $key: letter-spacing
+          );
+          font-weight: map-get(
+            $map: $mdc-typography-styles-body1,
+            $key: font-weight
+          );
+          line-height: var(--mdc-typography-body1-line-height);
+          text-decoration: var(--mdc-typography-body1-text-decoration);
+          text-transform: var(--mdc-typography-body1-text-transform);
+        }
+
+        &.mdc-data-table__row--selected {
+          .mdc-data-table__cell {
+            color: $mdc-theme-on-primary;
+          }
+        }
       }
     }
   }
@@ -572,7 +591,6 @@ a.mdc-icon-button:hover {
   position: relative;
   justify-content: start;
   z-index: 1;
-  // border-radius: 3px;
 
   .mdc-dialog__surface {
     max-width: 100%;
@@ -608,23 +626,23 @@ a.mdc-icon-button:hover {
 // Enabled
 .mdc-slider:not(.mdc-slider--disabled) {
   @include slider.track-active-color($mdc-theme-primary);
-  @include slider.track-inactive-color(my-theme.$slider-track-background, 1);
+  @include slider.track-inactive-color(my-theme.$slider-track-background, 0.4);
   @include slider.thumb-color(my-theme.$slider-thumb-background);
   @include slider.tick-mark-active-color(my-theme.$slider-thumb-border);
-  @include slider.tick-mark-inactive-color(#000);
+  @include slider.tick-mark-inactive-color($mdc-theme-on-surface);
   @include slider.value-indicator-color($mdc-theme-primary, 0.7);
-  @include slider.value-indicator-text-color(#000);
+  @include slider.value-indicator-text-color($mdc-theme-on-primary);
 }
 
 // Disabled
 .mdc-slider.mdc-slider--disabled {
   @include slider.track-active-color($mdc-theme-primary);
-  @include slider.track-inactive-color(my-theme.$slider-track-background, 1);
+  @include slider.track-inactive-color(my-theme.$slider-track-background, 0.4);
   @include slider.thumb-color(my-theme.$slider-thumb-background);
   @include slider.tick-mark-active-color(my-theme.$slider-thumb-border);
-  @include slider.tick-mark-inactive-color(#000);
+  @include slider.tick-mark-inactive-color($mdc-theme-on-surface);
   @include slider.value-indicator-color($mdc-theme-primary, 0.7);
-  @include slider.value-indicator-text-color(#000);
+  @include slider.value-indicator-text-color($mdc-theme-on-primary);
 }
 
 // ------------------ List ---------------------------------
@@ -632,21 +650,22 @@ a.mdc-icon-button:hover {
 .mdc-list {
   background: $mdc-theme-surface;
 
-  @include list.item-selected-text-color($mdc-theme-on-secondary);
+  @include list.item-selected-text-color($mdc-theme-on-primary);
   @include list.item-disabled-text-color(rgba($mdc-theme-on-secondary, 0.4));
 
+  // !! Applies to Drawer, Menu, List, and Select Menu
   .mdc-list-item:hover {
-    background-color: rgba(my-theme.$list-selected, 0.4);
+    background-color: rgba(my-theme.$primary-dark, 0.2);
   }
 
   .mdc-list-item--selected {
-    background-color: my-theme.$list-selected;
+    background-color: my-theme.$primary;
     @include list.item-secondary-text-ink-color(
-      rgba($mdc-theme-on-secondary, 0.8)
+      rgba($mdc-theme-on-primary, 0.8)
     );
 
     &:hover {
-      background-color: my-theme.$list-selected;
+      background-color: my-theme.$primary;
     }
   }
 

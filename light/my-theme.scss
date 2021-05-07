@@ -1,30 +1,50 @@
 // Theme Colors
 // Must be hard-coded for Material mixins
-$primary-light: #92cbff; // --primaryLight
-$primary-light-hover: #92cbff4d; // --primaryLightHover
+
+$background-color: #eaeef4; // --backgroundColor
+$default-text: #292a2d; // --defaultText
+$secondary-text: #51555b; // --secondaryText
 $global-app-header: #172635; // --globalAppHeader
+$surface-elements: #ffffff; // --surfaceElements
+$primary: #005a8f; // --primary
+$primary-light: #2f7aa7; // --primaryLight
+$primary-dark: #004872; // --primaryDark
+$primary-dark-hover: #0048724d; // --primaryDarkHover
+$primary-element-text: #ffffff; // --primaryElementText
 $input-background: #ffffff; // --inputBackground
-$card-background: rgb(32, 50, 70); // --cardBackgroundColor
-$secondary-text: #d4d8dd; // --secondaryText
-$primary-dark: #3a87cf; // --primaryDark
+$input-dark: #080c11; // --inputDark
+$card-background: rgb(226, 230, 238); // --cardBackgroundColor
+$primary-dark: #004872; // --primaryDark
+$wcag-compliance: rgba(0, 0, 0, 0.5); // --wcagCompliance
+$critical-border: #7f1c1c; // --criticalBorder
+$color-critical: rgb(255, 42, 4); // --colorCritical
+$colo-serious: rgb(255, 175, 61); // --colorSerious
+$color-caution: rgb(250, 216, 0); // --colorCaution
+$color-normal: rgb(0, 226, 0); // --colorNormal
+$color-standby: rgb(100, 217, 255); // --colorStandby
+$color-off: rgb(142, 154, 163); // --colorOff
 $list-selected: #1c3f5e; // -- Given by Daniel for List/Drawer selected background
+$dark-theme-primary: #4dacff; // Dark Theme --primary
+$dark-theme-primary-light: #92cbff; // Dark Theme --primaryLight
 $table-header-background: $global-app-header;
-$table-row-hover-background: $primary-light-hover;
+$table-row-hover-background: rgba($primary-dark, 0.2);
+$table-row-selected-background: $primary;
 $slider-track-background: $secondary-text;
 $slider-thumb-background: $primary-dark;
 $slider-thumb-border: $input-background;
+$global-app-header-icon: $dark-theme-primary;
 
 // These colors are used later with a $mdc-theme-* tag in front
 @use "@material/theme" with (
-  $primary: #4dacff, // --primary
-  $secondary: #4dacff, // --primary
-  $on-primary: #080c11, // --primaryElementText
-  $on-secondary: #ffffff, // --defaultText
-  $background: #101923, // --backgroundColor
-  $error: rgb(255, 56, 56), // --colorCritical
-  $on-error: #ffffff, // --defaultText
-  $surface: #1b2d3e, // --surfaceElements
-  $on-surface: #ffffff, // --defaultText
+  $primary: $primary,
+  $secondary: $primary-dark,
+  $on-primary: $primary-element-text,
+  $on-secondary: $default-text,
+  $background: $background-color,
+  $error: $color-critical,
+  $on-error: $primary-element-text,
+  $surface: $surface-elements,
+  $on-surface: $default-text,
 );
 
 // Typography styles
