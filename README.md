@@ -1,5 +1,5 @@
 
-#### Default Theme: [![Netlify Status](https://api.netlify.com/api/v1/badges/8156bc8d-6a8b-4274-ab31-bf191d444074/deploy-status)](https://app.netlify.com/sites/astro-material/deploys) Light Theme: [![Netlify Status](https://api.netlify.com/api/v1/badges/2d01e2ae-bba1-4187-bcc8-6ca98b7a35cf/deploy-status)](https://app.netlify.com/sites/astro-material-light/deploys)
+#### Dark Theme: [![Netlify Status](https://api.netlify.com/api/v1/badges/8156bc8d-6a8b-4274-ab31-bf191d444074/deploy-status)](https://app.netlify.com/sites/astro-material/deploys) Light Theme: [![Netlify Status](https://api.netlify.com/api/v1/badges/2d01e2ae-bba1-4187-bcc8-6ca98b7a35cf/deploy-status)](https://app.netlify.com/sites/astro-material-light/deploys)
 
 
 
