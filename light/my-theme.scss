@@ -9,11 +9,10 @@ $color-global-basics-white: #ffffff; // --surfaceElements
 $color-global-primary-500: #005a8f; // --primary
 $color-global-primary-400: #2f7aa7; // --primaryLight
 $color-global-primary-600: #004872; // --primaryDark
-$primary-dark-hover: #0048724d; // --primaryDarkHover //! Opacity
+$color-table-hover: rgba(0, 72, 114, 0.3);
 $primary-element-text: $color-global-basics-white; // --primaryElementText
 $input-background: $color-global-basics-white; // --inputBackground
 $color-global-tertiary-900: #080c11; // --inputDark
-$card-background: #e2e6ee; // --cardBackgroundColor //! Not in tokens
 $wcag-compliance: rgba(0, 0, 0, 0.5); // --wcagCompliance
 $critical-border: #661102; // --criticalBorder 
 $color-global-status-critical-600: #ff2a04; // --colorCritical

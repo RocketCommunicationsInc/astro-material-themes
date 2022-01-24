@@ -407,7 +407,7 @@ a.mdc-icon-button:hover {
 // Filled and valid
 .mdc-text-field--filled:not(.mdc-text-field--invalid) {
   @include textfield.label-color($mdc-theme-on-secondary);
-  @include textfield.hover-bottom-line-color(my-theme.$primary-dark-hover);
+  @include textfield.hover-bottom-line-color(my-theme.$color-table-hover);
   @include icon.leading-icon-color($mdc-theme-primary);
   @include icon.trailing-icon-color($mdc-theme-primary);
 
