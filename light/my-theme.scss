@@ -1,80 +1,125 @@
 // Theme Colors
 // Must be hard-coded for Material mixins
 
-$background-color: #eaeef4; // --backgroundColor
-$default-text: #292a2d; // --defaultText
-$secondary-text: #51555b; // --secondaryText
-$global-app-header: #172635; // --globalAppHeader
-$surface-elements: #ffffff; // --surfaceElements
-$primary: #005a8f; // --primary
-$primary-light: #2f7aa7; // --primaryLight
-$primary-dark: #004872; // --primaryDark
-$primary-dark-hover: #0048724d; // --primaryDarkHover
-$primary-element-text: #ffffff; // --primaryElementText
-$input-background: #ffffff; // --inputBackground
-$input-dark: #080c11; // --inputDark
-$card-background: rgb(226, 230, 238); // --cardBackgroundColor
-$primary-dark: #004872; // --primaryDark
+$color-global-quaternary-200: #eaeef4; // --backgroundColor
+$color-global-quaternary-900: #292a2d; // --defaultText
+$color-global-quaternary-800: #51555b; // --secondaryText
+$color-global-tertiary-700: #172635; // --globalAppHeader
+$color-global-basics-white: #ffffff; // --surfaceElements
+$color-global-primary-500: #005a8f; // --primary
+$color-global-primary-400: #2f7aa7; // --primaryLight
+$color-global-primary-600: #004872; // --primaryDark
+$primary-dark-hover: #0048724d; // --primaryDarkHover //! Opacity
+$primary-element-text: $color-global-basics-white; // --primaryElementText
+$input-background: $color-global-basics-white; // --inputBackground
+$color-global-tertiary-900: #080c11; // --inputDark
+$card-background: rgb(226, 230, 238); // --cardBackgroundColor //! Not in tokens
 $wcag-compliance: rgba(0, 0, 0, 0.5); // --wcagCompliance
-$critical-border: #7f1c1c; // --criticalBorder
-$color-critical: rgb(255, 42, 4); // --colorCritical
-$colo-serious: rgb(255, 175, 61); // --colorSerious
-$color-caution: rgb(250, 216, 0); // --colorCaution
-$color-normal: rgb(0, 226, 0); // --colorNormal
-$color-standby: rgb(100, 217, 255); // --colorStandby
-$color-off: rgb(142, 154, 163); // --colorOff
-$list-selected: #1c3f5e; // -- Given by Daniel for List/Drawer selected background
-$dark-theme-primary: #4dacff; // Dark Theme --primary
-$dark-theme-primary-light: #92cbff; // Dark Theme --primaryLight
-$table-header-background: $global-app-header;
-$table-row-hover-background: rgba($primary-dark, 0.2);
-$table-row-selected-background: $primary;
-$slider-track-background: $secondary-text;
-$slider-thumb-background: $primary-dark;
+$critical-border: #7f1c1c; // --criticalBorder //! Not in tokens
+$color-global-status-critical-600: #ff2a04; // --colorCritical
+$color-global-status-serious-600: #ffaf3d; // --colorSerious //! was misspelled colo-serious
+$color-global-status-caution-600: #fad800; // --colorCaution
+$color-global-status-normal-600: #00e200; // --colorNormal
+$color-standby: #64d9ff; // --colorStandby //! Not in tokens - is probably $color-global-status-standby-600
+$color-global-status-off-600: #8e9aa3; // --colorOff
+$color-global-snowflakes-dark-selected: #1c3f5e; // -- Given by Daniel for List/Drawer selected background
+$color-global-secondary-500: #4dacff; // Dark Theme --primary $dark-theme-primary
+$color-global-secondary-300: #92cbff; // Dark Theme --primaryLight $dark-theme-primary-light
+$table-header-background: $color-global-tertiary-700;
+$table-row-hover-background: rgba($color-global-primary-600, 0.2);
+$table-row-selected-background: $color-global-primary-500;
+$slider-track-background: $color-global-quaternary-800;
+$slider-thumb-background: $color-global-primary-600;
 $slider-thumb-border: $input-background;
-$global-app-header-icon: $dark-theme-primary;
+$global-app-header-icon: $color-global-secondary-500;
 
 // These colors are used later with a $mdc-theme-* tag in front
 @use "@material/theme" with (
-  $primary: $primary,
-  $secondary: $primary-dark,
+  $primary: $color-global-primary-500,
+  $secondary: $color-global-primary-600,
   $on-primary: $primary-element-text,
-  $on-secondary: $default-text,
-  $background: $background-color,
-  $error: $color-critical,
+  $on-secondary: $color-global-quaternary-900,
+  $background: $color-global-quaternary-200,
+  $error: $color-global-status-critical-600,
   $on-error: $primary-element-text,
-  $surface: $surface-elements,
-  $on-surface: $default-text,
+  $surface: $color-global-basics-white,
+  $on-surface: $color-global-quaternary-900
 );
 
 // Typography styles
 @use "@material/typography" with (
-    $font-family: unquote("Roboto, sans-serif"),
-    $styles-headline1: (font-size: 2.125rem, letter-spacing: 0.25px, font-weight: normal),
-    $styles-headline2: (font-size: 1.5rem, font-weight: normal, letter-spacing: 0),
-    $styles-headline3: (font-size: 1.25rem, font-weight: 500, letter-spacing: 0.15px),
-    $styles-headline4: (font-size: 1.25rem, font-weight: 300, letter-spacing: 0.15px),
-    $styles-headline5: (font-size: 1.125rem, font-weight: normal, letter-spacing: 0),
-    $styles-headline6: (font-size: 1.125rem, font-weight: 300, letter-spacing: 0),
-    $styles-subtitle1: (font-size: 1rem, letter-spacing: 0.5px, font-weight: normal),
-    $styles-subtitle2: (font-size: 0.875rem, font-weight: normal, letter-spacing: 0.5px),
-    $styles-body1: (font-size: 1rem, letter-spacing: 0.5px, font-weight: normal),
-    $styles-body2: (font-size: 0.875rem, font-weight: normal, letter-spacing: 0.5px),
-    $styles-button: (
-      text-transform: none,
-      font-size: 1rem,
-      letter-spacing: 0.5px,
-      white-space: nowrap,
-      text-overflow: ellipsis,
-      font-weight: 400,
-    ),
-    $styles-caption: (letter-spacing: 0),
-    $styles-overline: (font-size: 0.75rem, font-weight: normal, letter-spacing: 0)
-  );
+  $font-family: unquote("Roboto, sans-serif"),
+  $styles-headline1: (
+    font-size: 2.125rem,
+    letter-spacing: 0.25px,
+    font-weight: normal,
+  ),
+  $styles-headline2: (
+    font-size: 1.5rem,
+    font-weight: normal,
+    letter-spacing: 0,
+  ),
+  $styles-headline3: (
+    font-size: 1.25rem,
+    font-weight: 500,
+    letter-spacing: 0.15px,
+  ),
+  $styles-headline4: (
+    font-size: 1.25rem,
+    font-weight: 300,
+    letter-spacing: 0.15px,
+  ),
+  $styles-headline5: (
+    font-size: 1.125rem,
+    font-weight: normal,
+    letter-spacing: 0,
+  ),
+  $styles-headline6: (
+    font-size: 1.125rem,
+    font-weight: 300,
+    letter-spacing: 0,
+  ),
+  $styles-subtitle1: (
+    font-size: 1rem,
+    letter-spacing: 0.5px,
+    font-weight: normal,
+  ),
+  $styles-subtitle2: (
+    font-size: 0.875rem,
+    font-weight: normal,
+    letter-spacing: 0.5px,
+  ),
+  $styles-body1: (
+    font-size: 1rem,
+    letter-spacing: 0.5px,
+    font-weight: normal,
+  ),
+  $styles-body2: (
+    font-size: 0.875rem,
+    font-weight: normal,
+    letter-spacing: 0.5px,
+  ),
+  $styles-button: (
+    text-transform: none,
+    font-size: 1rem,
+    letter-spacing: 0.5px,
+    white-space: nowrap,
+    text-overflow: ellipsis,
+    font-weight: 400,
+  ),
+  $styles-caption: (
+    letter-spacing: 0,
+  ),
+  $styles-overline: (
+    font-size: 0.75rem,
+    font-weight: normal,
+    letter-spacing: 0,
+  )
+);
 
 // Material Shape
 @use "@material/shape" with (
-    $small-component-radius: 3px,
-    $medium-component-radius: 3px,
-    $large-component-radius: 3px
+  $small-component-radius: 3px,
+  $medium-component-radius: 3px,
+  $large-component-radius: 3px
 );

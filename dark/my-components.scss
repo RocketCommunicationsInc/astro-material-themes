@@ -7,12 +7,12 @@
   @include button.horizontal-padding(1rem);
   @include button.ink-color(
     (
-      hover: my-theme.$primary-light,
-      disabled: rgba(my-theme.$primary-light, 0.4),
+      hover: my-theme.$color-global-secondary-300,
+      disabled: rgba(my-theme.$color-global-secondary-300, 0.4),
     )
   );
   &:hover {
-    @include button.ink-color(my-theme.$primary-light);
+    @include button.ink-color(my-theme.$color-global-secondary-300);
   }
 }
 
@@ -26,7 +26,7 @@
   );
   @include button.container-fill-color(
     (
-      hover: my-theme.$primary-light,
+      hover: my-theme.$color-global-secondary-300,
       disabled: rgba($mdc-theme-primary, 0.4),
     )
   );
@@ -36,14 +36,14 @@
   @include button.ink-color(
     (
       default: $mdc-theme-primary,
-      hover: my-theme.$primary-light,
+      hover: my-theme.$color-global-secondary-300,
       disabled: rgba($mdc-theme-primary, 0.4),
     )
   );
   @include button.outline-color(
     (
       default: $mdc-theme-primary,
-      hover: my-theme.$primary-light,
+      hover: my-theme.$color-global-secondary-300,
       disabled: rgba($mdc-theme-primary, 0.4),
     )
   );
@@ -83,9 +83,9 @@ a.mdc-icon-button:hover {
 
   &:hover {
     @include checkbox.container-colors(
-      $unmarked-stroke-color: my-theme.$primary-light,
-      $marked-fill-color: my-theme.$primary-light,
-      $marked-stroke-color: my-theme.$primary-light
+      $unmarked-stroke-color: my-theme.$color-global-secondary-300,
+      $marked-fill-color: my-theme.$color-global-secondary-300,
+      $marked-stroke-color: my-theme.$color-global-secondary-300
     );
   }
 }
@@ -105,9 +105,9 @@ a.mdc-icon-button:hover {
   @include radio.disabled-ink-color(rgba($mdc-theme-primary, 0.4));
 
   &:hover {
-    @include radio.unchecked-stroke-color(my-theme.$primary-light);
-    @include radio.checked-stroke-color(my-theme.$primary-light);
-    @include radio.ink-color(my-theme.$primary-light);
+    @include radio.unchecked-stroke-color(my-theme.$color-global-secondary-300);
+    @include radio.checked-stroke-color(my-theme.$color-global-secondary-300);
+    @include radio.ink-color(my-theme.$color-global-secondary-300);
   }
 }
 
@@ -116,7 +116,7 @@ a.mdc-icon-button:hover {
 .mdc-switch {
   @include rtl.reflexive-box(margin, right, 20px);
   @include switch.toggled-on-track-color($mdc-theme-primary);
-  @include switch.toggled-off-track-color(my-theme.$secondary-text);
+  @include switch.toggled-off-track-color(my-theme.$color-global-tertiary-100);
 
   // Remove automatic opacity
   .mdc-switch__track {
@@ -135,13 +135,13 @@ a.mdc-icon-button:hover {
   &:not(.mdc-switch--checked) {
     .mdc-switch__thumb {
       background-color: $mdc-theme-on-surface;
-      border: 1px solid my-theme.$secondary-text;
+      border: 1px solid my-theme.$color-global-tertiary-100;
     }
   }
 
   &:hover {
     .mdc-switch__track {
-      background-color: my-theme.$primary-light;
+      background-color: my-theme.$color-global-secondary-300;
     }
   }
 }
@@ -155,7 +155,7 @@ a.mdc-icon-button:hover {
 
   @include top-app-bar.ink-color($mdc-theme-on-surface);
   @include top-app-bar.icon-ink-color($mdc-theme-primary);
-  @include top-app-bar.fill-color(my-theme.$global-app-header);
+  @include top-app-bar.fill-color(my-theme.$color-global-tertiary-700);
 
   &:not(.mdc-top-app-bar--short) {
     width: 100%;
@@ -169,7 +169,7 @@ a.mdc-icon-button:hover {
   @include fab.ink-color($mdc-theme-on-primary);
 
   &:hover {
-    @include fab.container-color(my-theme.$primary-light);
+    @include fab.container-color(my-theme.$color-global-secondary-300);
   }
 }
 
@@ -217,7 +217,7 @@ a.mdc-icon-button:hover {
 
     .mdc-list-item {
       &:hover {
-        background-color: my-theme.$primary-light;
+        background-color: my-theme.$color-global-secondary-300;
       }
 
       &.mdc-list-item--selected {
@@ -253,7 +253,7 @@ a.mdc-icon-button:hover {
   @include select.bottom-line-color(
     (
       default: my-theme.$input-background,
-      hover: my-theme.$primary-light,
+      hover: my-theme.$color-global-secondary-300,
       focus: $mdc-theme-primary,
       disabled: rgba(0, 0, 0, 0.4),
     )
@@ -312,11 +312,11 @@ a.mdc-icon-button:hover {
   }
 
   &:hover {
-    @include chips.outline(2px, solid, my-theme.$primary-light);
-    @include chips.ink-color(my-theme.$primary-light);
-    @include chips.leading-icon-color(my-theme.$primary-light);
+    @include chips.outline(2px, solid, my-theme.$color-global-secondary-300);
+    @include chips.ink-color(my-theme.$color-global-secondary-300);
+    @include chips.leading-icon-color(my-theme.$color-global-secondary-300);
     .mdc-chip__checkmark-path {
-      stroke: my-theme.$primary-light;
+      stroke: my-theme.$color-global-secondary-300;
     }
   }
 }
@@ -330,8 +330,8 @@ a.mdc-icon-button:hover {
     @include chips.trailing-icon-color($mdc-theme-on-primary, 1);
 
     &:hover {
-      @include chips.fill-color(my-theme.$primary-light);
-      @include chips.outline(2px, solid, my-theme.$primary-light);
+      @include chips.fill-color(my-theme.$color-global-secondary-300);
+      @include chips.outline(2px, solid, my-theme.$color-global-secondary-300);
       @include chips.leading-icon-color($mdc-theme-on-primary);
     }
   }
@@ -358,7 +358,7 @@ a.mdc-icon-button:hover {
       padding: 0;
 
       .mdc-list {
-        @include drawer.surface-fill-color(my-theme.$global-app-header);
+        @include drawer.surface-fill-color(my-theme.$color-global-tertiary-700);
         @include list.item-primary-text-ink-color($mdc-theme-on-secondary);
         @include list.item-secondary-text-ink-color(
           rgba($mdc-theme-on-secondary, 0.9)
@@ -372,7 +372,7 @@ a.mdc-icon-button:hover {
           }
 
           &.mdc-list-item--activated {
-            background-color: my-theme.$list-selected;
+            background-color: my-theme.$color-global-snowflakes-dark-selected;
           }
         }
       }
@@ -392,7 +392,9 @@ a.mdc-icon-button:hover {
   @include textfield.ink-color($mdc-theme-on-primary);
   @include textfield.placeholder-color(rgba($mdc-theme-on-primary, 0.6));
   @include textfield.label-color($mdc-theme-on-primary);
-  @include textfield.hover-bottom-line-color(my-theme.$primary-light);
+  @include textfield.hover-bottom-line-color(
+    my-theme.$color-global-secondary-300
+  );
   @include icon.leading-icon-color($mdc-theme-primary);
   @include icon.trailing-icon-color($mdc-theme-primary);
 
@@ -438,7 +440,7 @@ a.mdc-icon-button:hover {
 
 .mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line {
   .mdc-text-field-helper-text {
-    color: my-theme.$secondary-text;
+    color: my-theme.$color-global-tertiary-100;
     text-align: end;
     font-size: 0.875rem;
     letter-spacing: 0.5px;
@@ -448,7 +450,7 @@ a.mdc-icon-button:hover {
 
 .mdc-text-field--disabled + .mdc-text-field-helper-line {
   .mdc-text-field-helper-text {
-    color: rgba(my-theme.$secondary-text, 0.4);
+    color: rgba(my-theme.$color-global-tertiary-100, 0.4);
     text-align: end;
     font-size: 0.875rem;
     letter-spacing: 0.5px;
@@ -482,10 +484,14 @@ a.mdc-icon-button:hover {
   @include data-table.fill-color($mdc-theme-background);
   @include data-table.header-row-fill-color(my-theme.$table-header-background);
   @include data-table.row-fill-color($mdc-theme-surface);
-  @include data-table.selected-row-fill-color(my-theme.$list-selected);
+  @include data-table.selected-row-fill-color(
+    my-theme.$color-global-snowflakes-dark-selected
+  );
   @include data-table.divider-color($mdc-theme-background);
   @include data-table.divider-size(2px);
-  @include data-table.row-hover-fill-color(rgba(my-theme.$list-selected, 0.4));
+  @include data-table.row-hover-fill-color(
+    rgba(my-theme.$color-global-snowflakes-dark-selected, 0.4)
+  );
   @include data-table.header-row-text-color($mdc-theme-on-secondary);
   @include data-table.row-text-color($mdc-theme-on-secondary);
 
@@ -636,17 +642,20 @@ a.mdc-icon-button:hover {
   @include list.item-disabled-text-color(rgba($mdc-theme-on-secondary, 0.4));
 
   .mdc-list-item:hover {
-    background-color: rgba(my-theme.$list-selected, 0.4);
+    background-color: rgba(
+      my-theme.$color-global-snowflakes-dark-selected,
+      0.4
+    );
   }
 
   .mdc-list-item--selected {
-    background-color: my-theme.$list-selected;
+    background-color: my-theme.$color-global-snowflakes-dark-selected;
     @include list.item-secondary-text-ink-color(
       rgba($mdc-theme-on-secondary, 0.8)
     );
 
     &:hover {
-      background-color: my-theme.$list-selected;
+      background-color: my-theme.$color-global-snowflakes-dark-selected;
     }
   }
 
