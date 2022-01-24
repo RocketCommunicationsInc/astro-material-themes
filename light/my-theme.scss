@@ -15,9 +15,9 @@ $input-background: $color-global-basics-white; // --inputBackground
 $color-global-tertiary-900: #080c11; // --inputDark
 $card-background: rgb(226, 230, 238); // --cardBackgroundColor //! Not in tokens
 $wcag-compliance: rgba(0, 0, 0, 0.5); // --wcagCompliance
-$critical-border: #7f1c1c; // --criticalBorder //! Not in tokens
+$critical-border: #661102; // --criticalBorder 
 $color-global-status-critical-600: #ff2a04; // --colorCritical
-$color-global-status-serious-600: #ffaf3d; // --colorSerious //! was misspelled colo-serious
+$color-global-status-serious-600: #ffaf3d; // --colorSerious
 $color-global-status-caution-600: #fad800; // --colorCaution
 $color-global-status-normal-600: #00e200; // --colorNormal
 $color-standby: #64d9ff; // --colorStandby //! Not in tokens - is probably $color-global-status-standby-600
