@@ -13,14 +13,14 @@ $primary-dark-hover: #0048724d; // --primaryDarkHover //! Opacity
 $primary-element-text: $color-global-basics-white; // --primaryElementText
 $input-background: $color-global-basics-white; // --inputBackground
 $color-global-tertiary-900: #080c11; // --inputDark
-$card-background: rgb(226, 230, 238); // --cardBackgroundColor //! Not in tokens
+$card-background: #e2e6ee; // --cardBackgroundColor //! Not in tokens
 $wcag-compliance: rgba(0, 0, 0, 0.5); // --wcagCompliance
 $critical-border: #661102; // --criticalBorder 
 $color-global-status-critical-600: #ff2a04; // --colorCritical
 $color-global-status-serious-600: #ffaf3d; // --colorSerious
 $color-global-status-caution-600: #fad800; // --colorCaution
 $color-global-status-normal-600: #00e200; // --colorNormal
-$color-standby: #64d9ff; // --colorStandby //! Not in tokens - is probably $color-global-status-standby-600
+$color-global-status-standby-600: #2DCCFF; // --colorStandby 
 $color-global-status-off-600: #8e9aa3; // --colorOff
 $color-global-snowflakes-dark-selected: #1c3f5e; // -- Given by Daniel for List/Drawer selected background
 $color-global-secondary-500: #4dacff; // Dark Theme --primary $dark-theme-primary
