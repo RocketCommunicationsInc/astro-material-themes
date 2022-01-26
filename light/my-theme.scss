@@ -1,48 +1,53 @@
 // Theme Colors
 // Must be hard-coded for Material mixins
+@use '../node_modules/@astrouxds/design-tokens/dist/scss/_colors-global' as tokens;
+@use '../node_modules/@astrouxds/design-tokens/dist/scss/colors-light' as light;
+// @use '~@astrouxds/design-tokens/dist/scss/_colors-global' as tokens;
 
-$color-global-quaternary-200: #eaeef4; // --backgroundColor
-$color-global-quaternary-900: #292a2d; // --defaultText
-$color-global-quaternary-800: #51555b; // --secondaryText
-$color-global-tertiary-700: #172635; // --globalAppHeader
-$color-global-basics-white: #ffffff; // --surfaceElements
-$color-global-primary-500: #005a8f; // --primary
-$color-global-primary-400: #2f7aa7; // --primaryLight
-$color-global-primary-600: #004872; // --primaryDark
-$color-table-hover: rgba(0, 72, 114, 0.3);
-$primary-element-text: $color-global-basics-white; // --primaryElementText
-$input-background: $color-global-basics-white; // --inputBackground
-$color-global-tertiary-900: #080c11; // --inputDark
+
+$background-color: tokens.$color-global-quaternary-200; // --backgroundColor
+$default-text: tokens.$color-global-quaternary-900; // --defaultText
+$secondary-text: tokens.$color-global-quaternary-800; // --secondaryText
+$global-app-header: tokens.$color-global-tertiary-700; // --globalAppHeader
+$surface-elements: tokens.$color-global-basics-white; // --surfaceElements
+$primary: tokens.$color-global-primary-500; // --primary
+$primary-light: tokens.$color-global-primary-400; // --primaryLight
+$primary-dark: tokens.$color-global-primary-600; // --primaryDark
+$primary-dark-hover: rgba(light.$color-table-hover, 0.302); // --primaryDarkHover 
+$primary-element-text: tokens.$color-global-basics-white; // --primaryElementText
+$input-background: tokens.$color-global-basics-white; // --inputBackground
+$input-dark: tokens.$color-global-tertiary-900; // --inputDark
+$critical-border: #661102; // --criticalBorder //! $color-global-status-critical-900 - is in figma, not in tokens
+$color-critical: tokens.$color-global-status-critical-600; // --colorCritical
+$color-serious: tokens.$color-global-status-serious-600; // --colorSerious 
+$color-caution: tokens.$color-global-status-caution-600; // --colorCaution
+$color-normal: tokens.$color-global-status-normal-600; // --colorNormal
+$color-standby: tokens.$color-global-status-standby-600; // --colorStandby
+$color-off: tokens.$color-global-status-off-600; // --colorOff
+$list-selected: tokens.$color-global-snowflakes-dark-selected; // -- Given by Daniel for List/Drawer selected background
+$dark-theme-primary: tokens.$color-global-secondary-500; // Dark Theme --primary
+$dark-theme-primary-light: tokens.$color-global-secondary-300; // Dark Theme --primaryLight
+$color-table-hover: rgba(light.$color-table-hover, 0.3);  
 $wcag-compliance: rgba(0, 0, 0, 0.5); // --wcagCompliance
-$critical-border: #661102; // --criticalBorder 
-$color-global-status-critical-600: #ff2a04; // --colorCritical
-$color-global-status-serious-600: #ffaf3d; // --colorSerious
-$color-global-status-caution-600: #fad800; // --colorCaution
-$color-global-status-normal-600: #00e200; // --colorNormal
-$color-global-status-standby-600: #2DCCFF; // --colorStandby 
-$color-global-status-off-600: #8e9aa3; // --colorOff
-$color-global-snowflakes-dark-selected: #1c3f5e; // -- Given by Daniel for List/Drawer selected background
-$color-global-secondary-500: #4dacff; // Dark Theme --primary $dark-theme-primary
-$color-global-secondary-300: #92cbff; // Dark Theme --primaryLight $dark-theme-primary-light
-$table-header-background: $color-global-tertiary-700;
-$table-row-hover-background: rgba($color-global-primary-600, 0.2);
-$table-row-selected-background: $color-global-primary-500;
-$slider-track-background: $color-global-quaternary-800;
-$slider-thumb-background: $color-global-primary-600;
+$table-header-background: $global-app-header;
+$table-row-hover-background: rgba($primary-dark, 0.2);
+$table-row-selected-background: $primary;
+$slider-track-background: $secondary-text;
+$slider-thumb-background: $primary-dark;
 $slider-thumb-border: $input-background;
-$global-app-header-icon: $color-global-secondary-500;
+$global-app-header-icon: $dark-theme-primary;
 
 // These colors are used later with a $mdc-theme-* tag in front
 @use "@material/theme" with (
-  $primary: $color-global-primary-500,
-  $secondary: $color-global-primary-600,
+  $primary: $primary,
+  $secondary: $primary-dark,
   $on-primary: $primary-element-text,
-  $on-secondary: $color-global-quaternary-900,
-  $background: $color-global-quaternary-200,
-  $error: $color-global-status-critical-600,
+  $on-secondary: $default-text,
+  $background: $background-color,
+  $error: $color-critical,
   $on-error: $primary-element-text,
-  $surface: $color-global-basics-white,
-  $on-surface: $color-global-quaternary-900
+  $surface: $surface-elements,
+  $on-surface: $default-text,
 );
 
 // Typography styles
