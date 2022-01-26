@@ -1,45 +1,33 @@
 // Theme Colors
 // Must be hard-coded for Material mixins
-$color-global-secondary-300: #92cbff; // --primaryLight
-$primary-light-hover: #92cbff4d; // --primaryLightHover //! Opacity
-$color-global-tertiary-700: #172635; // --globalAppHeader
-$color-global-basics-white: #ffffff; // --inputBackground
-$color-global-tertiary-100: #d4d8dd; // --secondaryText
-$color-global-secondary-600: #3a87cf; // --primaryDark
-$color-global-secondary-500: #4dacff;
-$color-global-tertiary-900: #080c11;
-$color-global-tertiary-800: #101923;
-$color-global-status-critical-500: #ff3838;
-$color-global-snowflakes-dark-surface: #1b2d3e;
-$color-global-snowflakes-dark-selected: #1c3f5e; // -- Given by Daniel for List/Drawer selected background
-$table-header-background: $color-global-tertiary-700;
+@use '../node_modules/@astrouxds/design-tokens/dist/scss/colors-global' as tokens;
+@use '../node_modules/@astrouxds/design-tokens/dist/scss/colors-dark' as dark;
+
+$primary-light: tokens.$color-global-secondary-300; // --primaryLight
+$primary-light-hover: rgba(dark.$color-hover, 0.302); // --primaryLightHover
+$global-app-header: tokens.$color-global-tertiary-700; // --globalAppHeader
+$input-background: tokens.$color-global-basics-white; // --inputBackground
+$secondary-text: tokens.$color-global-tertiary-100; // --secondaryText
+$primary-dark: tokens.$color-global-secondary-600; // --primaryDark
+$list-selected: tokens.$color-global-snowflakes-dark-selected; // -- Given by Daniel for List/Drawer selected background
+$table-header-background: $global-app-header;
 $table-row-hover-background: $primary-light-hover;
-$input-background: $color-global-basics-white;
-$slider-track-background: $color-global-tertiary-100;
-$slider-thumb-background: $color-global-secondary-600;
-$slider-thumb-border: $color-global-basics-white;
+$slider-track-background: $secondary-text;
+$slider-thumb-background: $primary-dark;
+$slider-thumb-border: $input-background;
 
 // These colors are used later with a $mdc-theme-* tag in front
 @use "@material/theme" with (
-    $primary: $color-global-secondary-500,
-    // --primary $color-global-secondary-500
-    $secondary: $color-global-secondary-500,
-    // --primary $color-global-secondary-500
-    $on-primary: $color-global-tertiary-900,
-    // --primaryElementText $color-global-tertiary-900
-    $on-secondary: $color-global-basics-white,
-    // --defaultText $color-global-basics-white
-    $background: $color-global-tertiary-800,
-    // --backgroundColor
-    $error: $color-global-status-critical-500,
-    // --colorCritical
-    $on-error: $color-global-basics-white,
-    // --defaultText $color-global-basics-white
-    $surface: $color-global-snowflakes-dark-surface,
-    // --surfaceElements
-    $on-surface: $color-global-basics-white,
-    // --defaultText $color-global-basics-white
-  );
+  $primary: tokens.$color-global-secondary-500, // --primary
+  $secondary: tokens.$color-global-secondary-500, // --primary
+  $on-primary: tokens.$color-global-tertiary-900, // --primaryElementText
+  $on-secondary: $input-background, // --defaultText
+  $background: tokens.$color-global-tertiary-800, // --backgroundColor
+  $error: tokens.$color-global-status-critical-500, // --colorCritical
+  $on-error: $input-background, // --defaultText
+  $surface: tokens.$color-global-snowflakes-dark-surface, // --surfaceElements
+  $on-surface: $input-background, // --defaultText
+);
 
 // Typography styles
 @use "@material/typography" with (
