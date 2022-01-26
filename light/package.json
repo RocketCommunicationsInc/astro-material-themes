@@ -9,6 +9,7 @@
   },
   "author": "Rocket Communications",
   "dependencies": {
+    "@astrouxds/design-tokens": "^1.3.0",
     "material-components-web": "^10.0.0"
   },
   "devDependencies": {

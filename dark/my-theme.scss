@@ -1,8 +1,8 @@
 // Theme Colors
 // Must be hard-coded for Material mixins
-@use '../node_modules/@astrouxds/design-tokens/dist/scss/colors-global' as tokens;
-@use '../node_modules/@astrouxds/design-tokens/dist/scss/colors-dark' as dark;
-@use '../node_modules/@astrouxds/design-tokens/dist/scss/variables' as typ-tokens;
+@use './node_modules/@astrouxds/design-tokens/dist/scss/colors-global' as tokens;
+@use './node_modules/@astrouxds/design-tokens/dist/scss/colors-dark' as dark;
+@use './node_modules/@astrouxds/design-tokens/dist/scss/variables' as typ-tokens;
 
 $primary-light: tokens.$color-global-secondary-300; // --primaryLight
 $primary-light-hover: rgba(dark.$color-hover, 0.302); // --primaryLightHover
