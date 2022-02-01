@@ -2,6 +2,9 @@
   "name": "astro-material-dark-theme",
   "version": "1.0.0",
   "description": "Astro Material Dark theme",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode development --port 8081",
@@ -9,6 +12,7 @@
   },
   "author": "Rocket Communications",
   "dependencies": {
+    "@astrouxds/design-tokens": "^1.4.0",
     "material-components-web": "^10.0.0"
   },
   "devDependencies": {
