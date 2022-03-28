@@ -6,29 +6,29 @@
 
 
 
-$background-color: tokens.$color-global-quaternary-200; // --backgroundColor
-$default-text: tokens.$color-global-quaternary-900; // --defaultText
-$secondary-text: tokens.$color-global-quaternary-800; // --secondaryText
-$global-app-header: tokens.$color-global-tertiary-700; // --globalAppHeader
-$surface-elements: tokens.$color-global-basics-white; // --surfaceElements
-$primary: tokens.$color-global-primary-500; // --primary
-$primary-light: tokens.$color-global-primary-400; // --primaryLight
-$primary-dark: tokens.$color-global-primary-600; // --primaryDark
-$primary-dark-hover: rgba(light.$color-hover, 0.302); // --primaryDarkHover 
-$primary-element-text: tokens.$color-global-basics-white; // --primaryElementText
-$input-background: tokens.$color-global-basics-white; // --inputBackground
-$input-dark: tokens.$color-global-tertiary-900; // --inputDark
-$critical-border: #661102; // --criticalBorder //! $color-global-status-critical-900 - is in figma, not in tokens
-$color-critical: tokens.$color-global-status-critical-600; // --colorCritical
-$color-serious: tokens.$color-global-status-serious-600; // --colorSerious 
-$color-caution: tokens.$color-global-status-caution-600; // --colorCaution
-$color-normal: tokens.$color-global-status-normal-600; // --colorNormal
-$color-standby: tokens.$color-global-status-standby-600; // --colorStandby
-$color-off: tokens.$color-global-status-off-600; // --colorOff
-$list-selected: tokens.$color-global-snowflakes-dark-selected; // -- Given by Daniel for List/Drawer selected background
-$dark-theme-primary: tokens.$color-global-secondary-500; // Dark Theme --primary
-$dark-theme-primary-light: tokens.$color-global-secondary-300; // Dark Theme --primaryLight
-$color-table-hover: rgba(light.$color-table-hover, 0.3);  
+$background-color: tokens.$color-palette-grey-200; // --backgroundColor
+$default-text: tokens.$color-palette-grey-900; // --defaultText
+$secondary-text: tokens.$color-palette-grey-700; // --secondaryText
+$global-app-header: tokens.$color-palette-darkblue-900; // --globalAppHeader
+$surface-elements: tokens.$color-palette-neutral-000; // --surfaceElements
+$primary: tokens.$color-palette-darkblue-500; // --primary
+$primary-light: tokens.$color-palette-darkblue-400; // --primaryLight
+$primary-dark: tokens.$color-palette-darkblue-600; // --primaryDark
+$primary-dark-hover: rgba(tokens.$color-palette-darkblue-600, 0.302); // --primaryDarkHover 
+$primary-element-text: tokens.$color-palette-neutral-000; // --primaryElementText
+$input-background: tokens.$color-palette-neutral-000; // --inputBackground
+$input-dark: tokens.$color-palette-darkblue-950; // --inputDark
+$critical-border: tokens.$color-palette-red-900; // --criticalBorder //! $color-global-status-critical-900 - is in figma, not in tokens
+$color-critical: tokens.$color-palette-red-600; // --colorCritical
+$color-serious: tokens.$color-palette-orange-600; // --colorSerious 
+$color-caution: tokens.$color-palette-yellow-600; // --colorCaution
+$color-normal: tokens.$color-palette-green-600; // --colorNormal
+$color-standby: tokens.$color-palette-cyan-600; // --colorStandby
+$color-off: tokens.$color-palette-grey-600; // --colorOff
+$list-selected: tokens.$color-palette-darkblue-700; // -- Given by Daniel for List/Drawer selected background
+$dark-theme-primary: tokens.$color-palette-brightblue-500; // Dark Theme --primary
+$dark-theme-primary-light: tokens.$color-palette-brightblue-400; // Dark Theme --primaryLight
+$color-table-hover: rgba(light.$color-background-surface-hover, 0.3);  
 $wcag-compliance: rgba(0, 0, 0, 0.5); // --wcagCompliance
 $table-header-background: $global-app-header;
 $table-row-hover-background: rgba($primary-dark, 0.2);
