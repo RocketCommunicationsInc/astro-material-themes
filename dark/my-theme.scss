@@ -4,13 +4,13 @@
 @use './node_modules/@astrouxds/design-tokens/dist/scss/colors-dark' as dark;
 @use './node_modules/@astrouxds/design-tokens/dist/scss/variables' as typ-tokens;
 
-$primary-light: tokens.$color-global-secondary-300; // --primaryLight
-$primary-light-hover: rgba(dark.$color-hover, 0.302); // --primaryLightHover
-$global-app-header: tokens.$color-global-tertiary-700; // --globalAppHeader
-$input-background: tokens.$color-global-basics-white; // --inputBackground
-$secondary-text: tokens.$color-global-tertiary-100; // --secondaryText
-$primary-dark: tokens.$color-global-secondary-600; // --primaryDark
-$list-selected: tokens.$color-global-snowflakes-dark-selected; // -- Given by Daniel for List/Drawer selected background
+$primary-light: tokens.$color-palette-brightblue-400; // --primaryLight
+$primary-light-hover: rgba(tokens.$color-palette-brightblue-400, 0.302); // --primaryLightHover
+$global-app-header: tokens.$color-palette-darkblue-900; // --globalAppHeader
+$input-background: tokens.$color-palette-neutral-000; // --inputBackground
+$secondary-text: tokens.$color-palette-grey-300; // --secondaryText
+$primary-dark: tokens.$color-palette-brightblue-600; // --primaryDark
+$list-selected: tokens.$color-palette-darkblue-700; // -- Given by Daniel for List/Drawer selected background
 $table-header-background: $global-app-header;
 $table-row-hover-background: $primary-light-hover;
 $slider-track-background: $secondary-text;
@@ -20,14 +20,14 @@ $slider-thumb-border: $input-background;
 
 // These colors are used later with a $mdc-theme-* tag in front
 @use "@material/theme" with (
-  $primary: tokens.$color-global-secondary-500, // --primary
-  $secondary: tokens.$color-global-secondary-500, // --primary
-  $on-primary: tokens.$color-global-tertiary-900, // --primaryElementText
+  $primary: tokens.$color-palette-brightblue-500, // --primary
+  $secondary: tokens.$color-palette-brightblue-500, // --primary
+  $on-primary: tokens.$color-palette-darkblue-950, // --primaryElementText
   $on-secondary: $input-background, // --defaultText
-  $background: tokens.$color-global-tertiary-800, // --backgroundColor
-  $error: tokens.$color-global-status-critical-500, // --colorCritical
+  $background: tokens.$color-palette-brightblue-900, // --backgroundColor
+  $error: tokens.$color-palette-red-500, // --colorCritical
   $on-error: $input-background, // --defaultText
-  $surface: tokens.$color-global-snowflakes-dark-surface, // --surfaceElements
+  $surface: tokens.$color-palette-darkblue-800, // --surfaceElements
   $on-surface: $input-background, // --defaultText
 );
 
